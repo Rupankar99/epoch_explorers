@@ -2,6 +2,7 @@ from .base_model import BaseModel
 import json
 from datetime import datetime
 from typing import List, Dict, Any
+import pandas as pd
 
 class RAGHistoryModel(BaseModel):
     """
@@ -18,6 +19,26 @@ class RAGHistoryModel(BaseModel):
         'session_id'
     ]
     # NOTE: Assuming BaseModel handles __init__, connection, cursor, execute, and row_factory=sqlite3.Row.
+    def get_metrix(self) -> pd.DataFrame:
+        """
+        Fetch all events from the `rag_history_and_optimization` table as a Pandas DataFrame,
+        parsing `metrics_json` and `context_json` into Python dictionaries.
+        """
+        # Load all rows into a DataFrame
+        df = pd.read_sql_query("SELECT * FROM rag_history_and_optimization", self.conn)
+
+        if df.empty:
+            return df
+
+        # Parse JSON columns
+        df["metrics"] = df["metrics_json"].apply(lambda x: json.loads(x) if x else {})
+        df["context"] = df["context_json"].apply(lambda x: json.loads(x) if x else {})
+
+        # Optional: lowercase column names
+        df.columns = [c.lower() for c in df.columns]
+
+        return df
+
     
     def _row_to_dict(self, row) -> Dict | None:
         """Helper to convert sqlite3.Row or tuple to a dictionary based on self.fields."""
