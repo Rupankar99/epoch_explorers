@@ -3,13 +3,9 @@ import sys
 from fastapi import FastAPI, HTTPException
 from datetime import datetime
 from pydantic import BaseModel
-
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-if str(BASE_DIR) not in sys.path:
-    sys.path.append(str(BASE_DIR))
     
-from incident_iq.database.db.connection import get_connection
-from incident_iq.database.models.all_incident import AllIncidentModel
+from database.db.connection import get_connection
+from database.models import AllIncidentModel
 
 app = FastAPI(title="Jira MCP Server")
 
