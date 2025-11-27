@@ -3,6 +3,27 @@ from datetime import datetime
 import threading
 from collections import defaultdict
 
+# def singleton(cls):
+# instances = {}
+
+# def get_instance(*args, **kwargs):
+# if cls not in instances:
+# instances[cls] = cls(*args, **kwargs)
+# return instances[cls]
+
+# return get_instance
+
+# @singleton
+# class Singleton:
+# def __init__(self):
+# self.value = None
+
+# # Usage
+# singleton1 = Singleton()
+# singleton2 = Singleton()
+# print(singleton1 is singleton2) # Output: True
+
+
 class InMemoryTracer:
     """Simple in-memory tracer for observability without external dependencies"""
 
