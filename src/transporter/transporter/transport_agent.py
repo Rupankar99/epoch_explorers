@@ -4,18 +4,23 @@ from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 from datetime import datetime
 
 from langchain_ollama import ChatOllama
-from incident_iq.database.db.connection import get_connection
-from incident_iq.transport.transport_models import IncidentContext
+from database.db.connection import get_connection
+from transporter.transport_models import IncidentContext
 from typing import Any
 import json
 
-from incident_iq.transport.transporter.transport_utils import build_incident_prompt_context
-from incident_iq.database.models.classifier_output import ClassifierOutputsModel
+from transporter.transporter.transport_utils import build_incident_prompt_context
+# from database.models import ClassifierOutputsModel
 
-from incident_iq.transport.tools import create_jira_issue, post_slack_alert
+from transporter.tools.jira_tool import create_jira_issue
+from transporter.tools.slack_tool import post_slack_alert
+
+from langchain_openai import ChatOpenAI  
+import os  
+import httpx  
+client = httpx.Client(verify=False)
+
 import json
-
-client = httpx.Client(verify=False) 
 
 load_dotenv()
 
@@ -23,11 +28,19 @@ class IntelligentTicketingAgent:
     """Intelligent agent that autonomously decides which MCP tools to call"""
 
     def __init__(self):
-        self.llm = ChatOllama(
-            model="llama3.2",
-            base_url="http://localhost:11434",
-        )    
+        self.llm =  ChatOpenAI( 
+            base_url="https://genailab.tcs.in",
+            model = "azure_ai/genailab-maas-DeepSeek-V3-0324", 
+            api_key="XXXXXXXXXXX ", 
+            http_client = client 
+        )
         
+
+        self.tools = [
+            create_jira_issue,
+            post_slack_alert
+        ]
+
     def _describe_context(self, context: IncidentContext) -> str:
         parts = []
         if not context.business_hours:
@@ -58,20 +71,20 @@ class IntelligentTicketingAgent:
         context,
     ) -> dict:
         """Let the LLM autonomously decide which MCP tools to call and execute them."""
-
+        print("inside make decision")
         incident_context = build_incident_prompt_context(incident)
+        print(incident_context,"incident_context")
+        # conn = get_connection()
+        # classifier_output_model = ClassifierOutputsModel(conn)
 
-        conn = get_connection()
-        classifier_output_model = ClassifierOutputsModel(conn)
+        # payload_record = classifier_output_model.get_by_payload_id(incident['payload_id'])
+        # payload_str = dict(payload_record).get("payload", {})
+        # payload_data = json.loads(payload_str) if isinstance(payload_str, str) else payload_str
+        # payload_metadata = {
+        #     k: v for k, v in payload_data.items() if k != "payload"
+        # }
 
-        payload_record = classifier_output_model.get_by_payload_id(incident['payload_id'])
-        payload_str = dict(payload_record).get("payload", {})
-        payload_data = json.loads(payload_str) if isinstance(payload_str, str) else payload_str
-        payload_metadata = {
-            k: v for k, v in payload_data.items() if k != "payload"
-        }
-
-        formatted_payload = json.dumps(payload_data, indent=2) if payload_data else "N/A"
+        # formatted_payload = json.dumps(payload_data, indent=2) if payload_data else "N/A"
         system_prompt = """You are an expert incident coordinator with 15+ years of SRE experience.
 
     You have access to tools for managing incidents. Analyze the incident carefully and decide which tools to call.
@@ -95,9 +108,9 @@ class IntelligentTicketingAgent:
 
         user_prompt = f"""ANALYZE THIS INCIDENT:
         **Classifier Metadata:**
-        - Severity ID: {payload_metadata.get("severity_id", "N/A")}
-        - Matched Pattern: {payload_metadata.get("matched_pattern", "N/A")}
-        - Is Incident: {payload_metadata.get("is_incident", "N/A")}
+        - Severity ID: {"S2"}
+        - Matched Pattern: {"DB down"}
+        - Is Incident: {"True"}
 
         **Environment & Context Summary:**
         {incident_context}
@@ -106,8 +119,7 @@ class IntelligentTicketingAgent:
         {self._describe_context(context)}
 
         **Payload (from classifier_outputs):**
-        {formatted_payload}
-
+    
         **Questions to Consider:**
         1. Would YOU want to be woken up for this at this time?
         2. How many customers are affected RIGHT NOW?
