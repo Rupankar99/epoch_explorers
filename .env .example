@@ -1,0 +1,2 @@
+DB_NAME=incident_iq
+STREAMLIT_PORT=8501
