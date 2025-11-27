@@ -1,8 +1,7 @@
 import sys
 from pathlib import Path
 from importlib import import_module
-from incident_iq.database.db.connection import get_connection
-from incident_iq.database.seeders.seed_incident_log import auto_run
+from database.db.connection import get_connection
 import time
 
 # --- Ensure consistent project root ---
