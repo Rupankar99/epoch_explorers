@@ -1,6 +1,7 @@
 from .base_model import BaseModel 
 import json
 from datetime import datetime
+import pandas as pd
 
 class ChunkEmbeddingDataModel(BaseModel):
     """
@@ -17,6 +18,16 @@ class ChunkEmbeddingDataModel(BaseModel):
     ]
     # NOTE: Assuming BaseModel handles __init__, connection, cursor, execute, and row_factory=sqlite3.Row
     # The BaseModel is expected to handle the default DB path logic from the original __init__.
+
+    def get_all_chunks(self) -> pd.DataFrame:
+        query = """
+        SELECT chunk_id, doc_id, embedding_model, embedding_version,
+               quality_score, reindex_count, healing_suggestions,
+               created_at, last_healed
+        FROM chunk_embedding_data
+        ORDER BY created_at DESC
+        """
+        return pd.read_sql_query(query, self.conn)
 
     def _row_to_dict(self, row) -> dict | None:
         """Helper to convert sqlite3.Row or tuple to a dictionary based on self.fields."""
