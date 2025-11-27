@@ -1,0 +1,124 @@
+{
+  "data_sources": {
+    "pdf": {
+      "enabled": true,
+      "supported_extensions": [".pdf"],
+      "chunk_size": 1000,
+      "chunk_overlap": 200,
+      "loader_type": "pypdf"
+    },
+    "text": {
+      "enabled": true,
+      "supported_extensions": [".txt", ".md", ".markdown"],
+      "chunk_size": 512,
+      "chunk_overlap": 50,
+      "loader_type": "text"
+    },
+    "word": {
+      "enabled": true,
+      "supported_extensions": [".docx", ".doc"],
+      "chunk_size": 800,
+      "chunk_overlap": 100,
+      "loader_type": "python-docx"
+    },
+    "excel": {
+      "enabled": false,
+      "supported_extensions": [".xlsx", ".xls", ".csv"],
+      "loader_type": "pandas"
+    },
+    "sqlite": {
+      "enabled": true,
+      "description": "Ingest data from SQLite3 databases",
+      "connection_string_env": "src/database/data/incident_iq.db",
+      "ingestion_modes": {
+        "table_based": {
+          "enabled": true,
+          "tables_to_ingest": [
+            {
+              "name": "knowledge_base",
+              "enabled": true,
+              "description": "Main incident knowledge base",
+              "text_columns": ["cause", "description", "impact", "remediation_steps", "rca"],
+              "metadata_columns": ["id", "resource_type", "environment", "dollar_impact"],
+              "chunk_strategy": "per_record"
+            }
+          ]
+        },
+        "query_based": {
+          "enabled": false,
+          "queries": []
+        }
+      },
+      "chunking": {
+        "enabled": true,
+        "strategy": "semantic",
+        "chunk_size": 512,
+        "overlap": 50
+      },
+      "filtering": {
+        "enabled": true,
+        "exclude_patterns": ["^temp_", "^_"],
+        "include_null_values": false,
+        "skip_empty_records": true
+      }
+    },
+    "document_paths": {
+      "enabled": true,
+      "description": "Ingest documents from file system paths",
+      "default_directories": [
+        "./docs",
+        "./knowledgebase",
+        "./manuals"
+      ],
+      "recursive": true,
+      "follow_symlinks": false,
+      "chunk_strategies": {
+        "pdf": {
+          "chunk_size": 1000,
+          "chunk_overlap": 200,
+          "extract_tables": true
+        },
+        "text": {
+          "chunk_size": 512,
+          "chunk_overlap": 50
+        },
+        "word": {
+          "chunk_size": 800,
+          "chunk_overlap": 100
+        }
+      }
+    },
+    "json": {
+      "enabled": true,
+      "supported_extensions": [".json"],
+      "flatten_nested": true
+    },
+    "web": {
+      "enabled": true,
+      "user_agent": "DeepAgent-RAG/1.0",
+      "timeout": 30
+    },
+    "guardrails": {
+      "enabled": true,
+      "response_mode_policies": {
+        "concise": {
+          "validators": ["hallucination_check", "security_incident_policy"],
+          "description": "Ensure the solution is accurate, safe, and policy-compliant (user-friendly mode)."
+        },
+        "internal": {
+          "validators": ["hallucination_check"],
+          "description": "Only check for hallucinations in system integration mode."
+        },
+        "verbose": {
+          "validators": [],
+          "description": "No guardrails in verbose mode - show all metadata."
+        }
+      }
+    }
+  },
+  "vector_store": {
+    "type": "chroma",
+    "persist_directory": "./data/vector_store",
+    "collection_name": "rag_documents"
+  }
+}
