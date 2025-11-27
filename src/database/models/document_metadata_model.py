@@ -1,7 +1,9 @@
-from .base_model import BaseModel # Assuming this BaseModel provides the __init__, execute, and connection handling
+from .base_model import BaseModel
 import json
+import sqlite3
 from datetime import datetime
-import pandas as pd
+from ..db.connection import get_connection
+
 class DocumentMetadataModel(BaseModel):
     """
     Model for document_metadata table in optimized schema.
@@ -15,20 +17,12 @@ class DocumentMetadataModel(BaseModel):
         'rbac_namespace', 'chunk_strategy', 'chunk_size_char', 
         'overlap_char', 'metadata_json', 'last_ingested'
     ]
-    # Assuming BaseModel automatically sets up self.conn and self.cursor (with row_factory=sqlite3.Row)
-    # and provides self.execute() for queries and self.commit() for transactions.
-
-    def get_all_documents(self) -> pd.DataFrame:
-        """
-        Fetch all documents from the `document_metadata` table as a Pandas DataFrame.
-        """
-        query = """
-        SELECT *
-        FROM document_metadata
-        """
-        df = pd.read_sql_query(query, self.conn)
-        return df
-
+    
+    def __init__(self, conn=None):
+        """Initialize with optional connection. If none provided, create default connection."""
+        if conn is None:
+            conn = get_connection()
+        super().__init__(conn)
 
     def create(self, doc_id: str, title: str, author: str = None, 
                  source: str = None, summary: str = None, 
@@ -45,8 +39,8 @@ class DocumentMetadataModel(BaseModel):
             data = (
                 doc_id,
                 title,
-                author or "Unknown",
-                source or "Unknown",
+                author or "unknown",
+                source or "ingestion",
                 summary or "",
                 rbac_namespace,
                 chunk_strategy,
@@ -61,7 +55,7 @@ class DocumentMetadataModel(BaseModel):
             # Construct placeholders for the values
             placeholders = ", ".join(["?"] * len(self.fields))
             
-            self.execute(f"""
+            self.conn.execute(f"""
                 INSERT OR REPLACE INTO {self.table}
                 ({columns})
                 VALUES ({placeholders})
@@ -72,7 +66,6 @@ class DocumentMetadataModel(BaseModel):
             
         except Exception as e:
             print(f"Error creating document metadata: {e}")
-            # If BaseModel doesn't handle error logging/connection check, add it here
             return False
 
     def _row_to_dict(self, row) -> dict | None:
@@ -87,11 +80,10 @@ class DocumentMetadataModel(BaseModel):
         # Fallback if row is a tuple and row_factory is not set correctly on the cursor
         return dict(zip(self.fields, row))
 
-
     def get_by_id(self, doc_id: str) -> dict | None:
         """Get document metadata by doc_id."""
         try:
-            cur = self.execute(f"""
+            cur = self.conn.execute(f"""
                 SELECT {', '.join(self.fields)}
                 FROM {self.table}
                 WHERE doc_id = ?
@@ -107,7 +99,7 @@ class DocumentMetadataModel(BaseModel):
     def get_all(self) -> list[dict]:
         """Get all document metadata records, ordered by last_ingested."""
         try:
-            cur = self.execute(f"""
+            cur = self.conn.execute(f"""
                 SELECT {', '.join(self.fields)}
                 FROM {self.table}
                 ORDER BY last_ingested DESC
@@ -120,9 +112,9 @@ class DocumentMetadataModel(BaseModel):
             return []
 
     def get_by_namespace(self, rbac_namespace: str) -> list[dict]:
-        """Get all documents in a specific RBAC namespace."""
+        """Get document metadata by RBAC namespace."""
         try:
-            cur = self.execute(f"""
+            cur = self.conn.execute(f"""
                 SELECT {', '.join(self.fields)}
                 FROM {self.table}
                 WHERE rbac_namespace = ?
@@ -135,11 +127,27 @@ class DocumentMetadataModel(BaseModel):
             print(f"Error getting documents by namespace: {e}")
             return []
 
-    def update_last_ingested(self, doc_id: str) -> bool:
-        """Update the last_ingested timestamp."""
+    def update_summary(self, doc_id: str, summary: str) -> bool:
+        """Update the summary for a document."""
+        try:
+            self.conn.execute(f"""
+                UPDATE {self.table}
+                SET summary = ?
+                WHERE doc_id = ?
+            """, (summary, doc_id))
+            
+            self.conn.commit()
+            return True
+            
+        except Exception as e:
+            print(f"Error updating summary: {e}")
+            return False
+
+    def update_ingestion_time(self, doc_id: str) -> bool:
+        """Update the last_ingested timestamp for a document."""
         try:
             now_iso = datetime.now().isoformat()
-            self.execute(f"""
+            self.conn.execute(f"""
                 UPDATE {self.table}
                 SET last_ingested = ?
                 WHERE doc_id = ?
@@ -149,31 +157,16 @@ class DocumentMetadataModel(BaseModel):
             return True
             
         except Exception as e:
-            print(f"Error updating last_ingested: {e}")
+            print(f"Error updating ingestion time: {e}")
             return False
 
-    def delete(self, doc_id: str) -> bool:
-        """Delete a document (and related chunks via ON DELETE CASCADE)."""
+    def get_total_count(self) -> int:
+        """Get the total count of documents in the database."""
         try:
-            # The BaseModel.execute() would handle the connection check
-            self.execute(f"""
-                DELETE FROM {self.table}
-                WHERE doc_id = ?
-            """, (doc_id,))
-            
-            self.conn.commit()
-            return True
+            cur = self.conn.execute(f"SELECT COUNT(*) FROM {self.table}")
+            row = cur.fetchone()
+            return row[0] if row else 0
             
         except Exception as e:
-            print(f"Error deleting document: {e}")
-            return False
-            
-    def count(self) -> int:
-        """Get total number of documents."""
-        try:
-            cur = self.execute(f"SELECT COUNT(*) FROM {self.table}")
-            return cur.fetchone()[0]
-            
-        except Exception as e:
-            print(f"Error counting documents: {e}")
+            print(f"Error getting total count: {e}")
             return 0
