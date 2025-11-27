@@ -3,6 +3,8 @@ import re
 
 def build_incident_prompt_context(payload: dict) -> str:
     """Extract key fields from telemetry payload to create LLM-ready context."""
+
+    print("inside utils")
     # Helper: safely extract nested dict values
     def get(d, *keys, default=None):
         for k in keys:
@@ -24,6 +26,8 @@ def build_incident_prompt_context(payload: dict) -> str:
     error_code = get(payload, "properties", "error", "code")
     error_message = get(payload, "properties", "error", "message")
     resource_id = get(payload, "resourceId")
+
+    print(environment,"environment")
     
     # Extract region from resourceId (e.g., "prod-rg-southeastasia")
     region_match = re.search(r"prod-rg-([a-z0-9-]+)", resource_id or "", re.IGNORECASE)
