@@ -1,7 +1,8 @@
 from .base_model import BaseModel 
 import json
+import sqlite3
 from datetime import datetime
-import pandas as pd
+from ..db.connection import get_connection
 
 class ChunkEmbeddingDataModel(BaseModel):
     """
@@ -16,18 +17,12 @@ class ChunkEmbeddingDataModel(BaseModel):
         'quality_score', 'reindex_count', 'healing_suggestions', 
         'created_at', 'last_healed'
     ]
-    # NOTE: Assuming BaseModel handles __init__, connection, cursor, execute, and row_factory=sqlite3.Row
-    # The BaseModel is expected to handle the default DB path logic from the original __init__.
-
-    def get_all_chunks(self) -> pd.DataFrame:
-        query = """
-        SELECT chunk_id, doc_id, embedding_model, embedding_version,
-               quality_score, reindex_count, healing_suggestions,
-               created_at, last_healed
-        FROM chunk_embedding_data
-        ORDER BY created_at DESC
-        """
-        return pd.read_sql_query(query, self.conn)
+    
+    def __init__(self, conn=None):
+        """Initialize with optional connection. If none provided, create default connection."""
+        if conn is None:
+            conn = get_connection()
+        super().__init__(conn)
 
     def _row_to_dict(self, row) -> dict | None:
         """Helper to convert sqlite3.Row or tuple to a dictionary based on self.fields."""
@@ -39,9 +34,7 @@ class ChunkEmbeddingDataModel(BaseModel):
             return dict(row)
         
         # Fallback in case row_factory is not used (assuming row is a tuple)
-        # Note: If BaseModel always uses row_factory=sqlite3.Row, this fallback may not be needed.
         return dict(zip(self.fields, row))
-
 
     def create(self, chunk_id: str, doc_id: str, embedding_model: str,
                  embedding_version: str = "1.0", quality_score: float = 0.8,
@@ -65,12 +58,11 @@ class ChunkEmbeddingDataModel(BaseModel):
             columns = ", ".join(self.fields)
             placeholders = ", ".join(["?"] * len(self.fields))
             
-            self.execute(f"""
+            self.conn.execute(f"""
                 INSERT OR REPLACE INTO {self.table}
                 ({columns})
                 VALUES ({placeholders})
             """, data)
-            
             self.conn.commit()
             return True
             
@@ -84,7 +76,7 @@ class ChunkEmbeddingDataModel(BaseModel):
         """Get chunk embedding data by chunk_id."""
         try:
             fields_str = ', '.join(self.fields)
-            cur = self.execute(f"""
+            cur = self.conn.execute(f"""
                 SELECT {fields_str}
                 FROM {self.table}
                 WHERE chunk_id = ?
@@ -101,7 +93,7 @@ class ChunkEmbeddingDataModel(BaseModel):
         """Get all chunks for a specific document."""
         try:
             fields_str = ', '.join(self.fields)
-            cur = self.execute(f"""
+            cur = self.conn.execute(f"""
                 SELECT {fields_str}
                 FROM {self.table}
                 WHERE doc_id = ?
@@ -118,7 +110,7 @@ class ChunkEmbeddingDataModel(BaseModel):
         """Get chunks with quality score below the given threshold."""
         try:
             fields_str = ', '.join(self.fields)
-            cur = self.execute(f"""
+            cur = self.conn.execute(f"""
                 SELECT {fields_str}
                 FROM {self.table}
                 WHERE quality_score < ?
@@ -136,7 +128,7 @@ class ChunkEmbeddingDataModel(BaseModel):
     def update_quality_score(self, chunk_id: str, quality_score: float) -> bool:
         """Update quality score for a chunk."""
         try:
-            self.execute(f"""
+            self.conn.execute(f"""
                 UPDATE {self.table}
                 SET quality_score = ?
                 WHERE chunk_id = ?
@@ -153,7 +145,7 @@ class ChunkEmbeddingDataModel(BaseModel):
         """Increment reindex count and update last_healed timestamp for a chunk."""
         try:
             now_iso = datetime.now().isoformat()
-            self.execute(f"""
+            self.conn.execute(f"""
                 UPDATE {self.table}
                 SET reindex_count = reindex_count + 1,
                     last_healed = ?
@@ -182,7 +174,7 @@ class ChunkEmbeddingDataModel(BaseModel):
                 query += " WHERE doc_id = ?"
                 params = (doc_id,)
                 
-            cur = self.execute(query, params)
+            cur = self.conn.execute(query, params)
             row = cur.fetchone()
             
             # Using row[index] for aggregate results
@@ -196,6 +188,3 @@ class ChunkEmbeddingDataModel(BaseModel):
         except Exception as e:
             print(f"Error getting statistics: {e}")
             return {}
-
-# NOTE: The original `close` and `__del__` methods are omitted, as BaseModel is expected to handle 
-# resource management, often by implementing them or relying on context managers.
