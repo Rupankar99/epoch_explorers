@@ -2,8 +2,8 @@ import threading
 import time
 import uuid
 
-from incident_iq.database.db.connection import get_connection
-from incident_iq.database.models.queue import QueueModel
+from database.db.connection import get_connection
+from database.models.queue import QueueModel
 import json
 
 class Producer(threading.Thread):
