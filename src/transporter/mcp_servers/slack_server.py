@@ -5,11 +5,6 @@ from datetime import datetime
 from pydantic import BaseModel
 import requests
 
-
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-if str(BASE_DIR) not in sys.path:
-    sys.path.append(str(BASE_DIR))
-
 from database.db.connection import get_connection
 from database.models.all_incident import AllIncidentModel
 
