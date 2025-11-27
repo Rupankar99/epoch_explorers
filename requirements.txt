@@ -41,10 +41,10 @@ langgraph>=0.1.0  # LangGraph for workflow orchestration
 chromadb>=0.3.0
 pydantic>=2.0.0
 
-# Document Processing (Optional)
-pdfplumber>=0.9.0  # PDF extraction with table support
-PyPDF2>=3.0.0      # Alternative PDF reader
-python-docx>=0.8.11  # Word document processing
+# Document Processing
+docling>=1.0.0  # AI-powered universal document converter to markdown (PDF, DOCX, PPTX, HTML, etc.)
+python-docx>=0.8.11  # Word document processing (fallback)
+pillow>=10.0.0  # Image processing for docling
 
 # Guardrails for response validation (Optional)
 guardrails-ai>=0.4.0  # Response validation and safety

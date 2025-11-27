@@ -1,7 +1,6 @@
 import sys
 from pathlib import Path
 from importlib import import_module
-from database.db.connection import get_connection
 import time
 
 # --- Ensure consistent project root ---
@@ -9,6 +8,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATABASE_DIR = BASE_DIR / "src" / "database"
 
 sys.path.append(str(DATABASE_DIR))
+sys.path.append(str(BASE_DIR / "src"))
+
+from database.db.connection import get_connection
 
 def run_migrations(conn):
     
@@ -40,10 +42,14 @@ def run_seeders(conn):
         if 'table_name' in namespace:
             table_name = namespace['table_name']
             cursor = conn.cursor()
-            cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
-            count = cursor.fetchone()[0]
+            try:
+                cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
+                count = cursor.fetchone()[0]
 
-            if count > 0:
+                if count > 0:
+                    continue
+            except Exception as e:
+                print(f"Skipping seeder {file.name}: table '{table_name}' does not exist or error occurred: {e}")
                 continue
 
         if 'run' in namespace:

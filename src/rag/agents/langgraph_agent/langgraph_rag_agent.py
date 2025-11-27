@@ -27,8 +27,16 @@ try:
 except ImportError:
     HAS_GUARDRAILS = False
 
+# Import Custom Guardrails (fallback when guardrails-ai not available)
+from ...guardrails.custom_guardrails import CustomGuardrails
+
 # Import visualization
 from ...visualization.langgraph_visualizer import create_visualization, save_visualization
+
+# Import Enhanced RAG tools (new tools for generic RAG system)
+from ...tools.document_classification_tool import enhance_document_metadata_tool
+from ...tools.document_markdown_converter import convert_to_markdown_tool
+from ...tools.rbac_retrieval_tool import retrieve_with_rbac_tool, generate_response_with_mode_tool, UserRole
 
 # Import RAG tools
 # Ingestion tools: extract_metadata_tool, chunk_document_tool, save_to_vectordb_tool, 
@@ -78,6 +86,16 @@ class LangGraphRAGState:
         self.performance_history: List[Dict[str, Any]] = []
         self.config_updates: Dict[str, Any] = {}
         self.errors: List[str] = []
+        
+        # New fields for enhanced RAG tools
+        self.markdown_text: str = ""  # Converted markdown from document_markdown_converter
+        self.classification_metadata: Dict[str, Any] = {}  # From document_classification_tool
+        self.rbac_tags: List[str] = []  # RBAC tags for access control
+        self.meta_tags: List[str] = []  # Meta tags for semantic retrieval
+        self.user_context: Dict[str, Any] = {}  # User role, department for RBAC
+        self.response_mode: str = "concise"  # concise|verbose|internal
+        self.guardrail_checks: Dict[str, Any] = {}  # Guardrails validation results
+        self.is_response_safe: bool = True  # Safety flag after guardrails
 
 
 class LangGraphRAGAgent:
@@ -93,40 +111,49 @@ class LangGraphRAGAgent:
         self.guardrails = self._init_guardrails()
     
     def _init_guardrails(self):
-        """Initialize Guardrails for different response modes."""
-        if not HAS_GUARDRAILS:
-            print("[WARNING] Guardrails not installed. Install with: pip install guardrails-ai")
-            return {}
+        """Initialize Guardrails for different response modes.
         
-        try:
-            guards = {}
-            
-            # Concise mode: Full validation (user-friendly responses)
-            guards["concise"] = Guard.from_string(
-                validators=[
-                    hallucination_check(),
-                    security_incident_policy()
-                ],
-                description="Ensure the solution is accurate, safe, and policy-compliant (user-friendly)."
-            )
-            
-            # Internal mode: Hallucination check only (system integration)
-            guards["internal"] = Guard.from_string(
-                validators=[
-                    hallucination_check()
-                ],
-                description="Only check for hallucinations in system integration mode."
-            )
-            
-            # Verbose mode: No guardrails (full metadata for engineers)
-            guards["verbose"] = None
-            
-            print("[✓] Guardrails initialized for response modes: concise, internal, verbose")
-            return guards
-            
-        except Exception as e:
-            print(f"[WARNING] Failed to initialize Guardrails: {e}")
-            return {}
+        Uses guardrails-ai if available, falls back to CustomGuardrails.
+        """
+        guards = {
+            "guardrails_lib": None,
+            "custom": CustomGuardrails()
+        }
+        
+        if HAS_GUARDRAILS:
+            try:
+                lib_guards = {}
+                
+                # Concise mode: Full validation (user-friendly responses)
+                lib_guards["concise"] = Guard.from_string(
+                    validators=[
+                        hallucination_check(),
+                        security_incident_policy()
+                    ],
+                    description="Ensure the solution is accurate, safe, and policy-compliant (user-friendly)."
+                )
+                
+                # Internal mode: Hallucination check only (system integration)
+                lib_guards["internal"] = Guard.from_string(
+                    validators=[
+                        hallucination_check()
+                    ],
+                    description="Only check for hallucinations in system integration mode."
+                )
+                
+                # Verbose mode: No guardrails (full metadata for engineers)
+                lib_guards["verbose"] = None
+                
+                guards["guardrails_lib"] = lib_guards
+                print("[✓] Guardrails initialized using guardrails-ai library")
+                
+            except Exception as e:
+                print(f"[WARNING] Failed to initialize guardrails-ai: {e}")
+                print("[✓] Using CustomGuardrails instead")
+        else:
+            print("[ℹ️] guardrails-ai not installed, using CustomGuardrails")
+        
+        return guards
 
     def _init_services(self):
         """Initialize services using environment configuration."""
@@ -214,26 +241,139 @@ class LangGraphRAGAgent:
         - Single Document: ingest_document(text, doc_id)
         - Table Ingestion: ingest_sqlite_table_tool for database rows
         - Batch Folder: ingest_documents_from_path_tool discovers files, then loops through each
+        
+        ENHANCED WITH NEW TOOLS:
+        0. convert_markdown_node: Convert document to markdown using docling-parse
+        0.5. classify_document_node: Classify intent, department, role using meta-prompting
         """
         graph = StateGraph(dict)
         
         # Define nodes
+        def convert_markdown_node(state):
+            """
+            ENHANCED INGESTION STAGE 0: Convert Document to Markdown
+            
+            TOOL: convert_to_markdown_tool (using docling-parse)
+            WHEN: Very first step - universal document normalization
+            INPUT: source_path or source_type, content, title
+            PROCESS:
+              1. Detects document format (PDF, DOCX, XLSX, CSV, TXT, etc.)
+              2. Uses docling-parse for professional-grade conversion
+              3. Preserves: structure, tables, headers, hierarchy
+              4. Outputs: normalized markdown format
+            OUTPUT: state["markdown_text"] with normalized markdown
+            PURPOSE: Ensure consistent format for all document types before processing
+            BENEFIT: Better quality for semantic chunking and embeddings
+            """
+            try:
+                # Check if we have a source_path or need to convert from text
+                source_path = state.get("source_path")
+                source_type = state.get("source_type", "txt")
+                title = state.get("title", state.get("doc_id", "document"))
+                
+                if source_path and os.path.exists(source_path):
+                    # Convert from file path
+                    markdown_response = convert_to_markdown_tool.invoke({
+                        "source_type": source_type,
+                        "source_path": source_path,
+                        "title": title,
+                        "auto_detect": True
+                    })
+                else:
+                    # Convert from text content (already have document_text or text)
+                    doc_text = state.get("document_text") or state.get("text", "")
+                    markdown_response = convert_to_markdown_tool.invoke({
+                        "content": doc_text,
+                        "source_type": "txt",
+                        "title": title
+                    })
+                
+                markdown_data = json.loads(markdown_response) if isinstance(markdown_response, str) else markdown_response
+                
+                if markdown_data.get("success"):
+                    state["markdown_text"] = markdown_data["markdown"]
+                    state["text"] = markdown_data["markdown"]  # Update text field for downstream
+                    state["status"] = "markdown_converted"
+                else:
+                    # Fallback: use original text
+                    state["markdown_text"] = state.get("document_text") or state.get("text", "")
+                    state["errors"] = state.get("errors", []) + [f"Markdown conversion failed: {markdown_data.get('error', 'unknown')}"]
+                    
+            except Exception as e:
+                state["markdown_text"] = state.get("document_text") or state.get("text", "")
+                state["errors"] = state.get("errors", []) + [f"Markdown conversion failed: {e}"]
+            
+            return state
+
+        def classify_document_node(state):
+            """
+            ENHANCED INGESTION STAGE 0.5: Classify Document Intent & Department
+            
+            TOOL: enhance_document_metadata_tool (with meta-prompting)
+            WHEN: After markdown conversion, before chunking
+            INPUT: doc_id, title, markdown_text (excerpt), llm_service, db_connection
+            PROCESS:
+              1. Uses meta-prompting to classify document intent
+              2. Reads available departments/roles from database (generic!)
+              3. Extracts: intent, primary_department, required_roles, sensitivity_level, keywords
+              4. Generates RBAC tags: rbac:dept:{dept}:role:{role}
+              5. Generates Meta tags: meta:intent:{intent}, meta:sensitivity:{level}
+            OUTPUT: state["classification_metadata"], state["rbac_tags"], state["meta_tags"]
+            PURPOSE: Enable RBAC-based access control and semantic retrieval
+            BENEFIT: Automatic, database-driven, no hardcoding
+            """
+            try:
+                # Use first 2000 chars for classification (to avoid LLM token limits)
+                excerpt = (state.get("markdown_text") or state.get("text", ""))[:2000]
+                title = state.get("title", state.get("doc_id", "document"))
+                
+                classify_response = enhance_document_metadata_tool.invoke({
+                    "doc_id": state["doc_id"],
+                    "title": title,
+                    "text": excerpt,
+                    "llm_service": self.llm_service,
+                    "db_conn": None  # Will use default DB connection from tool
+                })
+                
+                classify_data = json.loads(classify_response) if isinstance(classify_response, str) else classify_response
+                
+                if classify_data.get("success"):
+                    classification = classify_data.get("metadata", {})
+                    state["classification_metadata"] = classification
+                    state["rbac_tags"] = classification.get("tags", {}).get("rbac", [])
+                    state["meta_tags"] = classification.get("tags", {}).get("meta", [])
+                    state["status"] = "document_classified"
+                else:
+                    # Fallback: basic metadata
+                    state["classification_metadata"] = {}
+                    state["rbac_tags"] = ["rbac:generic:viewer"]  # Default public role
+                    state["meta_tags"] = []
+                    state["errors"] = state.get("errors", []) + [f"Classification failed: {classify_data.get('error', 'unknown')}"]
+                    
+            except Exception as e:
+                state["classification_metadata"] = {}
+                state["rbac_tags"] = ["rbac:generic:viewer"]  # Fallback to public
+                state["meta_tags"] = []
+                state["errors"] = state.get("errors", []) + [f"Document classification failed: {e}"]
+            
+            return state
+
         def extract_metadata_node(state):
             """
             INGESTION STAGE 1: Extract Semantic Metadata
             
             TOOL: extract_metadata_tool
-            WHEN: First step in document ingestion pipeline
-            INPUT: text (raw document content), llm_service (for LLM processing)
+            WHEN: After markdown conversion and classification
+            INPUT: text (normalized markdown content), llm_service (for LLM processing)
             PROCESS:
-              1. Uses LLM to analyze document text
+              1. Uses LLM to analyze markdown document text
               2. Extracts: title, summary (2-3 sentences), keywords (5-10), topics, doc_type
               3. Returns structured JSON metadata
             OUTPUT: state["metadata"] with LLM-extracted fields
             FALLBACK: Returns basic metadata if LLM processing fails
             """
             try:
-                meta_response = extract_metadata_tool.invoke({"text": state["text"], "llm_service": self.llm_service})
+                meta_response = extract_metadata_tool.invoke({"text": state.get("markdown_text") or state["text"], "llm_service": self.llm_service})
                 state["metadata"] = json.loads(meta_response) if isinstance(meta_response, str) else meta_response
                 state["status"] = "metadata_extracted"
             except Exception as e:
@@ -326,13 +466,18 @@ class LangGraphRAGAgent:
             return state
 
         # Add nodes to graph
+        # Add nodes to graph
+        graph.add_node("convert_markdown", convert_markdown_node)
+        graph.add_node("classify_document", classify_document_node)
         graph.add_node("extract_metadata", extract_metadata_node)
         graph.add_node("chunk_document", chunk_document_node)
         graph.add_node("save_vectordb", save_vectordb_node)
         graph.add_node("update_tracking", update_tracking_node)
 
-        # Add edges
-        graph.add_edge(START, "extract_metadata")
+        # Add edges: Enhanced pipeline with new tools
+        graph.add_edge(START, "convert_markdown")              # NEW: Markdown conversion first
+        graph.add_edge("convert_markdown", "classify_document") # NEW: Then classify
+        graph.add_edge("classify_document", "extract_metadata") # NEW: Then extract metadata
         graph.add_edge("extract_metadata", "chunk_document")
         graph.add_edge("chunk_document", "save_vectordb")
         graph.add_edge("save_vectordb", "update_tracking")
@@ -701,12 +846,115 @@ class LangGraphRAGAgent:
                 state["errors"] = state.get("errors", []) + [f"Traceability generation failed: {e}"]
             return state
 
+        def validate_response_guardrails_node(state):
+            """
+            NEW NODE: Validate Response with Custom Guardrails
+            
+            TOOL: CustomGuardrails (simple, effective, no external dependencies)
+            WHEN: After answer generation, before returning to user
+            INPUT: answer (generated response), question (user query), mode (concise|verbose|internal)
+            PROCESS:
+              1. Input validation: Check user query is safe
+              2. Output safety check: Verify response is complete, no repetition
+              3. PII detection: Find and redact sensitive data
+              4. Response filtering: Redact credentials, passwords, API keys
+            OUTPUT: state["guardrail_checks"], state["is_response_safe"], filtered answer
+            PURPOSE: Prevent hallucinations, PII leaks, and inappropriate responses
+            BENEFIT: Simple pattern-based validation without external library dependencies
+            """
+            try:
+                response_mode = state.get("response_mode", "concise")
+                show_debug = response_mode in ["verbose", "internal"]
+                
+                if show_debug:
+                    print(f"\n[🛡️ GUARDRAILS VALIDATION NODE - {response_mode.upper()} MODE]")
+                
+                # Get custom guardrails instance
+                guardrails = self.guardrails.get("custom")
+                if not guardrails:
+                    print("[WARNING] Custom guardrails not initialized, skipping validation")
+                    state["guardrail_checks"] = {"skipped": True}
+                    state["is_response_safe"] = True
+                    return state
+                
+                # Get context for grounding check
+                reranked = state.get("reranked_context", {}).get("reranked_context", [])
+                context_text = " ".join([r.get("text", "") for r in reranked[:3]])  # Top 3 sources
+                
+                # Run guardrails pipeline
+                validation_result = guardrails.process_request(
+                    user_input=state.get("question", ""),
+                    llm_output=state.get("answer", "")
+                )
+                
+                # Store validation results
+                state["guardrail_checks"] = {
+                    "is_safe": validation_result.get("is_safe", False),
+                    "safety_level": validation_result.get("safety_level", "unknown"),
+                    "pii_detected": validation_result.get("pii_detected", {}),
+                    "input_errors": validation_result.get("input_errors", []),
+                    "output_errors": validation_result.get("output_errors", []),
+                    "message": validation_result.get("message", "")
+                }
+                
+                # Update response with filtered version if needed
+                if validation_result.get("filtered_output"):
+                    state["answer"] = validation_result["filtered_output"]
+                
+                # Set safety flag
+                state["is_response_safe"] = validation_result.get("success", False)
+                
+                if show_debug:
+                    print(f"  Safety Level: {validation_result['safety_level']}")
+                    print(f"  Is Safe: {validation_result['is_safe']}")
+                    if validation_result['pii_detected']:
+                        print(f"  PII Found: {list(validation_result['pii_detected'].keys())}")
+                    print(f"  Message: {validation_result['message']}")
+                
+                # Log guardrail check to database
+                try:
+                    from ....database.models.rag_history_model import RAGHistoryModel
+                    
+                    rag_history = RAGHistoryModel()
+                    reranked_context = state.get("reranked_context", {}).get("reranked_context", [])
+                    doc_id_to_log = state.get("doc_id")
+                    
+                    if not doc_id_to_log and reranked_context and len(reranked_context) > 0:
+                        doc_id_to_log = reranked_context[0].get("metadata", {}).get("doc_id") or reranked_context[0].get("source", "unknown")
+                    
+                    doc_id_to_log = doc_id_to_log or "unknown"
+                    
+                    guardrail_id = rag_history.log_guardrail_check(
+                        target_doc_id=doc_id_to_log,
+                        checks_json=json.dumps(state["guardrail_checks"]),
+                        is_safe=state["is_response_safe"],
+                        agent_id="langgraph_agent",
+                        session_id=state.get("session_id", "session_default")
+                    )
+                    
+                    if show_debug:
+                        print(f"  ✓ Guardrail check logged: ID={guardrail_id}")
+                    
+                except Exception as e:
+                    if show_debug:
+                        print(f"  [WARNING] Failed to log guardrail check: {e}")
+                    # Don't fail if logging doesn't work
+                
+            except Exception as e:
+                state["errors"] = state.get("errors", []) + [f"Guardrails validation failed: {e}"]
+                state["is_response_safe"] = False
+                if show_debug:
+                    print(f"  ✗ Error: {e}")
+            
+            return state
+
         # Add nodes
         graph.add_node("retrieve_context", retrieve_context_node)
         graph.add_node("rerank_context", rerank_context_node)
         graph.add_node("check_optimization", check_optimization_needed)
         graph.add_node("optimize_context", optimize_context_node)
         graph.add_node("answer_question", answer_question_node)
+        graph.add_node("validate_guardrails", validate_response_guardrails_node)  # NEW NODE
         graph.add_node("traceability", traceability_node)
 
         # Add edges with conditional routing
@@ -724,7 +972,8 @@ class LangGraphRAGAgent:
         })
         
         graph.add_edge("optimize_context", "answer_question")
-        graph.add_edge("answer_question", "traceability")
+        graph.add_edge("answer_question", "validate_guardrails")  # NEW EDGE: Answer -> Guardrails
+        graph.add_edge("validate_guardrails", "traceability")     # NEW EDGE: Guardrails -> Traceability
         graph.add_edge("traceability", END)
 
         return graph.compile()

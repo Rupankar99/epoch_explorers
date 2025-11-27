@@ -243,6 +243,48 @@ class RAGHistoryModel(BaseModel):
             print(f"Error searching history: {e}")
             return []
 
+    def log_guardrail_check(self, target_doc_id: str, checks_json: str, is_safe: bool = True,
+                           agent_id: str = "langgraph_agent", session_id: str = None) -> int:
+        """
+        Log a guardrails validation check event.
+        
+        Args:
+            target_doc_id: Document ID that was checked
+            checks_json: JSON with guardrail check results
+            is_safe: Whether response passed all guardrails
+            agent_id: Agent that performed the check
+            session_id: Session identifier
+            
+        Returns:
+            History ID of the logged event
+        """
+        try:
+            now_iso = datetime.now().isoformat()
+            
+            # Create action_taken based on safety result
+            action_taken = "PASS" if is_safe else "FLAG"
+            
+            data_ordered = (
+                "GUARDRAIL_CHECK", now_iso, None, target_doc_id, None,
+                checks_json, json.dumps({"is_safe": is_safe}), 1.0 if is_safe else 0.0, 
+                action_taken, None, None, agent_id, None, session_id
+            )
+            
+            cur = self.conn.execute(f"""
+                INSERT INTO {self.table} 
+                (event_type, timestamp, query_text, target_doc_id, target_chunk_id,
+                 metrics_json, context_json, reward_signal, action_taken, state_before,
+                 state_after, agent_id, user_id, session_id)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, data_ordered)
+            
+            self.conn.commit()
+            return cur.lastrowid
+            
+        except Exception as e:
+            print(f"Error logging guardrail check: {e}")
+            return None
+
     def close(self):
         """Close database connection."""
         if hasattr(self, 'conn') and self.conn:
