@@ -1,7 +1,7 @@
 from .base_model import BaseModel # Assuming this BaseModel provides the __init__, execute, and connection handling
 import json
 from datetime import datetime
-
+import pandas as pd
 class DocumentMetadataModel(BaseModel):
     """
     Model for document_metadata table in optimized schema.
@@ -17,6 +17,18 @@ class DocumentMetadataModel(BaseModel):
     ]
     # Assuming BaseModel automatically sets up self.conn and self.cursor (with row_factory=sqlite3.Row)
     # and provides self.execute() for queries and self.commit() for transactions.
+
+    def get_all_documents(self) -> pd.DataFrame:
+        """
+        Fetch all documents from the `document_metadata` table as a Pandas DataFrame.
+        """
+        query = """
+        SELECT *
+        FROM document_metadata
+        """
+        df = pd.read_sql_query(query, self.conn)
+        return df
+
 
     def create(self, doc_id: str, title: str, author: str = None, 
                  source: str = None, summary: str = None, 
