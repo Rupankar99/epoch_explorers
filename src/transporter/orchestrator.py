@@ -1,5 +1,4 @@
 from .transport_models import Incident, IncidentReport, IncidentContext, Ticket
-from .reporting import ReportingAgent
 from .transporter import IntelligentTicketingAgent
 from dataclasses import asdict
 from datetime import datetime
@@ -9,7 +8,6 @@ import asyncio, json
 
 class IncidentManagementSystem:
     def __init__(self):
-        self.reporting_agent = ReportingAgent()
         self.ticketing_agent = IntelligentTicketingAgent()
 
         self.incidents: Dict[str, Incident] = {}
@@ -17,21 +15,10 @@ class IncidentManagementSystem:
         self.tickets: Dict[str, List[Ticket]] = {}
         self.decisions: Dict[str, Dict[str, Any]] = {}
 
-    async def process_incident(self, payload, context: IncidentContext) -> Dict[str, Any]:
-        """Process incident with LLM intelligence"""
-        # try:
-        #     report = self.reporting_agent.generate_report(incident)
-        #     self.reports[incident.id] = report
-        #     print(f"✅ Report Generated")
-        #     print(f"   Report: {report}\n")
-        # except Exception as e:
-        #     print(f"❌ Error generating report: {e}\n")
-        #     return {"status": "error", "message": str(e)}
-
-        # Step 2: LLM Decision + MCP Execution
-        print("Started LLM processing ....")
+    def process_incident(self, payload) -> Dict[str, Any]:
+        print("Started LLM processing in orchestrator....")
         try:
-            await self.ticketing_agent.make_decision_and_execute(payload,context)
+             self.ticketing_agent.make_decision_and_execute(payload)
         except Exception as e:
             return {"status": "error", "message": str(e)}
 
