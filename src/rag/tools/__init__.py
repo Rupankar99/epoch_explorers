@@ -10,6 +10,8 @@ from .ingestion_tools import (
     update_metadata_tracking_tool,
     ingest_sqlite_table_tool,
     record_agent_memory_tool,
+    retrieve_agent_memory_tool,
+    clear_agent_memory_tool,
 )
 
 from .retrieval_tools import (

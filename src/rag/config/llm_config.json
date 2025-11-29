@@ -24,14 +24,14 @@
       "model": "azure/genailab-maas-gpt-35-turbo",
       "temperature": 0.3,
       "max_tokens": 2000,
-      "enabled": true
+      "enabled": false
     },
     "ollama": {
       "type": "ollama",
       "base_url": "http://localhost:11434",
       "model": "qwen2.5:0.5b",
       "temperature": 0.3,
-      "enabled": false
+      "enabled": true
     },
     "huggingface": {
       "type": "huggingface",
@@ -62,7 +62,7 @@
       "api_key_env": "AZURE_API_KEY",
       "api_endpoint": "https://genailab.tcs.in/v1",
       "model": "azure/genailab-maas-text-embedding-3-large",
-      "enabled": true
+      "enabled": false
     },
     "openai": {
       "type": "openai",
@@ -71,12 +71,26 @@
       "enabled": false
     }
   },
-  "default_embedding_provider": "azure_embedding",
+  "default_embedding_provider": "ollama",
   "database": {
     "db_path": "./data/incident_iq.db",
     "chroma_persist_dir": "./data/chroma_index"
   },
   "cache": {
     "tiktoken_cache_dir": "./token"
+  }
+}
+
+
+
+
+
+
+{
+  "vectorid": 1,
+  "embedding":[0.1, 0.2, 0.3, 0.4, 0.5]
+  "tag": {
+    "rbac": ["general","company","accounting","users"], ,
+    "meta_tag":["salaray","finance"]
   }
 }

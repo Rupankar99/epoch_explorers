@@ -19,15 +19,7 @@ from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.graph import StateGraph, START, END
 from langgraph.prebuilt import ToolNode
 
-# Import Guardrails for response validation
-try:
-    from guardrails import Guard
-    from guardrails.hub import hallucination_check, security_incident_policy
-    HAS_GUARDRAILS = True
-except ImportError:
-    HAS_GUARDRAILS = False
-
-# Import Custom Guardrails (fallback when guardrails-ai not available)
+# Import Custom Guardrails
 from ...guardrails.custom_guardrails import CustomGuardrails
 
 # Import visualization
@@ -60,7 +52,7 @@ from ...tools.retrieval_tools import (
     traceability_tool,
 )
 from ...tools.healing_tools import (
-    check_embedding_health_tool,
+    
     get_context_cost_tool,
     optimize_chunk_size_tool,
 )
@@ -108,53 +100,8 @@ class LangGraphRAGAgent:
         self.ingestion_graph = self._build_ingestion_graph()
         self.retrieval_graph = self._build_retrieval_graph()
         self.optimization_graph = self._build_optimization_graph()
-        self.guardrails = self._init_guardrails()
+        self.custom_guardrails = CustomGuardrails()
     
-    def _init_guardrails(self):
-        """Initialize Guardrails for different response modes.
-        
-        Uses guardrails-ai if available, falls back to CustomGuardrails.
-        """
-        guards = {
-            "guardrails_lib": None,
-            "custom": CustomGuardrails()
-        }
-        
-        if HAS_GUARDRAILS:
-            try:
-                lib_guards = {}
-                
-                # Concise mode: Full validation (user-friendly responses)
-                lib_guards["concise"] = Guard.from_string(
-                    validators=[
-                        hallucination_check(),
-                        security_incident_policy()
-                    ],
-                    description="Ensure the solution is accurate, safe, and policy-compliant (user-friendly)."
-                )
-                
-                # Internal mode: Hallucination check only (system integration)
-                lib_guards["internal"] = Guard.from_string(
-                    validators=[
-                        hallucination_check()
-                    ],
-                    description="Only check for hallucinations in system integration mode."
-                )
-                
-                # Verbose mode: No guardrails (full metadata for engineers)
-                lib_guards["verbose"] = None
-                
-                guards["guardrails_lib"] = lib_guards
-                print("[✓] Guardrails initialized using guardrails-ai library")
-                
-            except Exception as e:
-                print(f"[WARNING] Failed to initialize guardrails-ai: {e}")
-                print("[✓] Using CustomGuardrails instead")
-        else:
-            print("[ℹ️] guardrails-ai not installed, using CustomGuardrails")
-        
-        return guards
-
     def _init_services(self):
         """Initialize services using environment configuration."""
         # Get configuration paths from EnvConfig
@@ -869,20 +816,17 @@ class LangGraphRAGAgent:
                 if show_debug:
                     print(f"\n[🛡️ GUARDRAILS VALIDATION NODE - {response_mode.upper()} MODE]")
                 
-                # Get custom guardrails instance
-                guardrails = self.guardrails.get("custom")
-                if not guardrails:
-                    print("[WARNING] Custom guardrails not initialized, skipping validation")
-                    state["guardrail_checks"] = {"skipped": True}
+                # Use custom guardrails instance
+                if response_mode == "verbose":
+                    # Skip validation for verbose mode
+                    state["guardrail_checks"] = {"skipped": True, "reason": "verbose mode"}
                     state["is_response_safe"] = True
+                    if show_debug:
+                        print(f"  ⊘ Validation skipped (verbose mode)")
                     return state
                 
-                # Get context for grounding check
-                reranked = state.get("reranked_context", {}).get("reranked_context", [])
-                context_text = " ".join([r.get("text", "") for r in reranked[:3]])  # Top 3 sources
-                
-                # Run guardrails pipeline
-                validation_result = guardrails.process_request(
+                # Run custom guardrails validation
+                validation_result = self.custom_guardrails.process_request(
                     user_input=state.get("question", ""),
                     llm_output=state.get("answer", "")
                 )
@@ -1037,8 +981,15 @@ class LangGraphRAGAgent:
         }
 
     def _apply_guardrails_validation(self, answer: str, response_mode: str) -> Dict[str, Any]:
-        """Apply Guardrails validation based on response mode."""
-        if not HAS_GUARDRAILS or response_mode == "verbose" or not self.guardrails.get(response_mode):
+        """Apply custom guardrails validation based on response mode.
+        
+        Uses CustomGuardrails for all response modes:
+        - concise: Full validation (user-friendly)
+        - internal: Hallucination & safety checks (system integration)
+        - verbose: Basic safety only (engineers need raw data)
+        """
+        if response_mode == "verbose":
+            # No validation for verbose mode - engineers need full debug info
             return {
                 "validated": True,
                 "guardrails_applied": False,
@@ -1046,22 +997,19 @@ class LangGraphRAGAgent:
             }
         
         try:
-            guard = self.guardrails.get(response_mode)
-            if not guard:
-                return {
-                    "validated": True,
-                    "guardrails_applied": False,
-                    "answer": answer
-                }
-            
-            # Apply guard validation
-            validated_response = guard.validate(answer)
+            # Use CustomGuardrails for all modes
+            validation_result = self.custom_guardrails.process_request(
+                user_input="",  # No user input validation needed here
+                llm_output=answer
+            )
             
             return {
-                "validated": True,
+                "validated": validation_result.get("success", False),
                 "guardrails_applied": True,
-                "answer": str(validated_response),
-                "validation_mode": response_mode
+                "answer": validation_result.get("filtered_output", answer),
+                "validation_mode": response_mode,
+                "safety_level": validation_result.get("safety_level", "unknown"),
+                "issues": validation_result.get("output_errors", [])
             }
         except Exception as e:
             print(f"[WARNING] Guardrails validation failed: {e}")

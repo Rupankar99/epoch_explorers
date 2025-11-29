@@ -678,45 +678,217 @@ def ingest_sqlite_table_tool(table_name: str, doc_id: str, rbac_namespace: str,
     
 @tool
 def record_agent_memory_tool(agent_name: str, memory_key: str, memory_value: str, 
-                              memory_type: str = "context") -> str:
+                              memory_type: str = "context", importance_score: float = 0.8,
+                              ttl_hours: int = None) -> str:
     """
-    **AGENT UTILITY.** Stores agent memory, context, logs, or strategic decisions 
-    into the `AgentMemoryModel` in SQLite for future self-reflection and debugging.
+    **AGENT UTILITY.** Stores agent memory for self-reflection, learning, and debugging.
+    
+    HYBRID STORAGE:
+    1. In-Memory Cache (LRU + TTL): Fast access for current session
+    2. SQLite Database: Persistent storage for learning across sessions
+    
+    MEMORY TYPES:
+    - "context": Contextual information (query patterns, document summaries)
+    - "log": Execution logs (status reports, attempts)
+    - "decision": Strategic decisions (healing strategies, parameter tuning)
+    - "performance": Performance metrics (quality scores, costs, latency)
     
     Args:
-        agent_name (str): The name of the agent logging the memory (e.g., 'ingestion-agent').
-        memory_key (str): A unique key to identify the memory content (e.g., 'ingestion_status_report').
-        memory_value (str): The content to be stored (often a JSON or summary string).
-        memory_type (str): Type of memory ("context", "log", "decision", "performance").
+        agent_name (str): Name of agent logging memory (e.g., 'langgraph_agent')
+        memory_key (str): Unique key for memory (e.g., 'healing_strategy_re_embed')
+        memory_value (str): Memory content (JSON string recommended)
+        memory_type (str): Type of memory ("context", "log", "decision", "performance")
+        importance_score (float): Importance 0-1 (higher = keep longer)
+        ttl_hours (int): Time-to-live in hours (None = keep forever)
 
     Returns:
-        str: JSON with 'success' status. Example Success: {"success": true}
+        str: JSON with 'success' status and memory_id. Example: {"success": true, "memory_id": 42}
     """
     try:
-        rag_db_path = EnvConfig.get_db_path()
-        rag_conn = sqlite3.connect(rag_db_path)
+        from ...database.models.agent_memory_model import AgentMemoryModel
+        from ...database.cache.agent_memory_cache import get_agent_memory_cache
         
-        # Attempted import for model - gracefully handle if unavailable
+        # Get cache instance
+        cache = get_agent_memory_cache()
+        
+        # Parse memory value if it's a JSON string
         try:
-            from ...database.models.agent_memory_model import AgentMemoryModel
-            mem_model = AgentMemoryModel(rag_conn)
-            
-            mem_model.insert({
-                'agent_id': agent_name,
-                'memory_type': memory_type,
-                'content': memory_value,
-                'importance_score': 0.8,
-                'created_at': datetime.datetime.now().isoformat()
-            })
-            
-            rag_conn.commit()
-            mem_model.close()
-        except ImportError:
-            # AgentMemoryModel not available - log message but continue
-            print(f"[WARNING] AgentMemoryModel not available for agent={agent_name}")
+            if isinstance(memory_value, str):
+                memory_content = json.loads(memory_value)
+            else:
+                memory_content = memory_value
+        except (json.JSONDecodeError, TypeError):
+            # If not JSON, wrap in a dict
+            memory_content = {"value": str(memory_value)}
         
-        rag_conn.close()
-        return json.dumps({"success": True})
+        # 1. Store in in-memory cache (fast path)
+        cache.put(
+            agent_id=agent_name,
+            memory_type=memory_type,
+            memory_key=memory_key,
+            data={
+                "agent_id": agent_name,
+                "memory_type": memory_type,
+                "memory_key": memory_key,
+                "content": memory_content,
+                "importance_score": importance_score,
+                "created_at": datetime.datetime.now().isoformat()
+            },
+            ttl_seconds=ttl_hours * 3600 if ttl_hours else None
+        )
+        
+        # 2. Store in SQLite database (persistent path)
+        mem_model = AgentMemoryModel()
+        memory_id = mem_model.record_memory(
+            agent_id=agent_name,
+            memory_type=memory_type,
+            memory_key=memory_key,
+            content=json.dumps(memory_content) if not isinstance(memory_value, str) else memory_value,
+            importance_score=importance_score,
+            ttl_hours=ttl_hours
+        )
+        
+        cache_stats = cache.get_stats()
+        
+        return json.dumps({
+            "success": True,
+            "memory_id": memory_id,
+            "agent": agent_name,
+            "memory_type": memory_type,
+            "memory_key": memory_key,
+            "storage": "hybrid (cache + sqlite)",
+            "cache_stats": cache_stats
+        })
+        
+    except ImportError as e:
+        print(f"[WARNING] Agent memory model not available: {e}")
+        return json.dumps({"success": False, "error": f"Model not available: {e}"})
+    except Exception as e:
+        print(f"[ERROR] Failed to record agent memory: {e}")
+        return json.dumps({"success": False, "error": str(e)})
+
+
+@tool
+def retrieve_agent_memory_tool(agent_name: str, memory_type: str = None, 
+                               memory_key: str = None, limit: int = 10) -> str:
+    """
+    **AGENT UTILITY.** Retrieves agent memories for self-reflection and learning.
+    
+    Attempts fast cache lookup first, then falls back to SQLite database.
+    Updates access counts in database for importance tracking.
+    
+    MEMORY TYPES:
+    - "context": Query patterns, document summaries, user profiles
+    - "log": Status reports, execution attempts
+    - "decision": Healing strategies, parameter adjustments
+    - "performance": Quality scores, costs, latency metrics
+    
+    Args:
+        agent_name (str): Name of agent to retrieve memories for
+        memory_type (str): Filter by type (None = all types)
+        memory_key (str): Filter by specific key (None = all keys)
+        limit (int): Max memories to return
+
+    Returns:
+        str: JSON with memories list and metadata
+    """
+    try:
+        from ...database.models.agent_memory_model import AgentMemoryModel
+        from ...database.cache.agent_memory_cache import get_agent_memory_cache
+        
+        cache = get_agent_memory_cache()
+        mem_model = AgentMemoryModel()
+        
+        # Try to get from database (which tracks access counts)
+        memories = mem_model.retrieve_memory(
+            agent_id=agent_name,
+            memory_type=memory_type,
+            memory_key=memory_key,
+            limit=limit
+        )
+        
+        # Get cache stats for context
+        cache_stats = cache.get_stats()
+        
+        # Get memory stats for this agent
+        agent_stats = mem_model.get_memory_stats(agent_name)
+        
+        # Format memories for return
+        formatted_memories = []
+        for mem in memories:
+            try:
+                # Parse content if JSON string
+                if isinstance(mem.get('content'), str):
+                    try:
+                        content = json.loads(mem['content'])
+                    except (json.JSONDecodeError, TypeError):
+                        content = mem['content']
+                else:
+                    content = mem['content']
+                
+                formatted_memories.append({
+                    "memory_id": mem.get('id'),
+                    "memory_type": mem.get('memory_type'),
+                    "memory_key": mem.get('memory_key'),
+                    "content": content,
+                    "importance_score": mem.get('importance_score'),
+                    "access_count": mem.get('access_count'),
+                    "created_at": mem.get('created_at'),
+                    "updated_at": mem.get('updated_at')
+                })
+            except Exception as e:
+                print(f"[WARNING] Failed to format memory: {e}")
+                continue
+        
+        return json.dumps({
+            "success": True,
+            "agent": agent_name,
+            "memories_found": len(formatted_memories),
+            "memories": formatted_memories,
+            "agent_stats": agent_stats,
+            "cache_stats": cache_stats
+        })
+        
+    except ImportError as e:
+        print(f"[WARNING] Agent memory model not available: {e}")
+        return json.dumps({"success": False, "error": f"Model not available: {e}"})
+    except Exception as e:
+        print(f"[ERROR] Failed to retrieve agent memory: {e}")
+        return json.dumps({"success": False, "error": str(e)})
+
+
+@tool
+def clear_agent_memory_tool(agent_name: str) -> str:
+    """
+    **AGENT UTILITY.** Clear all memories for an agent from both cache and database.
+    
+    Args:
+        agent_name (str): Name of agent to clear memories for
+
+    Returns:
+        str: JSON with count of memories cleared
+    """
+    try:
+        from ...database.models.agent_memory_model import AgentMemoryModel
+        from ...database.cache.agent_memory_cache import get_agent_memory_cache
+        
+        cache = get_agent_memory_cache()
+        mem_model = AgentMemoryModel()
+        
+        # Clear from cache
+        cache_cleared = cache.clear_agent(agent_name)
+        
+        # Clear from database
+        db_cleared = mem_model.clear_agent_memories(agent_name)
+        
+        return json.dumps({
+            "success": True,
+            "agent": agent_name,
+            "cache_entries_cleared": cache_cleared,
+            "db_entries_cleared": db_cleared,
+            "total_cleared": cache_cleared + db_cleared
+        })
         
     except Exception as e:
+        print(f"[ERROR] Failed to clear agent memories: {e}")
         return json.dumps({"success": False, "error": str(e)})
