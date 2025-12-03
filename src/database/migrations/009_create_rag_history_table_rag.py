@@ -3,11 +3,11 @@
 
 def run(conn):
     conn.execute('''
-CREATE TABLE rag_history_and_optimization (
+CREATE TABLE IF NOT EXISTS rag_history_and_optimization (
     history_id INTEGER PRIMARY KEY AUTOINCREMENT,
     
     -- Event Classification
-    event_type TEXT NOT NULL CHECK (event_type IN ('QUERY', 'HEAL', 'SYNTHETIC_TEST')),
+    event_type TEXT NOT NULL CHECK (event_type IN ('QUERY', 'HEAL', 'SYNTHETIC_TEST', 'GUARDRAIL_CHECK')),
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
     -- Query Information (populated if event_type='QUERY' or 'SYNTHETIC_TEST')

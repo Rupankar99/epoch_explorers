@@ -1,0 +1,97 @@
+{
+  "session_id": "661885dd-d03c-4c97-9005-42c81339de4e",
+  "start_time": "2025-11-30T14:10:23.333470",
+  "total_duration_ms": 9608.219146728516,
+  "nodes_executed": [
+    {
+      "timestamp": 1764492023.3334804,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "661885dd-d03c-4c97-9005-42c81339de4e",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 1,
+        "user_id": 2,
+        "dept_id": 2,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764492032.9413362,
+      "duration_ms": 9607.811212539673,
+      "state_after": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "661885dd-d03c-4c97-9005-42c81339de4e",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 1,
+        "user_id": 2,
+        "dept_id": 2,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "findings",
+          "reports",
+          "analysis",
+          "key",
+          "results"
+        ],
+        "context": {
+          "context": []
+        },
+        "collection_name": "tenant_1",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": "1:2"
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {},
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "query_logged_id": 47,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the key findings in the reports?",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 9607.859134674072
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

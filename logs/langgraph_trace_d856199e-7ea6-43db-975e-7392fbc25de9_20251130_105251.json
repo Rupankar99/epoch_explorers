@@ -1,0 +1,104 @@
+{
+  "session_id": "d856199e-7ea6-43db-975e-7392fbc25de9",
+  "start_time": "2025-11-30T10:52:22.292220",
+  "total_duration_ms": 29011.8408203125,
+  "nodes_executed": [
+    {
+      "timestamp": 1764480142.2928238,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the company policies?",
+        "doc_id": null,
+        "session_id": "d856199e-7ea6-43db-975e-7392fbc25de9",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 1,
+        "user_id": 1,
+        "dept_id": 10,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764480171.3000736,
+      "duration_ms": 29005.93090057373,
+      "state_after": {
+        "question": "What are the company policies?",
+        "doc_id": null,
+        "session_id": "d856199e-7ea6-43db-975e-7392fbc25de9",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 1,
+        "user_id": 1,
+        "dept_id": 10,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "company",
+          "policies",
+          "search",
+          "approval",
+          "request"
+        ],
+        "context": {
+          "success": true,
+          "context": []
+        },
+        "collection_name": "tenant_1",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "$or": [
+            {
+              "rbac_tags": {
+                "$contains": "rbac:1:10"
+              }
+            },
+            {
+              "rbac_tags": {
+                "$contains": "rbac:1:*"
+              }
+            }
+          ]
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {},
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the company policies?",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 29005.753755569458
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

@@ -3,7 +3,7 @@ import json
 import sqlite3
 import datetime
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Union
 from langchain_core.tools import tool
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 # Assuming relative imports for configuration and database models
@@ -370,12 +370,115 @@ def chunk_document_tool(text: str, doc_id: str, strategy: str = "recursive",
 
 
 @tool
-def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_service, 
-                          metadata: str = None, rbac_namespace: str = "general") -> str:
+def enhance_meta_tags_tool(chunks: str, doc_id: str, llm_service, metadata: str = None) -> str:
     """
-    **STAGE 4: EMBEDDING & PERSISTENCE.** Generates embeddings for chunks, 
+    **STAGE 3B: INTELLIGENT META-TAGGING (Optional Enhancement).**
+    Uses LLM to analyze document content and automatically generate semantic meta-tags.
+    This ensures better keyword matching during retrieval (not just exact word overlap).
+    
+    Meta-tags help classify content by semantic domain:
+    - location: geographic locations, cities, addresses, regions
+    - financial: revenue, profit, expenses, budgets, accounting
+    - hr: employees, hiring, recruitment, salaries, benefits
+    - technical: systems, databases, APIs, deployment, code
+    - product: features, releases, versions, specifications
+    - process: workflows, procedures, schedules, timelines
+    - operations: logistics, supply chain, inventory
+    - marketing: campaigns, brands, customers, engagement
+    - compliance: policies, regulations, audits, governance
+    - general: for content that doesn't fit above
+    
+    Args:
+        chunks (str): JSON string from chunk_document_tool with document chunks
+        doc_id (str): Unique document ID
+        llm_service: Service for LLM-based analysis
+        metadata (str): Optional existing metadata JSON
+    
+    Returns:
+        str: JSON with enhanced meta-tags for the document
+    """
+    try:
+        chunks_data = json.loads(chunks) if isinstance(chunks, str) else chunks
+        chunk_list = chunks_data.get('chunks', [])
+        
+        if not chunk_list:
+            return json.dumps({"success": False, "error": "No chunks provided"})
+        
+        # Sample first 3 chunks for LLM analysis (to avoid long prompts)
+        sample_chunks = chunk_list[:3]
+        sample_text = "\n\n---\n\n".join([f"CHUNK {i+1}:\n{c.get('text', '')}" for i, c in enumerate(sample_chunks)])
+        
+        # Use LLM to detect semantic domain
+        meta_tag_prompt = f"""Analyze the following document chunks and determine the primary semantic domain(s).
+
+Document ID: {doc_id}
+Sample chunks (showing first 3 chunks of {len(chunk_list)} total):
+
+{sample_text}
+
+Based on this content, identify the primary semantic domains from this list:
+- location: geographic locations, cities, addresses, regions, places
+- financial: revenue, profit, expenses, budgets, accounting, invoicing
+- hr: employees, hiring, recruitment, salaries, benefits, leaves
+- technical: systems, databases, APIs, code, deployment, servers
+- product: features, releases, versions, specifications, requirements
+- process: workflows, procedures, schedules, timelines, stages
+- operations: logistics, supply chain, inventory, warehouse
+- marketing: campaigns, brands, customers, engagement, promotion
+- compliance: policies, regulations, audits, governance, legal
+- general: general information not fitting other categories
+
+Return ONLY a JSON array of the most relevant domains (max 3), like: ["location", "hr", "general"]
+Do not include explanation, just the JSON array.
+"""
+        
+        try:
+            meta_tags_response = llm_service.generate_response(meta_tag_prompt)
+            meta_tags = json.loads(meta_tags_response.strip())
+            
+            if not isinstance(meta_tags, list):
+                meta_tags = ["general"]
+        except:
+            # If LLM parsing fails, fallback to simple keyword-based detection
+            combined_text = sample_text.lower()
+            meta_tags = []
+            
+            if any(term in combined_text for term in ['where', 'location', 'city', 'address', 'region', 'haldia']):
+                meta_tags.append('location')
+            if any(term in combined_text for term in ['revenue', 'profit', 'expense', 'budget', 'financial']):
+                meta_tags.append('financial')
+            if any(term in combined_text for term in ['employee', 'hiring', 'recruitment', 'salary', 'hr']):
+                meta_tags.append('hr')
+            if any(term in combined_text for term in ['system', 'database', 'api', 'code', 'technical']):
+                meta_tags.append('technical')
+            
+            if not meta_tags:
+                meta_tags = ['general']
+        
+        return json.dumps({
+            "success": True,
+            "doc_id": doc_id,
+            "meta_tags": meta_tags,
+            "num_chunks_analyzed": len(chunk_list),
+            "confidence": "high" if len(sample_chunks) >= 3 else "medium"
+        })
+        
+    except Exception as e:
+        return json.dumps({"success": False, "error": str(e)})
+
+
+@tool
+def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_service, 
+                          metadata: str = None, rbac_namespace: str = "general",
+                          company_id: int = None, dept_id: int = None,
+                          rbac_tags: Union[str, list] = None, meta_tags: Union[str, list] = None,
+                          pre_generated_embeddings: bool = False) -> str:
+    """
+    **STAGE 4: EMBEDDING & PERSISTENCE.** Generates embeddings for chunks (or uses pre-generated ones), 
     stores them in the **Vector Database (VDB)** for similarity search, 
     and persists metadata into the local **SQLite tracking DB** (Document/Chunk Metadata Models).
+
+    OPTIMIZATION: Supports pre-generated embeddings from parallel embedding generation in ingestion pipeline.
 
     Args:
         chunks (str): JSON string returned by `chunk_document_tool`.
@@ -384,10 +487,22 @@ def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_servic
         vectordb_service: Service object for VDB .collection.add(...).
         metadata (str): JSON string of document-level metadata (from `extract_metadata_tool`).
         rbac_namespace (str): Namespace/Collection name used for Access Control filtering.
+        company_id (int): Optional company identifier for RBAC ownership.
+        dept_id (int): Optional department identifier for RBAC ownership.
+        rbac_tags (list): RBAC access control tags. Format: ["rbac:{company_id}:{dept_id}:viewer", ...]
+        meta_tags (list): Semantic metadata tags. Format: ["meta:dept:{dept_id}", "meta:company:{company_id}", ...]
+        pre_generated_embeddings (bool): If True, use embeddings from chunk['embedding'] instead of generating
 
     Returns:
-        str: JSON with 'success', 'doc_id', 'chunks_saved', and VDB details.
-             Example Success: {"success": true, "doc_id": "...", "chunks_saved": 10, "rbac_namespace": "..."}
+        str: JSON with 'success', 'doc_id', 'chunks_saved', rbac_tags, meta_tags, and VDB details.
+             Example Success: {
+                "success": true, 
+                "doc_id": "...", 
+                "chunks_saved": 10, 
+                "rbac_namespace": "...",
+                "rbac_tags": ["rbac:1:2:viewer", ...],
+                "meta_tags": ["meta:dept:2", ...]
+             }
     """
     try:
         chunks_data = json.loads(chunks) if isinstance(chunks, str) else chunks
@@ -405,21 +520,42 @@ def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_servic
         # 2. Prepare Data Structures
         chunk_ids, embeddings, texts, metadatas = [], [], [], []
         
+        # Handle rbac_tags and meta_tags - they can be strings or lists
+        # Convert to strings if they're lists (for ChromaDB compatibility)
+        if isinstance(rbac_tags, list):
+            rbac_tags = ";".join(str(tag) for tag in rbac_tags) if rbac_tags else ""
+        elif not rbac_tags:
+            rbac_tags = ""
+            
+        if isinstance(meta_tags, list):
+            meta_tags = ";".join(str(tag) for tag in meta_tags) if meta_tags else ""
+        elif not meta_tags:
+            meta_tags = ""
+        
         cleaned_doc_metadata = {
             "doc_id": doc_id,
             "rbac_namespace": rbac_namespace,
             "ingestion_date": datetime.datetime.now().isoformat(),
+            **({"company_id": company_id} if company_id else {}),
+            **({"dept_id": dept_id} if dept_id else {}),
+            **({"rbac_tags": rbac_tags} if rbac_tags else {}),
+            **({"meta_tags": meta_tags} if meta_tags else {}),
             **{k: (json.dumps(v) if isinstance(v, (list, dict)) else str(v)) 
                for k, v in doc_metadata.items()}
         }
         
-        # 3. Process Chunks (Generate Embeddings & Append)
+        # 3. Process Chunks (Generate Embeddings or Use Pre-Generated & Append)
         for chunk in chunk_list:
             chunk_text = chunk.get('text', '').strip()
             if not chunk_text: continue
             
             chunk_id = f"{doc_id}_chunk_{chunk.get('index', 0)}"
-            embedding = llm_service.generate_embedding(chunk_text)
+            
+            # Use pre-generated embedding or generate new one
+            if pre_generated_embeddings and 'embedding' in chunk and chunk['embedding'] is not None:
+                embedding = chunk['embedding']
+            else:
+                embedding = llm_service.generate_embedding(chunk_text)
             
             chunk_ids.append(chunk_id)
             embeddings.append(embedding)
@@ -433,7 +569,7 @@ def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_servic
         if not chunk_ids:
             return json.dumps({"success": False, "error": "No valid chunk text found after processing."})
         
-        # 4. Add to Vector DB (ChromaDB)
+        # 4. Add to Vector DB (ChromaDB) - with pre-generated or new embeddings
         vectordb_service.collection.add(
             ids=chunk_ids,
             documents=texts,
@@ -441,7 +577,9 @@ def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_servic
             metadatas=metadatas
         )
         
-        # 5. Save to SQLite optimized schema (for audit and healing)
+        # 5. CRITICAL: Save to SQLite for audit trail, healing, and metadata tracking
+        # This ensures all chunks are recorded in the database regardless of embedding source
+        # (whether pre-generated in parallel or generated sequentially here)
         try:
             # Assumed imports for models (must exist in the relative path)
             from ...database.models.document_metadata_model import DocumentMetadataModel
@@ -459,7 +597,11 @@ def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_servic
                 chunk_strategy="recursive_splitter",
                 chunk_size_char=500,
                 overlap_char=50,
-                metadata_json=json.dumps(doc_metadata)
+                metadata_json=json.dumps(doc_metadata),
+                company_id=company_id,
+                dept_id=dept_id,
+                rbac_tags=json.dumps(rbac_tags),  # Store RBAC tags in document record
+                meta_tags=json.dumps(meta_tags)   # Store semantic tags in document record
             )
             
             chunk_model = ChunkEmbeddingDataModel()
@@ -471,11 +613,10 @@ def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_servic
                     embedding_version="1.0",
                     quality_score=0.8, 
                     reindex_count=0,
-                    healing_suggestions=json.dumps({})
+                    healing_suggestions=json.dumps({}),
+                    rbac_tags=json.dumps(rbac_tags),      # Store RBAC tags for each chunk
+                    meta_tags=json.dumps(meta_tags)       # Store semantic tags for each chunk
                 )
-            
-            doc_model.close()
-            chunk_model.close()
             
         except Exception as e:
             # Log SQLite failure but continue if VDB write succeeded
@@ -486,6 +627,8 @@ def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_servic
             "doc_id": doc_id,
             "chunks_saved": len(chunk_ids),
             "rbac_namespace": rbac_namespace,
+            "rbac_tags": rbac_tags,
+            "meta_tags": meta_tags,
         })
         
     except Exception as e:
@@ -494,11 +637,12 @@ def save_to_vectordb_tool(chunks: str, doc_id: str, llm_service, vectordb_servic
 
 @tool
 def update_metadata_tracking_tool(doc_id: str, source_path: str, rbac_namespace: str, 
-                                 metadata: str, chunks_saved: int, is_table: bool = False) -> str:
+                                 metadata: str, chunks_saved: int, company_id: int = None,
+                                 dept_id: int = None, is_table: bool = False, tags: str = None) -> str:
     """
     **STAGE 5: FINAL AUDIT LOG.** Updates the central high-level **DocumentTrackingModel**
     in SQLite to finalize the ingestion record, marking the document as completed 
-    with a traceable audit trail.
+    with a traceable audit trail including RBAC and Meta tags.
     
     Args:
         doc_id (str): Unique identifier for the document or table.
@@ -506,10 +650,13 @@ def update_metadata_tracking_tool(doc_id: str, source_path: str, rbac_namespace:
         rbac_namespace (str): The domain/namespace used for VDB.
         metadata (str): JSON string of document-level metadata (from LLM extraction).
         chunks_saved (int): Number of embeddings successfully stored in VDB.
+        company_id (int): Optional company identifier for RBAC ownership.
+        dept_id (int): Optional department identifier for RBAC ownership.
         is_table (bool): True if the source was a database table.
+        tags (str): JSON string containing {"rbac_tags": [...], "meta_tags": [...]}
 
     Returns:
-        str: JSON with 'success' status. Example Success: {"success": true}
+        str: JSON with 'success' status and tags. Example: {"success": true, "rbac_tags": [...], "meta_tags": [...]}
     """
     try:
         rag_db_path = EnvConfig.get_db_path()
@@ -528,6 +675,8 @@ def update_metadata_tracking_tool(doc_id: str, source_path: str, rbac_namespace:
                 'rbac_namespace': rbac_namespace,
                 'doc_type': doc_metadata_dict.get('doc_type', 'unknown'),
                 'chunks_saved': chunks_saved,
+                'company_id': company_id,
+                'dept_id': dept_id,
                 'is_table': 1 if is_table else 0,
                 'ingestion_date': datetime.datetime.now().isoformat(),
                 'ingestion_status': 'COMPLETED',
@@ -541,7 +690,17 @@ def update_metadata_tracking_tool(doc_id: str, source_path: str, rbac_namespace:
             print(f"[WARNING] DocumentTrackingModel not available for doc_id={doc_id}")
         
         rag_conn.close()
-        return json.dumps({"success": True})
+        
+        # Parse and return tags if provided
+        result_tags = {"rbac_tags": [], "meta_tags": []}
+        if tags:
+            try:
+                parsed_tags = json.loads(tags) if isinstance(tags, str) else tags
+                result_tags = parsed_tags
+            except:
+                pass
+        
+        return json.dumps({"success": True, **result_tags})
         
     except Exception as e:
         return json.dumps({"success": False, "error": f"Metadata tracking failed: {str(e)}"})

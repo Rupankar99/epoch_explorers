@@ -54,7 +54,7 @@
       "type": "ollama",
       "base_url": "http://localhost:11434",
       "model": "nomic-embed-text",
-      "enabled": false
+      "enabled": true
     },
     "azure_embedding": {
       "type": "azure",
@@ -73,24 +73,10 @@
   },
   "default_embedding_provider": "ollama",
   "database": {
-    "db_path": "./data/incident_iq.db",
+    "db_path": "src/database/data/incident_iq.db",
     "chroma_persist_dir": "./data/chroma_index"
   },
   "cache": {
     "tiktoken_cache_dir": "./token"
-  }
-}
-
-
-
-
-
-
-{
-  "vectorid": 1,
-  "embedding":[0.1, 0.2, 0.3, 0.4, 0.5]
-  "tag": {
-    "rbac": ["general","company","accounting","users"], ,
-    "meta_tag":["salaray","finance"]
   }
 }

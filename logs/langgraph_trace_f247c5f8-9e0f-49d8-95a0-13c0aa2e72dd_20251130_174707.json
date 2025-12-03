@@ -1,0 +1,207 @@
+{
+  "session_id": "f247c5f8-9e0f-49d8-95a0-13c0aa2e72dd",
+  "start_time": "2025-11-30T17:46:57.986252",
+  "total_duration_ms": 9061.31362915039,
+  "nodes_executed": [
+    {
+      "timestamp": 1764505017.9862673,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "where is haldia situated ",
+        "doc_id": null,
+        "session_id": "f247c5f8-9e0f-49d8-95a0-13c0aa2e72dd",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 4,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 3,
+        "is_root_user": false,
+        "user_company_id": 4,
+        "user_dept_id": 1,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764505027.0471401,
+      "duration_ms": 9060.808658599854,
+      "state_after": {
+        "question": "where is haldia situated ",
+        "doc_id": null,
+        "session_id": "f247c5f8-9e0f-49d8-95a0-13c0aa2e72dd",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 4,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 3,
+        "is_root_user": false,
+        "user_company_id": 4,
+        "user_dept_id": 1,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "location"
+        ],
+        "context": {
+          "context": [
+            {
+              "text": "Haldia Port\nNickname: Petrochemical City\nHaldia is located in West BengalHaldiaHaldia\nShow map of West Bengal\nShow map of India\nShow all\nCoordinates: 22.0667\u00b0N 88.0698\u00b0E\nCountry\tIndia\nState\t West Bengal\nDistrict\tPurba Medinipur\nGovernment\n \u2022 Type\tMunicipality\n \u2022 Body\t\nHaldia Municipality\nHaldia Development Authority\nArea[1][2]\n \u2022 Metropolis\n110 km2 (42 sq mi)\n \u2022 Metro[3]\t1,982 km2 (765 sq mi)\nPopulation (2011)[3]\n \u2022 Metropolis\n200,762\n \u2022 Metro[3]\t2,749,364",
+              "score": 0.23050761222839355,
+              "metadata": {
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "chunk_index": 2,
+                "rbac_tags": "rbac:4:1",
+                "company_id": 4,
+                "doc_id": "haldia",
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "dept_id": 1
+              }
+            },
+            {
+              "text": "Haldia is also a base of the Indian Coast Guard.[citation needed] Indian coast guard DHQ 8 (Headquarters for West Bengal) is located at Haldia.[citation needed] There is a hoverport to house four of the eighteen hovercraft belonging to the Indian Coast Guard. The Indian coast guard also has a pontoon jetty to berth a fleet of ships.[citation needed] Presently two fast patrol vessels, one inshore patrol vessels, and one small craft are based at Haldia.[citation needed]",
+              "score": 0.2334352731704712,
+              "metadata": {
+                "company_id": 4,
+                "chunk_index": 14,
+                "rbac_namespace": "root",
+                "dept_id": 1,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "rbac_tags": "rbac:4:1",
+                "doc_id": "haldia",
+                "ingestion_date": "2025-11-30T16:14:36.658104"
+              }
+            },
+            {
+              "text": "KamalpurCT Garh Kamalpur (CT)CT Garh Kamalpur (CT)\n   \nCities and towns in Haldia subdivision of Purba Medinipur district\nM: municipal city/ town, CT: census town, R: rural/ urban centre, S: port\nOwing to space constraints in the small map, the actual locations in a larger map may vary slightly\nLocation\nHaldia is located at 22.03\u00b0N 88.06\u00b0E.[5] It has an average elevation of 8 metres (26 ft).",
+              "score": 0.258012592792511,
+              "metadata": {
+                "doc_id": "haldia",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:4:1",
+                "chunk_index": 7,
+                "dept_id": 1,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "company_id": 4,
+                "ingestion_date": "2025-11-30T16:14:36.658104"
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_4",
+        "retrieval_quality": 0.6,
+        "rbac_filter_applied": {
+          "rbac_tags": {
+            "$eq": "rbac:4:1"
+          }
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "Haldia is also a base of the Indian Coast Guard.[citation needed] Indian coast guard DHQ 8 (Headquarters for West Bengal) is located at Haldia.[citation needed] There is a hoverport to house four of the eighteen hovercraft belonging to the Indian Coast Guard. The Indian coast guard also has a pontoon jetty to berth a fleet of ships.[citation needed] Presently two fast patrol vessels, one inshore patrol vessels, and one small craft are based at Haldia.[citation needed]",
+              "metadata": {
+                "company_id": 4,
+                "chunk_index": 14,
+                "rbac_namespace": "root",
+                "dept_id": 1,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "rbac_tags": "rbac:4:1",
+                "doc_id": "haldia",
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "relevance_score": 0.82,
+                "similarity_score": 0.767,
+                "original_distance": 0.233,
+                "text_length": 472
+              }
+            },
+            {
+              "text": "Haldia Port\nNickname: Petrochemical City\nHaldia is located in West BengalHaldiaHaldia\nShow map of West Bengal\nShow map of India\nShow all\nCoordinates: 22.0667\u00b0N 88.0698\u00b0E\nCountry\tIndia\nState\t West Bengal\nDistrict\tPurba Medinipur\nGovernment\n \u2022 Type\tMunicipality\n \u2022 Body\t\nHaldia Municipality\nHaldia Development Authority\nArea[1][2]\n \u2022 Metropolis\n110 km2 (42 sq mi)\n \u2022 Metro[3]\t1,982 km2 (765 sq mi)\nPopulation (2011)[3]\n \u2022 Metropolis\n200,762\n \u2022 Metro[3]\t2,749,364",
+              "metadata": {
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "chunk_index": 2,
+                "rbac_tags": "rbac:4:1",
+                "company_id": 4,
+                "doc_id": "haldia",
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "dept_id": 1,
+                "relevance_score": 0.815,
+                "similarity_score": 0.769,
+                "original_distance": 0.231,
+                "text_length": 460
+              }
+            },
+            {
+              "text": "KamalpurCT Garh Kamalpur (CT)CT Garh Kamalpur (CT)\n   \nCities and towns in Haldia subdivision of Purba Medinipur district\nM: municipal city/ town, CT: census town, R: rural/ urban centre, S: port\nOwing to space constraints in the small map, the actual locations in a larger map may vary slightly\nLocation\nHaldia is located at 22.03\u00b0N 88.06\u00b0E.[5] It has an average elevation of 8 metres (26 ft).",
+              "metadata": {
+                "doc_id": "haldia",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:4:1",
+                "chunk_index": 7,
+                "dept_id": 1,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "company_id": 4,
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "relevance_score": 0.756,
+                "similarity_score": 0.742,
+                "original_distance": 0.258,
+                "text_length": 394
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=0.60, Results=3",
+        "answer": "I found some documents, but they don't seem to match your question well.\n\nYour Question: \"where is haldia situated \"\nConfidence Score: 0.0%\nDetected Topic: general\n\nThe available documents are about: general topics\n\nCould you please:\n1. Rephrase your question to be more specific, or\n2. Provide more context about what you're looking for, or\n3. Try one of these alternative searches:\n   - general search\n",
+        "query_logged_id": 254,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "where is haldia situated ",
+            "sources_used": 3,
+            "documents": [
+              {
+                "doc_id": "haldia",
+                "chunk_index": 14,
+                "similarity_score": 0.0,
+                "text_preview": "Haldia is also a base of the Indian Coast Guard.[citation needed] Indian coast guard DHQ 8 (Headquar..."
+              },
+              {
+                "doc_id": "haldia",
+                "chunk_index": 2,
+                "similarity_score": 0.0,
+                "text_preview": "Haldia Port\nNickname: Petrochemical City\nHaldia is located in West BengalHaldiaHaldia\nShow map of We..."
+              },
+              {
+                "doc_id": "haldia",
+                "chunk_index": 7,
+                "similarity_score": 0.0,
+                "text_preview": "KamalpurCT Garh Kamalpur (CT)CT Garh Kamalpur (CT)\n   \nCities and towns in Haldia subdivision of Pur..."
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 9060.879945755005
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

@@ -1,0 +1,215 @@
+{
+  "session_id": "a20b326f-c691-4d2b-96f1-34fdda5ac74a",
+  "start_time": "2025-11-29T18:04:51.086197",
+  "total_duration_ms": 20085.821628570557,
+  "nodes_executed": [
+    {
+      "timestamp": 1764419691.0862138,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "who is tarun",
+        "doc_id": null,
+        "session_id": "a20b326f-c691-4d2b-96f1-34fdda5ac74a",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started"
+      },
+      "status": "completed",
+      "end_timestamp": 1764419711.1711147,
+      "duration_ms": 20084.76424217224,
+      "state_after": {
+        "question": "who is tarun",
+        "doc_id": null,
+        "session_id": "a20b326f-c691-4d2b-96f1-34fdda5ac74a",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "# tarun\n\n_Document converted to markdown on 2025-11-29T17:21:14.927004_",
+              "score": 0.296089768409729,
+              "metadata": {
+                "ingestion_date": "2025-11-29T17:21:44.149238",
+                "rbac_namespace": "general",
+                "doc_id": "tarun",
+                "chunk_index": 0
+              }
+            },
+            {
+              "text": "&\u051bjV25\u000b6c\u000bVvdc\u052ajaDBi\t3\u001ene^t^5W6ujOwsqw7\u001b$=t;\rn\u06de\b;:s}p~\u001ce8n}p/\u0019*y\u035b\u78c2\u0010\u00b0`Y4&46/>>$\u3badiX7m_l\u042d7\u001dvS\u001bwM\u00e6\r\t[\u04ac\r5k\u001bhRqJ*\u0013s/nRE;kuIu'/J\u001e\u0093Ifl^<d6\u001bo\u001a\u00164\"-H\u03e5Kj7\u0019I;h|",
+              "score": 0.5187793970108032,
+              "metadata": {
+                "doc_id": "tarun",
+                "ingestion_date": "2025-11-29T17:21:44.149238",
+                "chunk_index": 320,
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "\u0012\u0011%\u0005V\u05b8?\u0011eIjn\u06db1_s\u0013%\u000bA'JnAT(M\r\t\t*<\u001b\u0016i4nO*DKkIMu\\H\u0004-9N\u0261^O$:!K\u0004\b8\u0018\u0015E++a\u0010d'T,\u000e\"\u0003\u0003UX\u00174\u0019k'-),\u000bTZqb\u0012\u00163S\u0002\u001a%\u000bQ]=+(\u0364\u0002XB>\u0015@\u000b\u000ecq\b\u000bSC\f)`\u0001=\u0627L)\u0006\u000b\u0005Deg\u0014hu\u001e+j\u0015o\u00015\u0408\u0098O\u0014o\b% f\u0002vwb4f7KF$n\u0006W8\u001cUVx\u001fT(h\u0003\u0280aU?}E\u001d\u3568\fvR\u007fR\u000bv&\u001a'&NHb\b)\u001e\u016br:d8\u0015hh\u0018IQ68B\r8\u001aS)\u000b\u0749\"E\u0014\u0012^\u0012-L\ra'\u000e\u01c7\u0012-89\u0101\u0013rhU-vjQ\be\u00144:\u0011`\u001dF\u001b\u001dO=}\u0014\u0010-\u0003)'|H\u0003zhXvQh\u0513P\u00e1urP5\u289a9\u0003c3",
+              "score": 0.5255618095397949,
+              "metadata": {
+                "chunk_index": 89,
+                "rbac_namespace": "general",
+                "doc_id": "tarun",
+                "ingestion_date": "2025-11-29T17:21:44.149238"
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.5279451608657837,
+              "metadata": {
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 165,
+                "doc_id": "doc_000",
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.5279451608657837,
+              "metadata": {
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "doc_id": "doc_00099",
+                "chunk_index": 165
+              }
+            }
+          ]
+        },
+        "retrieval_quality": 1.0,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "# tarun\n\n_Document converted to markdown on 2025-11-29T17:21:14.927004_",
+              "metadata": {
+                "ingestion_date": "2025-11-29T17:21:44.149238",
+                "rbac_namespace": "general",
+                "doc_id": "tarun",
+                "chunk_index": 0,
+                "relevance_score": 0.535,
+                "similarity_score": 0.704,
+                "original_distance": 0.296,
+                "text_length": 71
+              }
+            },
+            {
+              "text": "\u0012\u0011%\u0005V\u05b8?\u0011eIjn\u06db1_s\u0013%\u000bA'JnAT(M\r\t\t*<\u001b\u0016i4nO*DKkIMu\\H\u0004-9N\u0261^O$:!K\u0004\b8\u0018\u0015E++a\u0010d'T,\u000e\"\u0003\u0003UX\u00174\u0019k'-),\u000bTZqb\u0012\u00163S\u0002\u001a%\u000bQ]=+(\u0364\u0002XB>\u0015@\u000b\u000ecq\b\u000bSC\f)`\u0001=\u0627L)\u0006\u000b\u0005Deg\u0014hu\u001e+j\u0015o\u00015\u0408\u0098O\u0014o\b% f\u0002vwb4f7KF$n\u0006W8\u001cUVx\u001fT(h\u0003\u0280aU?}E\u001d\u3568\fvR\u007fR\u000bv&\u001a'&NHb\b)\u001e\u016br:d8\u0015hh\u0018IQ68B\r8\u001aS)\u000b\u0749\"E\u0014\u0012^\u0012-L\ra'\u000e\u01c7\u0012-89\u0101\u0013rhU-vjQ\be\u00144:\u0011`\u001dF\u001b\u001dO=}\u0014\u0010-\u0003)'|H\u0003zhXvQh\u0513P\u00e1urP5\u289a9\u0003c3",
+              "metadata": {
+                "chunk_index": 89,
+                "rbac_namespace": "general",
+                "doc_id": "tarun",
+                "ingestion_date": "2025-11-29T17:21:44.149238",
+                "relevance_score": 0.505,
+                "similarity_score": 0.474,
+                "original_distance": 0.526,
+                "text_length": 288
+              }
+            },
+            {
+              "text": "&\u051bjV25\u000b6c\u000bVvdc\u052ajaDBi\t3\u001ene^t^5W6ujOwsqw7\u001b$=t;\rn\u06de\b;:s}p~\u001ce8n}p/\u0019*y\u035b\u78c2\u0010\u00b0`Y4&46/>>$\u3badiX7m_l\u042d7\u001dvS\u001bwM\u00e6\r\t[\u04ac\r5k\u001bhRqJ*\u0013s/nRE;kuIu'/J\u001e\u0093Ifl^<d6\u001bo\u001a\u00164\"-H\u03e5Kj7\u0019I;h|",
+              "metadata": {
+                "doc_id": "tarun",
+                "ingestion_date": "2025-11-29T17:21:44.149238",
+                "chunk_index": 320,
+                "rbac_namespace": "general",
+                "relevance_score": 0.425,
+                "similarity_score": 0.481,
+                "original_distance": 0.519,
+                "text_length": 147
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 165,
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "relevance_score": 0.364,
+                "similarity_score": 0.472,
+                "original_distance": 0.528,
+                "text_length": 56
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "doc_id": "doc_00099",
+                "chunk_index": 165,
+                "relevance_score": 0.364,
+                "similarity_score": 0.472,
+                "original_distance": 0.528,
+                "text_length": 56
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"tarun is a Chinese web page, which was converted to markdown format by Alibaba Cloud.\"}",
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "who is tarun",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "tarun",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# tarun\n\n_Document converted to markdown on 2025-11-29T17:21:14.927004_"
+              },
+              {
+                "doc_id": "tarun",
+                "chunk_index": 89,
+                "similarity_score": 0.0,
+                "text_preview": "\u0012\u0011%\u0005V\u05b8?\u0011eIjn\u06db1_s\u0013%\u000bA'JnAT(M\r\t\t*<\u001b\u0016i4nO*DKkIMu\\H\u0004-9N\u0261^O$:!K\u0004\b8\u0018\u0015E++a\u0010d'T,\u000e\"\u0003\u0003UX\u00174\u0019k'-),\u000bTZqb\u0012\u00163S\u0002\u001a%\u000bQ..."
+              },
+              {
+                "doc_id": "tarun",
+                "chunk_index": 320,
+                "similarity_score": 0.0,
+                "text_preview": "&\u051bjV25\u000b6c\u000bVvdc\u052ajaDBi\t3\u001ene^t^5W6ujOwsqw7\u001b$=t;\rn\u06de\b;:s}p~\u001ce8n}p/\u0019*y\u035b\u78c2\u0010\u00b0`Y4&46/>>$\u3badiX7m_l\u042d7\u001dvS\u001bwM\u00e6\r\t[\u04ac\r5..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 20084.848165512085
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

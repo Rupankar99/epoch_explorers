@@ -1,0 +1,215 @@
+{
+  "session_id": "89a52aee-3a32-4dc0-9d66-e01f16dfdd37",
+  "start_time": "2025-11-29T17:15:58.154587",
+  "total_duration_ms": 22010.375022888184,
+  "nodes_executed": [
+    {
+      "timestamp": 1764416758.1546035,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "who is sourav",
+        "doc_id": null,
+        "session_id": "89a52aee-3a32-4dc0-9d66-e01f16dfdd37",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started"
+      },
+      "status": "completed",
+      "end_timestamp": 1764416780.1630955,
+      "duration_ms": 22008.312940597534,
+      "state_after": {
+        "question": "who is sourav",
+        "doc_id": null,
+        "session_id": "89a52aee-3a32-4dc0-9d66-e01f16dfdd37",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "%PDF-1.4\n%\n1 0 obj\n<<\n/Type /Catalog\n/Version /1.4\n/Pages 2 0 R\n/StructTreeRoot 3 0 R\n/MarkInfo 4 0 R\n/Lang (en-IN)\n/ViewerPreferences 5 0 R\n>>\nendobj\n6 0 obj\n<<\n/Title (Sourav Pradhan.pdf.pdf)\n/Creator (Canva)\n/Producer (Canva)\n/CreationDate (D:20250711084635+00'00')\n/ModDate (D:20250711084634+00'00')\n/Keywords (DAGpsHjLSBo,BAGR75_Oytg,0)\n/Author (sourav pradhan)\n>>\nendobj\n2 0 obj\n<<\n/Type /Pages\n/Kids [7 0 R 8 0 R 9 0 R 10 0 R]\n/Count 4\n>>\nendobj\n3 0 obj\n<<\n/Type /StructTreeRoot\n/K [11 0 R]",
+              "score": 0.425329327583313,
+              "metadata": {
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "rbac_namespace": "general",
+                "chunk_index": 1
+              }
+            },
+            {
+              "text": "%PDF-1.4\n%\n1 0 obj\n<<\n/Type /Catalog\n/Version /1.4\n/Pages 2 0 R\n/StructTreeRoot 3 0 R\n/MarkInfo 4 0 R\n/Lang (en-IN)\n/ViewerPreferences 5 0 R\n>>\nendobj\n6 0 obj\n<<\n/Title (Sourav Pradhan.pdf.pdf)\n/Creator (Canva)\n/Producer (Canva)\n/CreationDate (D:20250711084635+00'00')\n/ModDate (D:20250711084634+00'00')\n/Keywords (DAGpsHjLSBo,BAGR75_Oytg,0)\n/Author (sourav pradhan)\n>>\nendobj\n2 0 obj\n<<\n/Type /Pages\n/Kids [7 0 R 8 0 R 9 0 R 10 0 R]\n/Count 4\n>>\nendobj\n3 0 obj\n<<\n/Type /StructTreeRoot\n/K [11 0 R]",
+              "score": 0.425329327583313,
+              "metadata": {
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "chunk_index": 1
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.4687154293060303,
+              "metadata": {
+                "chunk_index": 165,
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.4687154293060303,
+              "metadata": {
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "chunk_index": 165
+              }
+            },
+            {
+              "text": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\fZ+h\b\u0014\fE>S-yV\u0438X\u0007\u89e6\u001fh:B\u0005]xaU\u001f^ 1\"r$V`\u0472pk^l=G6;@?VlFw\u0596\u0015m\u000fS%Mz\u000eL^\b),j\u00164\u0000q \u0000KVG\u0016\u0007\u0302\u0010\u0012XGv\uaaaaA\u000f\u07c48$ej\u06c2\u000f!\u001a7\u04fe\u055b\u0010E+]&\u0016j\u079c\u0005\fU?mN\u0010\u000fE\u0004-\u00056 \u000e\n%A\u001cd\u000558H-\t O[\u0012\u0123,O\u0013\u0247wlI\u0010n\u0018\u0296\u0004q2\u0001DeF\u0010'JAgKxf\u010ei=\\e|\\\f\u007f\u0692 \u000e\u0002\u007f\u001aA\u06d2 \u000e=A\u001cd\u0015iK8\u020a-\tA\u0016\u0004E-\t-\u000eeX\u0296\u0004lzdw\u0004q0\bd\u0011r\u05a7\u01df%\u0016w_^y\u0017\u02e1IR}\u001b",
+              "score": 0.48470717668533325,
+              "metadata": {
+                "doc_id": "doc_00099",
+                "chunk_index": 145,
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general"
+              }
+            }
+          ]
+        },
+        "retrieval_quality": 1.0,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "%PDF-1.4\n%\n1 0 obj\n<<\n/Type /Catalog\n/Version /1.4\n/Pages 2 0 R\n/StructTreeRoot 3 0 R\n/MarkInfo 4 0 R\n/Lang (en-IN)\n/ViewerPreferences 5 0 R\n>>\nendobj\n6 0 obj\n<<\n/Title (Sourav Pradhan.pdf.pdf)\n/Creator (Canva)\n/Producer (Canva)\n/CreationDate (D:20250711084635+00'00')\n/ModDate (D:20250711084634+00'00')\n/Keywords (DAGpsHjLSBo,BAGR75_Oytg,0)\n/Author (sourav pradhan)\n>>\nendobj\n2 0 obj\n<<\n/Type /Pages\n/Kids [7 0 R 8 0 R 9 0 R 10 0 R]\n/Count 4\n>>\nendobj\n3 0 obj\n<<\n/Type /StructTreeRoot\n/K [11 0 R]",
+              "metadata": {
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "rbac_namespace": "general",
+                "chunk_index": 1,
+                "relevance_score": 0.7,
+                "similarity_score": 0.575,
+                "original_distance": 0.425,
+                "text_length": 497
+              }
+            },
+            {
+              "text": "%PDF-1.4\n%\n1 0 obj\n<<\n/Type /Catalog\n/Version /1.4\n/Pages 2 0 R\n/StructTreeRoot 3 0 R\n/MarkInfo 4 0 R\n/Lang (en-IN)\n/ViewerPreferences 5 0 R\n>>\nendobj\n6 0 obj\n<<\n/Title (Sourav Pradhan.pdf.pdf)\n/Creator (Canva)\n/Producer (Canva)\n/CreationDate (D:20250711084635+00'00')\n/ModDate (D:20250711084634+00'00')\n/Keywords (DAGpsHjLSBo,BAGR75_Oytg,0)\n/Author (sourav pradhan)\n>>\nendobj\n2 0 obj\n<<\n/Type /Pages\n/Kids [7 0 R 8 0 R 9 0 R 10 0 R]\n/Count 4\n>>\nendobj\n3 0 obj\n<<\n/Type /StructTreeRoot\n/K [11 0 R]",
+              "metadata": {
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "chunk_index": 1,
+                "relevance_score": 0.7,
+                "similarity_score": 0.575,
+                "original_distance": 0.425,
+                "text_length": 497
+              }
+            },
+            {
+              "text": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\fZ+h\b\u0014\fE>S-yV\u0438X\u0007\u89e6\u001fh:B\u0005]xaU\u001f^ 1\"r$V`\u0472pk^l=G6;@?VlFw\u0596\u0015m\u000fS%Mz\u000eL^\b),j\u00164\u0000q \u0000KVG\u0016\u0007\u0302\u0010\u0012XGv\uaaaaA\u000f\u07c48$ej\u06c2\u000f!\u001a7\u04fe\u055b\u0010E+]&\u0016j\u079c\u0005\fU?mN\u0010\u000fE\u0004-\u00056 \u000e\n%A\u001cd\u000558H-\t O[\u0012\u0123,O\u0013\u0247wlI\u0010n\u0018\u0296\u0004q2\u0001DeF\u0010'JAgKxf\u010ei=\\e|\\\f\u007f\u0692 \u000e\u0002\u007f\u001aA\u06d2 \u000e=A\u001cd\u0015iK8\u020a-\tA\u0016\u0004E-\t-\u000eeX\u0296\u0004lzdw\u0004q0\bd\u0011r\u05a7\u01df%\u0016w_^y\u0017\u02e1IR}\u001b",
+              "metadata": {
+                "doc_id": "doc_00099",
+                "chunk_index": 145,
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "relevance_score": 0.558,
+                "similarity_score": 0.515,
+                "original_distance": 0.485,
+                "text_length": 328
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "chunk_index": 165,
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "rbac_namespace": "general",
+                "relevance_score": 0.405,
+                "similarity_score": 0.531,
+                "original_distance": 0.469,
+                "text_length": 56
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "chunk_index": 165,
+                "relevance_score": 0.405,
+                "similarity_score": 0.531,
+                "original_distance": 0.469,
+                "text_length": 56
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"Sourav Pradhan\"}",
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "who is sourav",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "%PDF-1.4\n%\n1 0 obj\n<<\n/Type /Catalog\n/Version /1.4\n/Pages 2 0 R\n/StructTreeRoot 3 0 R\n/MarkInfo 4 0 ..."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "%PDF-1.4\n%\n1 0 obj\n<<\n/Type /Catalog\n/Version /1.4\n/Pages 2 0 R\n/StructTreeRoot 3 0 R\n/MarkInfo 4 0 ..."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 145,
+                "similarity_score": 0.0,
+                "text_preview": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\f..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 22008.48436355591
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

@@ -1,0 +1,100 @@
+{
+  "session_id": "6fe9e43e-1b68-41ab-bba7-4dc4f8b0a929",
+  "start_time": "2025-11-30T13:55:24.206421",
+  "total_duration_ms": 8565.125226974487,
+  "nodes_executed": [
+    {
+      "timestamp": 1764491124.2064373,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "6fe9e43e-1b68-41ab-bba7-4dc4f8b0a929",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764491132.770955,
+      "duration_ms": 8564.459562301636,
+      "state_after": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "6fe9e43e-1b68-41ab-bba7-4dc4f8b0a929",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "findings",
+          "reports",
+          "key",
+          "results",
+          "analysis"
+        ],
+        "context": {
+          "context": []
+        },
+        "collection_name": "agent_memory",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": "None:None"
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {
+            "k_final": 6,
+            "chunk_size": 512
+          },
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "query_logged_id": 31,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the key findings in the reports?",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 8564.522981643677
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

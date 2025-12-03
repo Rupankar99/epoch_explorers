@@ -1,0 +1,212 @@
+{
+  "session_id": "65c62d7e-0c48-427c-b02c-088d757abaea",
+  "start_time": "2025-11-29T18:09:18.917654",
+  "total_duration_ms": 9403.971195220947,
+  "nodes_executed": [
+    {
+      "timestamp": 1764419958.9176617,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "what is incidents ",
+        "doc_id": null,
+        "session_id": "65c62d7e-0c48-427c-b02c-088d757abaea",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started"
+      },
+      "status": "completed",
+      "end_timestamp": 1764419968.320682,
+      "duration_ms": 9402.955770492554,
+      "state_after": {
+        "question": "what is incidents ",
+        "doc_id": null,
+        "session_id": "65c62d7e-0c48-427c-b02c-088d757abaea",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "# 123456\n\n_Document converted to markdown on 2025-11-29T18:07:12.989245_\n\nincidents a dog",
+              "score": 0.38850533962249756,
+              "metadata": {
+                "ingestion_date": "2025-11-29T18:07:23.444171",
+                "doc_id": "123456",
+                "chunk_index": 0,
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "score": 0.3912675976753235,
+              "metadata": {
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 0
+              }
+            },
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "score": 0.5650769472122192,
+              "metadata": {
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 398,
+                "rbac_namespace": "general",
+                "doc_id": "doc_000"
+              }
+            },
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "score": 0.5650769472122192,
+              "metadata": {
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 398,
+                "rbac_namespace": "general",
+                "doc_id": "doc_00099"
+              }
+            },
+            {
+              "text": "122 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 230 0 R\n/T (Implemented PII Data Classification and governed secure handling of sensitive data across Azure assets.)\n/E (Implemented PII Data Classification and governed secure handling of sensitive data across Azure assets.)\n/Pg 9 0 R\n/K [12]\n>>\nendobj\n123 0 obj\n<<\n/Type /StructElem\n/S /H1",
+              "score": 0.5738804340362549,
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 400,
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            }
+          ]
+        },
+        "retrieval_quality": 1.0,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "metadata": {
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 398,
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "relevance_score": 0.54,
+                "similarity_score": 0.435,
+                "original_distance": 0.565,
+                "text_length": 393
+              }
+            },
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "metadata": {
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 398,
+                "rbac_namespace": "general",
+                "doc_id": "doc_00099",
+                "relevance_score": 0.54,
+                "similarity_score": 0.435,
+                "original_distance": 0.565,
+                "text_length": 393
+              }
+            },
+            {
+              "text": "122 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 230 0 R\n/T (Implemented PII Data Classification and governed secure handling of sensitive data across Azure assets.)\n/E (Implemented PII Data Classification and governed secure handling of sensitive data across Azure assets.)\n/Pg 9 0 R\n/K [12]\n>>\nendobj\n123 0 obj\n<<\n/Type /StructElem\n/S /H1",
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 400,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.497,
+                "similarity_score": 0.426,
+                "original_distance": 0.574,
+                "text_length": 332
+              }
+            },
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "metadata": {
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 0,
+                "relevance_score": 0.484,
+                "similarity_score": 0.609,
+                "original_distance": 0.391,
+                "text_length": 97
+              }
+            },
+            {
+              "text": "# 123456\n\n_Document converted to markdown on 2025-11-29T18:07:12.989245_\n\nincidents a dog",
+              "metadata": {
+                "ingestion_date": "2025-11-29T18:07:23.444171",
+                "doc_id": "123456",
+                "chunk_index": 0,
+                "rbac_namespace": "general",
+                "relevance_score": 0.481,
+                "similarity_score": 0.611,
+                "original_distance": 0.389,
+                "text_length": 89
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"Incidents refers to the events or occurrences that cause problems, difficulties, or issues. In this context, it likely refers to data-related issues or errors in an application or system.\"}",
+        "query_logged_id": 6,
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "what is incidents ",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 398,
+                "similarity_score": 0.0,
+                "text_preview": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frame..."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 398,
+                "similarity_score": 0.0,
+                "text_preview": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frame..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 400,
+                "similarity_score": 0.0,
+                "text_preview": "122 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 230 0 R\n/T (Implemented PII Data Classification and governe..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss ."
+              },
+              {
+                "doc_id": "123456",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# 123456\n\n_Document converted to markdown on 2025-11-29T18:07:12.989245_\n\nincidents a dog"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 9403.00965309143
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

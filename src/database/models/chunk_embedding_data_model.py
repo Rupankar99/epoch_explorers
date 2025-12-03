@@ -15,7 +15,7 @@ class ChunkEmbeddingDataModel(BaseModel):
     fields = [
         'chunk_id', 'doc_id', 'embedding_model', 'embedding_version', 
         'quality_score', 'reindex_count', 'healing_suggestions', 
-        'created_at', 'last_healed'
+        'rbac_tags', 'meta_tags', 'created_at', 'last_healed'
     ]
     
     def __init__(self, conn=None):
@@ -38,9 +38,14 @@ class ChunkEmbeddingDataModel(BaseModel):
 
     def create(self, chunk_id: str, doc_id: str, embedding_model: str,
                  embedding_version: str = "1.0", quality_score: float = 0.8,
-                 reindex_count: int = 0, healing_suggestions: str = None) -> bool:
+                 reindex_count: int = 0, healing_suggestions: str = None,
+                 rbac_tags: str = None, meta_tags: str = None) -> bool:
         """
         Create or update a chunk embedding record using INSERT OR REPLACE.
+        
+        Args:
+            rbac_tags: JSON string of RBAC access control tags
+            meta_tags: JSON string of semantic metadata tags
         """
         try:
             now_iso = datetime.now().isoformat()
@@ -49,7 +54,9 @@ class ChunkEmbeddingDataModel(BaseModel):
             data = (
                 chunk_id, doc_id, embedding_model, embedding_version, 
                 quality_score, reindex_count, 
-                healing_suggestions or json.dumps({}), 
+                healing_suggestions or json.dumps({}),
+                rbac_tags or json.dumps([]),  # Store RBAC tags as JSON
+                meta_tags or json.dumps([]),  # Store semantic tags as JSON
                 now_iso, 
                 None # last_healed is NULL initially
             )

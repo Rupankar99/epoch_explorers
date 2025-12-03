@@ -3,7 +3,7 @@
 
 def run(conn):
     conn.execute('''
-CREATE TABLE chunk_embedding_data (
+CREATE TABLE IF NOT EXISTS chunk_embedding_data (
     chunk_id TEXT PRIMARY KEY,
     doc_id TEXT NOT NULL,
     

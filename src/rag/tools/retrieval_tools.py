@@ -1,24 +1,119 @@
 """Retrieval Agent Tools
 
 A complete set of tools for a RAG Retrieval Agent with unified, working functions:
-- retrieve_context_tool: Retrieve relevant documents
-- rerank_context_tool: Rerank by relevance
-- answer_question_tool: Generate answer
+- retrieve_context_tool: Retrieve relevant documents with meta-tagging
+- rerank_context_tool: Rerank by relevance with confidence scoring
+- answer_question_tool: Generate answer with keyword matching and fallback
 - traceability_tool: Full provenance tracking
 """
 import json
-from typing import List, Dict, Any
+import re
+from typing import List, Dict, Any, Tuple
 from langchain_core.tools import tool
+from collections import Counter
+
+
+# ============================================================================
+# META-TAGGING & KEYWORD EXTRACTION UTILITIES
+# ============================================================================
+
+def extract_keywords(text: str, top_n: int = 5) -> List[str]:
+    """Extract key concepts/keywords from text."""
+    # Remove common stop words
+    stop_words = {
+        'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+        'of', 'with', 'by', 'is', 'are', 'was', 'were', 'be', 'been', 'have',
+        'has', 'had', 'do', 'does', 'did', 'will', 'would', 'could', 'should',
+        'may', 'might', 'must', 'can', 'i', 'you', 'he', 'she', 'it', 'we', 'they'
+    }
+    
+    # Extract words (lowercase, alphanumeric + hyphens/underscores)
+    words = re.findall(r'\b[a-z][a-z\-_]*\b', text.lower())
+    
+    # Filter stop words and short words
+    meaningful = [w for w in words if w not in stop_words and len(w) > 2]
+    
+    # Get most common
+    if meaningful:
+        counter = Counter(meaningful)
+        return [word for word, _ in counter.most_common(top_n)]
+    return []
+
+
+def calculate_keyword_match_score(question_keywords: List[str], context_keywords: List[str]) -> float:
+    """Calculate keyword overlap score (0-1)."""
+    if not question_keywords or not context_keywords:
+        return 0.0
+    
+    # Use Jaccard similarity
+    overlap = len(set(question_keywords) & set(context_keywords))
+    union = len(set(question_keywords) | set(context_keywords))
+    
+    return overlap / union if union > 0 else 0.0
+
+
+def extract_meta_tags(text: str) -> List[str]:
+    """
+    Extract meta tags from text based on predefined categories.
+    Meta tags help classify content for better matching.
+    """
+    meta_tags = []
+    
+    # Semantic domain detection
+    financial_terms = {'revenue', 'profit', 'expense', 'cost', 'budget', 'invoice', 'payment', 'finance', 'accounting'}
+    hr_terms = {'employee', 'hiring', 'recruitment', 'salary', 'benefits', 'leave', 'performance', 'appraisal'}
+    technical_terms = {'system', 'database', 'server', 'software', 'api', 'integration', 'code', 'deployment'}
+    product_terms = {'product', 'feature', 'release', 'version', 'update', 'specification', 'requirement'}
+    process_terms = {'process', 'workflow', 'procedure', 'step', 'stage', 'phase', 'schedule', 'timeline'}
+    
+    text_lower = text.lower()
+    
+    if any(term in text_lower for term in financial_terms):
+        meta_tags.append('financial')
+    if any(term in text_lower for term in hr_terms):
+        meta_tags.append('hr')
+    if any(term in text_lower for term in technical_terms):
+        meta_tags.append('technical')
+    if any(term in text_lower for term in product_terms):
+        meta_tags.append('product')
+    if any(term in text_lower for term in process_terms):
+        meta_tags.append('process')
+    
+    return meta_tags if meta_tags else ['general']
+
+
+def calculate_meta_tag_confidence(question_meta_tags: List[str], context_meta_tags: List[str]) -> float:
+    """
+    Calculate confidence that context matches question based on meta tags.
+    Returns 0-1 confidence score.
+    """
+    if not question_meta_tags or not context_meta_tags:
+        return 0.5  # Medium confidence if no tags
+    
+    # Check for tag overlap
+    overlap_tags = set(question_meta_tags) & set(context_meta_tags)
+    
+    if overlap_tags:
+        # Strong match - both have overlapping tags
+        return min(1.0, len(overlap_tags) / max(len(question_meta_tags), len(context_meta_tags)))
+    
+    # Check for 'general' tag - it matches anything
+    if 'general' in context_meta_tags:
+        return 0.7
+    
+    # No overlap - weak confidence
+    return 0.3
 
 
 # --- Unified retrieval tools ---
 
 @tool
-def retrieve_context_tool(question: str, llm_service, vectordb_service, rbac_namespace: str = "general", k: int = 5) -> str:
-    """Retrieve relevant context from vector database."""
+def retrieve_context_tool(question: str, llm_service, vectordb_service, rbac_namespace: str = "general", k: int = 5, where_clause: dict = None, user_intent_keywords: list = None) -> str:
+    """Retrieve relevant context from vector database with RBAC filtering."""
     try:
         query_embedding = llm_service.generate_embedding(question)
-        results = vectordb_service.search(query_embedding, top_k=k)
+        # Apply where_clause (RBAC filter) if provided
+        results = vectordb_service.search(query_embedding, top_k=k, where_filter=where_clause)
         
         context_list = []
         if results.get('documents') and results['documents'][0]:
@@ -90,29 +185,205 @@ def rerank_context_tool(context: str, llm_service) -> str:
         return json.dumps({"success": False, "error": str(e)})
 
 @tool
-def answer_question_tool(question: str, context: str, llm_service) -> str:
-    """Generate answer based on context."""
+def answer_question_tool(question: str, context: str, llm_service, rbac_context: dict = None, rl_agent=None) -> str:
+    """
+    Generate answer based on context with multi-level confidence analysis.
+    If keyword confidence is low, ask user for clarification instead of hallucinating.
+    """
     try:
         context_data = json.loads(context) if isinstance(context, str) else context
         context_texts = context_data.get('reranked_context', [])
         
+        # DEBUG: Print what we received
+        print(f"[DEBUG ANSWER] Received context type: {type(context_data)}")
+        print(f"[DEBUG ANSWER] Context keys: {list(context_data.keys()) if isinstance(context_data, dict) else 'N/A'}")
+        print(f"[DEBUG ANSWER] Number of reranked items: {len(context_texts)}")
+        
+        # ========================================================================
+        # MULTI-LEVEL CONFIDENCE ANALYSIS (Embedding + Keywords + Meta-Tags)
+        # ========================================================================
+        keyword_match_score = 0.0
+        meta_tag_confidence = 0.5
+        embedding_confidence = 0.5
+        combined_confidence = 0.5
+        meta_tags = []
+        missing_keywords = []
+        context_meta_tags = []
+        
+        if len(context_texts) > 0:
+            # Level 1: EMBEDDING SIMILARITY (from ChromaDB reranking)
+            # The reranked_context already has relevance_score from vector similarity
+            embedding_scores = [c.get('metadata', {}).get('relevance_score', 0.5) for c in context_texts]
+            embedding_confidence = sum(embedding_scores) / len(embedding_scores) if embedding_scores else 0.5
+            print(f"[DEBUG CONFIDENCE] Embedding scores: {embedding_scores}")
+            print(f"[DEBUG CONFIDENCE] Average embedding confidence: {embedding_confidence:.3f}")
+            
+            # Level 2: KEYWORD MATCHING (exact word overlap)
+            if rl_agent:
+                context_only = [c['text'] for c in context_texts]
+                keyword_match_score, meta_tags, missing_keywords = rl_agent.analyze_keyword_match(question, context_only)
+                
+                # Level 3: META-TAG MATCHING (semantic domain)
+                combined_context = " ".join(context_only)
+                context_meta_tags = rl_agent.extract_meta_tags(combined_context)
+                question_meta_tags = rl_agent.extract_meta_tags(question)
+                meta_tag_confidence = rl_agent.calculate_meta_tag_confidence(question_meta_tags, context_meta_tags)
+                
+                print(f"[DEBUG CONFIDENCE] Keyword match score: {keyword_match_score:.3f}")
+                print(f"[DEBUG CONFIDENCE] Meta-tag confidence: {meta_tag_confidence:.3f}")
+                print(f"[DEBUG CONFIDENCE] Missing keywords: {missing_keywords}")
+                print(f"[DEBUG CONFIDENCE] Context tags: {context_meta_tags}, Question tags: {question_meta_tags}")
+            
+            # Combined confidence: Weight all three factors
+            # Embedding similarity is most important (if ChromaDB found it, it's relevant)
+            combined_confidence = (
+                0.5 * embedding_confidence +      # 50% - Embedding/vector similarity (most important)
+                0.3 * meta_tag_confidence +       # 30% - Semantic domain matching
+                0.2 * keyword_match_score        # 20% - Exact keyword overlap (least important, can be low for synonyms)
+            )
+            print(f"[DEBUG CONFIDENCE] Combined confidence: {combined_confidence:.3f}")
+            print(f"[DEBUG CONFIDENCE] Formula: (0.5 * {embedding_confidence:.3f}) + (0.3 * {meta_tag_confidence:.3f}) + (0.2 * {keyword_match_score:.3f}) = {combined_confidence:.3f}")
+        
+        # ========================================================================
+        # LOW CONFIDENCE FALLBACK: ASK USER FOR CLARIFICATION
+        # ========================================================================
+        # Only ask for clarification if BOTH embedding AND meta-tags are weak
+        # (Don't reject just because keywords don't match - synonyms won't match)
+        if embedding_confidence < 0.4 and meta_tag_confidence < 0.4:
+            # Both vector similarity AND semantic domain are weak - likely irrelevant
+            print(f"[DEBUG ANSWER] LOW CONFIDENCE DETECTED: embedding={embedding_confidence:.3f}, meta={meta_tag_confidence:.3f}")
+            
+            # Generate clarification request
+            clarification_message = f"""I found some documents, but they don't seem to match your question well.
+
+Your Question: "{question}"
+Confidence Score: {combined_confidence:.1%}
+Detected Topic: {', '.join(meta_tags) if meta_tags else 'general'}
+
+The available documents are about: {', '.join(context_meta_tags) if context_meta_tags else 'general topics'}
+
+Could you please:
+1. Rephrase your question to be more specific, or
+2. Provide more context about what you're looking for, or
+3. Try one of these alternative searches:
+   - {' | '.join(rl_agent._generate_alternative_queries(meta_tags) if rl_agent else ['general search'])}
+"""
+            
+            return json.dumps({
+                "success": True,
+                "answer": clarification_message,
+                "confidence": "LOW",
+                "requires_clarification": True,
+                "combined_confidence": combined_confidence,
+                "embedding_confidence": embedding_confidence,
+                "keyword_match_score": keyword_match_score,
+                "meta_tag_confidence": meta_tag_confidence,
+                "missing_keywords": missing_keywords,
+                "suggested_topics": context_meta_tags
+            })
+        
+        # Handle case where no context is available (could be RBAC-related)
         if not context_texts:
-            return json.dumps({"success": True, "answer": "No context available to answer the question."})
+            # Check if this is likely a RBAC access denial
+            if rbac_context and not rbac_context.get('is_root_user', False):
+                # User is not root and has no results - likely RBAC denial
+                user_id = rbac_context.get('user_id', 'Unknown')
+                user_company = rbac_context.get('user_company_id', 'Unknown')
+                user_dept = rbac_context.get('user_dept_id', 'Unknown')
+                
+                # Generate intelligent error message via LLM
+                error_prompt = f"""You are a helpful assistant explaining access control restrictions.
+
+A user (User ID: {user_id}) with access to Company {user_company}, Department {user_dept} asked:
+"{question}"
+
+However, no matching documents were found. This could be because:
+1. The requested information is in a different company or department they don't have access to
+2. The information doesn't exist in their authorized scope
+3. They need additional permissions
+
+Generate a brief, professional message explaining:
+- They don't have access to the requested information
+- Their current authorization level (Company {user_company}, Department {user_dept})
+- Suggestion to contact their administrator for additional access
+
+Keep the message concise and helpful."""
+                
+                error_answer = llm_service.generate_response(error_prompt)
+                return json.dumps({
+                    "success": True, 
+                    "answer": error_answer,
+                    "access_denied": True,
+                    "reason": "RBAC access restriction",
+                    "user_context": {
+                        "user_id": user_id,
+                        "authorized_company": user_company,
+                        "authorized_department": user_dept
+                    }
+                })
+            else:
+                # Generic no context message
+                return json.dumps({"success": True, "answer": "No context available to answer the question."})
         
         context_text = "\n\n".join([f"[Source: {c.get('metadata', {}).get('doc_id', 'N/A')}]\n{c['text']}" 
                                       for c in context_texts])
         
-        prompt = f"""Based on the following context, answer the question concisely.
+        # Check relevance scores - warn if low quality matches
+        relevance_scores = [c.get('metadata', {}).get('relevance_score', 0) for c in context_texts]
+        avg_relevance = sum(relevance_scores) / len(relevance_scores) if relevance_scores else 0
+        
+        # DEBUG: Print relevance info
+        print(f"[DEBUG ANSWER] Relevance scores: {relevance_scores}")
+        print(f"[DEBUG ANSWER] Average relevance: {avg_relevance:.3f}")
+        
+        # If average relevance is very low, add warning to prompt
+        low_relevance_warning = ""
+        if avg_relevance < 0.5:
+            low_relevance_warning = "\n⚠️ QUALITY WARNING: Retrieved documents have low relevance scores (avg={:.3f}). Carefully verify context relevance before answering.".format(avg_relevance)
+        
+        # Build a meta-cognitive prompt with Chain-of-Thought reasoning
+        prompt = f"""You are a helpful assistant that answers questions ONLY based on provided context.
+
+=== META-COGNITIVE REASONING (Think step-by-step) ===
+1. READ the context carefully
+2. IDENTIFY: What is this context about? (main topics, subjects)
+3. CHECK: Does the question ask about the same topics?
+4. ANALYZE: Does the context contain specific information to answer the question?
+5. DECIDE: Can I answer truthfully from this context, or should I say I don't have the information?
+
+=== CRITICAL RULES ===
+- NEVER make up or hallucinate information
+- NEVER use external knowledge that's not in the context
+- If the context doesn't match the question, MUST say: "I don't have information about [topic]. The available documents are about: [what they actually cover]"
+- If context is unclear or low quality, admit it rather than guess{low_relevance_warning}
+
+=== YOUR REASONING PROCESS ===
+Before answering, show your thinking:
+1. "Context is about: [identify main topics]"
+2. "Question asks about: [question topic]"
+3. "Match? [yes/no and why]"
+4. "Can answer? [yes/no]"
 
 Context:
 {context_text}
 
 Question: {question}
 
-Answer:"""
+Let me think through this step by step:
+1. Context is about: """
         
         answer = llm_service.generate_response(prompt)
-        return json.dumps({"success": True, "answer": answer})
+        confidence_level = "HIGH" if combined_confidence > 0.7 else "MEDIUM" if combined_confidence > 0.5 else "LOW"
+        return json.dumps({
+            "success": True, 
+            "answer": answer, 
+            "relevance_score": avg_relevance,
+            "combined_confidence": combined_confidence,
+            "embedding_confidence": embedding_confidence,
+            "keyword_match_score": keyword_match_score,
+            "meta_tag_confidence": meta_tag_confidence,
+            "confidence": confidence_level
+        })
     except Exception as e:
         return json.dumps({"success": False, "error": str(e)})
 

@@ -1,0 +1,216 @@
+{
+  "session_id": "b56001b5-3e7d-43de-8e23-068149140352",
+  "start_time": "2025-11-29T17:28:38.802615",
+  "total_duration_ms": 19449.4309425354,
+  "nodes_executed": [
+    {
+      "timestamp": 1764417518.8026419,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "who is sourav",
+        "doc_id": null,
+        "session_id": "b56001b5-3e7d-43de-8e23-068149140352",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started"
+      },
+      "status": "completed",
+      "end_timestamp": 1764417538.2446938,
+      "duration_ms": 19442.005395889282,
+      "state_after": {
+        "question": "who is sourav",
+        "doc_id": null,
+        "session_id": "b56001b5-3e7d-43de-8e23-068149140352",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "# tarun\n\n_Document converted to markdown on 2025-11-29T17:21:14.927004_",
+              "score": 0.4477330446243286,
+              "metadata": {
+                "chunk_index": 0,
+                "ingestion_date": "2025-11-29T17:21:44.149238",
+                "rbac_namespace": "general",
+                "doc_id": "tarun"
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.4687154293060303,
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 165,
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.4687154293060303,
+              "metadata": {
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "chunk_index": 165
+              }
+            },
+            {
+              "text": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\fZ+h\b\u0014\fE>S-yV\u0438X\u0007\u89e6\u001fh:B\u0005]xaU\u001f^ 1\"r$V`\u0472pk^l=G6;@?VlFw\u0596\u0015m\u000fS%Mz\u000eL^\b),j\u00164\u0000q \u0000KVG\u0016\u0007\u0302\u0010\u0012XGv\uaaaaA\u000f\u07c48$ej\u06c2\u000f!\u001a7\u04fe\u055b\u0010E+]&\u0016j\u079c\u0005\fU?mN\u0010\u000fE\u0004-\u00056 \u000e\n%A\u001cd\u000558H-\t O[\u0012\u0123,O\u0013\u0247wlI\u0010n\u0018\u0296\u0004q2\u0001DeF\u0010'JAgKxf\u010ei=\\e|\\\f\u007f\u0692 \u000e\u0002\u007f\u001aA\u06d2 \u000e=A\u001cd\u0015iK8\u020a-\tA\u0016\u0004E-\t-\u000eeX\u0296\u0004lzdw\u0004q0\bd\u0011r\u05a7\u01df%\u0016w_^y\u0017\u02e1IR}\u001b",
+              "score": 0.48470717668533325,
+              "metadata": {
+                "doc_id": "doc_000",
+                "chunk_index": 145,
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\fZ+h\b\u0014\fE>S-yV\u0438X\u0007\u89e6\u001fh:B\u0005]xaU\u001f^ 1\"r$V`\u0472pk^l=G6;@?VlFw\u0596\u0015m\u000fS%Mz\u000eL^\b),j\u00164\u0000q \u0000KVG\u0016\u0007\u0302\u0010\u0012XGv\uaaaaA\u000f\u07c48$ej\u06c2\u000f!\u001a7\u04fe\u055b\u0010E+]&\u0016j\u079c\u0005\fU?mN\u0010\u000fE\u0004-\u00056 \u000e\n%A\u001cd\u000558H-\t O[\u0012\u0123,O\u0013\u0247wlI\u0010n\u0018\u0296\u0004q2\u0001DeF\u0010'JAgKxf\u010ei=\\e|\\\f\u007f\u0692 \u000e\u0002\u007f\u001aA\u06d2 \u000e=A\u001cd\u0015iK8\u020a-\tA\u0016\u0004E-\t-\u000eeX\u0296\u0004lzdw\u0004q0\bd\u0011r\u05a7\u01df%\u0016w_^y\u0017\u02e1IR}\u001b",
+              "score": 0.48470717668533325,
+              "metadata": {
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 145,
+                "doc_id": "doc_00099"
+              }
+            }
+          ]
+        },
+        "retrieval_quality": 1.0,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\fZ+h\b\u0014\fE>S-yV\u0438X\u0007\u89e6\u001fh:B\u0005]xaU\u001f^ 1\"r$V`\u0472pk^l=G6;@?VlFw\u0596\u0015m\u000fS%Mz\u000eL^\b),j\u00164\u0000q \u0000KVG\u0016\u0007\u0302\u0010\u0012XGv\uaaaaA\u000f\u07c48$ej\u06c2\u000f!\u001a7\u04fe\u055b\u0010E+]&\u0016j\u079c\u0005\fU?mN\u0010\u000fE\u0004-\u00056 \u000e\n%A\u001cd\u000558H-\t O[\u0012\u0123,O\u0013\u0247wlI\u0010n\u0018\u0296\u0004q2\u0001DeF\u0010'JAgKxf\u010ei=\\e|\\\f\u007f\u0692 \u000e\u0002\u007f\u001aA\u06d2 \u000e=A\u001cd\u0015iK8\u020a-\tA\u0016\u0004E-\t-\u000eeX\u0296\u0004lzdw\u0004q0\bd\u0011r\u05a7\u01df%\u0016w_^y\u0017\u02e1IR}\u001b",
+              "metadata": {
+                "doc_id": "doc_000",
+                "chunk_index": 145,
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.558,
+                "similarity_score": 0.515,
+                "original_distance": 0.485,
+                "text_length": 328
+              }
+            },
+            {
+              "text": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\fZ+h\b\u0014\fE>S-yV\u0438X\u0007\u89e6\u001fh:B\u0005]xaU\u001f^ 1\"r$V`\u0472pk^l=G6;@?VlFw\u0596\u0015m\u000fS%Mz\u000eL^\b),j\u00164\u0000q \u0000KVG\u0016\u0007\u0302\u0010\u0012XGv\uaaaaA\u000f\u07c48$ej\u06c2\u000f!\u001a7\u04fe\u055b\u0010E+]&\u0016j\u079c\u0005\fU?mN\u0010\u000fE\u0004-\u00056 \u000e\n%A\u001cd\u000558H-\t O[\u0012\u0123,O\u0013\u0247wlI\u0010n\u0018\u0296\u0004q2\u0001DeF\u0010'JAgKxf\u010ei=\\e|\\\f\u007f\u0692 \u000e\u0002\u007f\u001aA\u06d2 \u000e=A\u001cd\u0015iK8\u020a-\tA\u0016\u0004E-\t-\u000eeX\u0296\u0004lzdw\u0004q0\bd\u0011r\u05a7\u01df%\u0016w_^y\u0017\u02e1IR}\u001b",
+              "metadata": {
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 145,
+                "doc_id": "doc_00099",
+                "relevance_score": 0.558,
+                "similarity_score": 0.515,
+                "original_distance": 0.485,
+                "text_length": 328
+              }
+            },
+            {
+              "text": "# tarun\n\n_Document converted to markdown on 2025-11-29T17:21:14.927004_",
+              "metadata": {
+                "chunk_index": 0,
+                "ingestion_date": "2025-11-29T17:21:44.149238",
+                "rbac_namespace": "general",
+                "doc_id": "tarun",
+                "relevance_score": 0.429,
+                "similarity_score": 0.552,
+                "original_distance": 0.448,
+                "text_length": 71
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 165,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.405,
+                "similarity_score": 0.531,
+                "original_distance": 0.469,
+                "text_length": 56
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "chunk_index": 165,
+                "relevance_score": 0.405,
+                "similarity_score": 0.531,
+                "original_distance": 0.469,
+                "text_length": 56
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"Sourav is a character in the given text. He appears in three sources:\\n\\n1. The first source (doc_000) provides some information about Sourav, including his name and some details about him.\\n\\n2. The second source (doc_00099) also mentions Sourav, providing more context about his background and role.\\n\\n3. The third source (tarun) is a summary of the text, which does not contain any specific information about Sourav.\\n\\nTherefore, based on the information provided in these three sources, we can conclude that Sourav is a character or individual mentioned in the given text.\"}",
+        "query_logged_id": 9,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "who is sourav",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 145,
+                "similarity_score": 0.0,
+                "text_preview": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\f..."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 145,
+                "similarity_score": 0.0,
+                "text_preview": "(0y1\u0002\u0014**TA\u000f\u0403\f\u0403t\u001f\u0007Y\u0001\nL*H\u000bP\u0000\u0004\nL^K|f(^\u0004\rVSJ\u0006&)kfSE\u001a\u05b7)kfjF\u0794Tq|\\\f\u0014\u0018U\u0004AV\u0002S+P\u0004AV\u0002Sk\u0005\r\u0002\u0016*\u0000=H\u000bX`e9R8\u0002SnAvXYJ\f..."
+              },
+              {
+                "doc_id": "tarun",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# tarun\n\n_Document converted to markdown on 2025-11-29T17:21:14.927004_"
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 19442.033290863037
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

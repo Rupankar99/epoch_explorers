@@ -1,0 +1,94 @@
+{
+  "session_id": "8e4c38c7-b0fd-4bb0-b2c1-9938bbd62335",
+  "start_time": "2025-11-30T13:55:51.090620",
+  "total_duration_ms": 5945.868015289307,
+  "nodes_executed": [
+    {
+      "timestamp": 1764491151.0906322,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "Provide a summary of the content",
+        "doc_id": null,
+        "session_id": "8e4c38c7-b0fd-4bb0-b2c1-9938bbd62335",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764491157.0361648,
+      "duration_ms": 5945.4827308654785,
+      "state_after": {
+        "question": "Provide a summary of the content",
+        "doc_id": null,
+        "session_id": "8e4c38c7-b0fd-4bb0-b2c1-9938bbd62335",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "summary",
+          "content"
+        ],
+        "context": {
+          "context": []
+        },
+        "collection_name": "agent_memory",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": "None:None"
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {},
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "query_logged_id": 35,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "Provide a summary of the content",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 5945.538520812988
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

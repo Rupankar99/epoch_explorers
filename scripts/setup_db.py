@@ -62,8 +62,9 @@ def run():
 
     run_migrations(conn)
     run_seeders(conn)
-
     
+    conn.close()
+    print("✅ Database setup complete!")
 
 if __name__ == "__main__":
     run()

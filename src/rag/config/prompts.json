@@ -1,0 +1,76 @@
+{
+  "extraction": {
+    "document_keywords": {
+      "template": "Analyze this document and extract exactly 5 key semantic tags/keywords that describe what this document is about.\nThese should be specific business domains or categories like: policy, incident, vacation, budget, contract, etc.\n\nDocument:\n{content}\n\nReturn ONLY a JSON array of exactly 5 lowercase single-word tags, like: [\"policy\", \"incident\", \"vacation\", \"approval\", \"request\"]\nDo NOT include explanations, just the JSON array.",
+      "description": "Extract 5 semantic keywords from document during ingestion",
+      "required_vars": ["content"],
+      "output_format": "json_array"
+    }
+  },
+  "intent": {
+    "user_intent_keywords": {
+      "template": "Analyze this user question and extract exactly 5 key intent/semantic keywords that best describe what the user is searching for.\nThese should be specific business terms or concepts like: policy, incident, vacation, budget, contract, approval, etc.\n\nUser Question:\n{question}\n\nReturn ONLY a JSON array of exactly 5 lowercase single-word keywords, like: [\"policy\", \"incident\", \"vacation\", \"approval\", \"request\"]\nDo NOT include explanations, just the JSON array.",
+      "description": "Extract 5 intent keywords from user question for semantic search",
+      "required_vars": ["question"],
+      "output_format": "json_array"
+    }
+  },
+  "answer_generation": {
+    "answer_from_context": {
+      "template": "Based on the following context, answer the question concisely.\n\nContext:\n{context}\n\nQuestion: {question}\n\nAnswer:",
+      "description": "Generate answer from retrieved context",
+      "required_vars": ["context", "question"],
+      "output_format": "text"
+    },
+    "system_integration_answer": {
+      "template": "Generate a structured answer with metadata for system integration.\n\nContext:\n{context}\n\nQuestion: {question}\n\nProvide:\n1. Answer text\n2. Key entities mentioned\n3. Confidence level (0-1)\n4. Data quality assessment\n\nReturn as JSON.",
+      "description": "Generate structured answer for system integration",
+      "required_vars": ["context", "question"],
+      "output_format": "json"
+    },
+    "verbose_answer": {
+      "template": "Provide a comprehensive answer with detailed explanation and sources.\n\nContext:\n{context}\n\nQuestion: {question}\n\nInclude:\n1. Direct answer\n2. Supporting details\n3. Source references\n4. Related information\n\nProvide a thorough, well-structured response.",
+      "description": "Generate verbose answer with detailed explanations",
+      "required_vars": ["context", "question"],
+      "output_format": "text"
+    }
+  },
+  "retrieval": {
+    "query_rewrite": {
+      "template": "Generate 3-5 alternative search queries (including keyword lists and rephrased questions) that would help find the most relevant context for the user's question.\n\nOriginal Query: \"{question}\"\n\nReturn JSON array of strings with alternative queries.",
+      "description": "Generate alternative queries for improved retrieval",
+      "required_vars": ["question"],
+      "output_format": "json_array"
+    }
+  },
+  "validation": {
+    "guardrail_check": {
+      "template": "Validate this answer against guardrail criteria:\n\nCriteria:\n{criteria}\n\nAnswer:\n{answer}\n\nCheck for:\n1. Hallucination risk\n2. Factual accuracy\n3. Safety concerns\n4. Completeness\n\nReturn JSON with validation results.",
+      "description": "Validate answer against safety guardrails",
+      "required_vars": ["criteria", "answer"],
+      "output_format": "json"
+    }
+  },
+  "optimization": {
+    "system_analysis": {
+      "template": "Analyze system performance metrics and recommend optimizations.\n\nMetrics:\n{metrics}\n\nHistory:\n{history}\n\nProvide recommendations for:\n1. Chunk size optimization\n2. Embedding model improvement\n3. Reranking strategy\n4. Caching optimization\n\nReturn as JSON with recommendations.",
+      "description": "Analyze performance and recommend system optimizations",
+      "required_vars": ["metrics", "history"],
+      "output_format": "json"
+    }
+  },
+  "system_prompts": {
+    "ingestion_specialist": {
+      "template": "You are a professional document ingestion specialist with expertise in RAG systems.\n\nRESPONSIBILITIES:\n1. EXTRACT METADATA: Identify key metadata from documents (title, author, date, topic, keywords)\n2. CHUNK DOCUMENTS: Break documents into semantically meaningful chunks (300-500 tokens)\n3. GENERATE EMBEDDINGS: Create embeddings for each chunk using the embedding service\n4. STORE IN DATABASE: Save all chunks with metadata to the vector database\n5. TRACK METADATA: Update metadata tracking with ingestion status and statistics\n\nPROCESS:\n- Extract and preserve all important metadata\n- Create logical chunks that preserve meaning across boundaries\n- Ensure chunks are indexed with proper doc_id and chunk_id\n- Return SUCCESS with ingestion statistics or ERROR with details",
+      "description": "System prompt for ingestion subagent",
+      "required_vars": [],
+      "output_format": "text"
+    },
+    "retrieval_specialist": {
+      "template": "You are an expert retrieval and generation specialist for RAG systems.\n\nRESPONSIBILITIES:\n1. RETRIEVE CONTEXT: Search vector database for relevant documents matching the query\n2. RERANK CONTEXT: Sort retrieved documents by relevance to the question\n3. GENERATE ANSWER: Synthesize a comprehensive, accurate answer from the best context\n4. PROVIDE TRACEABILITY: Link answer to source documents with confidence scores\n\nPROCESS:\n- Use retrieve_context to find top matching documents (top_k=5)\n- Apply rerank_context to sort by relevance\n- Use answer_question to generate a direct, specific answer\n- Include source attribution and confidence scores\n- Return: ANSWER, SOURCES, CONFIDENCE, TRACEABILITY\n\nCRITICAL: ALWAYS provide a complete, well-formed answer. Never say 'No answer generated'.",
+      "description": "System prompt for retrieval subagent",
+      "required_vars": [],
+      "output_format": "text"
+    }
+  }
+}

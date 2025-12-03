@@ -1,0 +1,100 @@
+{
+  "session_id": "b2259cf4-ade2-4bbb-850f-c4730f483727",
+  "start_time": "2025-11-30T14:22:06.856077",
+  "total_duration_ms": 8159.277677536011,
+  "nodes_executed": [
+    {
+      "timestamp": 1764492726.856085,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "b2259cf4-ade2-4bbb-850f-c4730f483727",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 2,
+        "user_id": 3,
+        "dept_id": 1,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764492735.0148861,
+      "duration_ms": 8158.7653160095215,
+      "state_after": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "b2259cf4-ade2-4bbb-850f-c4730f483727",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 2,
+        "user_id": 3,
+        "dept_id": 1,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "findings",
+          "reports",
+          "key",
+          "results",
+          "analysis"
+        ],
+        "context": {
+          "context": []
+        },
+        "collection_name": "tenant_2",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": "2:1"
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {
+            "k_final": 4,
+            "chunk_size": 512
+          },
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "query_logged_id": 81,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the key findings in the reports?",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 8158.80012512207
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

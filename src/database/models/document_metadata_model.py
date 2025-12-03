@@ -14,8 +14,9 @@ class DocumentMetadataModel(BaseModel):
     table = 'document_metadata'
     fields = [
         'doc_id', 'title', 'author', 'source', 'summary', 
+        'company_id', 'dept_id',
         'rbac_namespace', 'chunk_strategy', 'chunk_size_char', 
-        'overlap_char', 'metadata_json', 'last_ingested'
+        'overlap_char', 'metadata_json', 'rbac_tags', 'meta_tags', 'last_ingested'
     ]
     
     def __init__(self, conn=None):
@@ -26,12 +27,18 @@ class DocumentMetadataModel(BaseModel):
 
     def create(self, doc_id: str, title: str, author: str = None, 
                  source: str = None, summary: str = None, 
+                 company_id: int = None, dept_id: int = None,
                  rbac_namespace: str = "general",
                  chunk_strategy: str = "recursive_splitter",
                  chunk_size_char: int = 512, overlap_char: int = 50,
-                 metadata_json: str = None) -> bool:
+                 metadata_json: str = None, rbac_tags: str = None, 
+                 meta_tags: str = None) -> bool:
         """
         Create or update a document metadata record (using INSERT OR REPLACE).
+        
+        Args:
+            rbac_tags: JSON string of RBAC access control tags
+            meta_tags: JSON string of semantic metadata tags
         """
         try:
             # Prepare data, using defaults and current timestamp
@@ -42,11 +49,15 @@ class DocumentMetadataModel(BaseModel):
                 author or "unknown",
                 source or "ingestion",
                 summary or "",
+                company_id,
+                dept_id,
                 rbac_namespace,
                 chunk_strategy,
                 chunk_size_char,
                 overlap_char,
                 metadata_json or json.dumps({}),
+                rbac_tags or json.dumps([]),  # Store RBAC tags as JSON
+                meta_tags or json.dumps([]),  # Store semantic tags as JSON
                 now_iso
             )
             

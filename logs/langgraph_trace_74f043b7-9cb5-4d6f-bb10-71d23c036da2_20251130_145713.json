@@ -1,0 +1,248 @@
+{
+  "session_id": "74f043b7-9cb5-4d6f-bb10-71d23c036da2",
+  "start_time": "2025-11-30T14:57:02.252225",
+  "total_duration_ms": 11252.907752990723,
+  "nodes_executed": [
+    {
+      "timestamp": 1764494822.2522366,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "74f043b7-9cb5-4d6f-bb10-71d23c036da2",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 1,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 5,
+        "is_root_user": false,
+        "user_company_id": 1,
+        "user_dept_id": 1,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764494833.5044007,
+      "duration_ms": 11252.119302749634,
+      "state_after": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "74f043b7-9cb5-4d6f-bb10-71d23c036da2",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 1,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 5,
+        "is_root_user": false,
+        "user_company_id": 1,
+        "user_dept_id": 1,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "findings",
+          "reports",
+          "key",
+          "results",
+          "analysis"
+        ],
+        "context": {
+          "context": [
+            {
+              "text": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classification: INTERNAL\n        \n        This document contains sensitive information about Company 1's Department 1 operations.\n        \n        Executive Summary:\n        Q4 performance metrics show 15% growth in core business metrics. Team productivity increased\n        by 20% following the new workflow implementation. Customer satisfaction scores improved to 4.8/5.",
+              "score": 0.40984874963760376,
+              "metadata": {
+                "rbac_tags": "rbac:1:1",
+                "rbac_namespace": "root",
+                "doc_id": "c1d1_report_2025",
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "dept_id": 1,
+                "chunk_index": 1,
+                "company_id": 1,
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction"
+              }
+            },
+            {
+              "text": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_",
+              "score": 0.483501672744751,
+              "metadata": {
+                "dept_id": 1,
+                "rbac_tags": "rbac:1:1",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 0,
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:51:24.556960"
+              }
+            },
+            {
+              "text": "- Expand team by 5 positions\n        - Increase R&D budget by 25%\n        - Implement advanced analytics platform\n        \n        Next Steps:\n        - Review budget allocation\n        - Schedule stakeholder meetings\n        - Update risk assessment",
+              "score": 0.5092481374740601,
+              "metadata": {
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "doc_id": "c1d1_report_2025",
+                "rbac_namespace": "root",
+                "chunk_index": 3,
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "dept_id": 1,
+                "company_id": 1,
+                "rbac_tags": "rbac:1:1"
+              }
+            },
+            {
+              "text": "Key Achievements:\n        - Successfully deployed new system architecture\n        - Reduced operational costs by 12%\n        - Achieved 99.9% system uptime\n        - Trained 50+ team members on new processes\n        \n        Challenges:\n        - Market volatility affecting quarterly projections\n        - Supply chain delays in secondary markets\n        - Need for additional resources in Q1 2026\n        \n        Recommendations:\n        - Expand team by 5 positions",
+              "score": 0.5351853370666504,
+              "metadata": {
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "dept_id": 1,
+                "rbac_tags": "rbac:1:1",
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "chunk_index": 2,
+                "doc_id": "c1d1_report_2025"
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_1",
+        "retrieval_quality": 0.8,
+        "rbac_filter_applied": {
+          "rbac_tags": {
+            "$eq": "rbac:1:1"
+          }
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classification: INTERNAL\n        \n        This document contains sensitive information about Company 1's Department 1 operations.\n        \n        Executive Summary:\n        Q4 performance metrics show 15% growth in core business metrics. Team productivity increased\n        by 20% following the new workflow implementation. Customer satisfaction scores improved to 4.8/5.",
+              "metadata": {
+                "rbac_tags": "rbac:1:1",
+                "rbac_namespace": "root",
+                "doc_id": "c1d1_report_2025",
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "dept_id": 1,
+                "chunk_index": 1,
+                "company_id": 1,
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "relevance_score": 0.69,
+                "similarity_score": 0.59,
+                "original_distance": 0.41,
+                "text_length": 462
+              }
+            },
+            {
+              "text": "Key Achievements:\n        - Successfully deployed new system architecture\n        - Reduced operational costs by 12%\n        - Achieved 99.9% system uptime\n        - Trained 50+ team members on new processes\n        \n        Challenges:\n        - Market volatility affecting quarterly projections\n        - Supply chain delays in secondary markets\n        - Need for additional resources in Q1 2026\n        \n        Recommendations:\n        - Expand team by 5 positions",
+              "metadata": {
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "dept_id": 1,
+                "rbac_tags": "rbac:1:1",
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "chunk_index": 2,
+                "doc_id": "c1d1_report_2025",
+                "relevance_score": 0.607,
+                "similarity_score": 0.465,
+                "original_distance": 0.535,
+                "text_length": 469
+              }
+            },
+            {
+              "text": "- Expand team by 5 positions\n        - Increase R&D budget by 25%\n        - Implement advanced analytics platform\n        \n        Next Steps:\n        - Review budget allocation\n        - Schedule stakeholder meetings\n        - Update risk assessment",
+              "metadata": {
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "doc_id": "c1d1_report_2025",
+                "rbac_namespace": "root",
+                "chunk_index": 3,
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "dept_id": 1,
+                "company_id": 1,
+                "rbac_tags": "rbac:1:1",
+                "relevance_score": 0.494,
+                "similarity_score": 0.491,
+                "original_distance": 0.509,
+                "text_length": 250
+              }
+            },
+            {
+              "text": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_",
+              "metadata": {
+                "dept_id": 1,
+                "rbac_tags": "rbac:1:1",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 0,
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "relevance_score": 0.411,
+                "similarity_score": 0.516,
+                "original_distance": 0.484,
+                "text_length": 82
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=0.80, Results=4",
+        "answer": "{\"success\": true, \"answer\": \"Based on the provided context, here are the key findings from the two reports:\\n\\n1. **Performance Metrics**:\\n   - Q4 performance metrics show a 15% growth in core business metrics.\\n   - Team productivity increased by 20% following the new workflow implementation.\\n\\n2. **Key Achievements**:\\n   - Successfully deployed a new system architecture, reducing operational costs by 12%, achieving a 99.9% system uptime, and training 50+ team members on new processes.\\n\\n3. **Challenges**:\\n   - Market volatility affecting quarterly projections.\\n   - Supply chain delays in secondary markets.\\n   - Need for additional resources in Q1 2026.\\n\\n4. **Recommendations**:\\n   - Expand the team by 5 positions.\\n     - Increase R&D budget by 25%\\n     - Implement an advanced analytics platform\\n\\n5. **Next Steps**:\\n   - Review budget allocation\\n   - Schedule stakeholder meetings\\n   - Update risk assessment\"}",
+        "query_logged_id": 165,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the key findings in the reports?",
+            "sources_used": 4,
+            "documents": [
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classifica..."
+              },
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 2,
+                "similarity_score": 0.0,
+                "text_preview": "Key Achievements:\n        - Successfully deployed new system architecture\n        - Reduced operatio..."
+              },
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 3,
+                "similarity_score": 0.0,
+                "text_preview": "- Expand team by 5 positions\n        - Increase R&D budget by 25%\n        - Implement advanced analy..."
+              },
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 11252.165079116821
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

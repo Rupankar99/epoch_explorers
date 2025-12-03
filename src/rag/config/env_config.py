@@ -45,11 +45,8 @@ class EnvConfig:
     @staticmethod
     def get_chroma_db_path() -> str:
         """Get ChromaDB vector store path"""
-        # Use absolute path from project root to prevent working directory confusion
-        path = os.getenv('CHROMA_DB_PATH', 'src/database/data/chroma_db')
-        if not os.path.isabs(path):
-            project_root = EnvConfig._get_project_root()
-            path = str(project_root / path)
+        # Fetch path directly from EnvConfig
+        path = EnvConfig.get_chroma_db_path()
         return path
     
     @staticmethod

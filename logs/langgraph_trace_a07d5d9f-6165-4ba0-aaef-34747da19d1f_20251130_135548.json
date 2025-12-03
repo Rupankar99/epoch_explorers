@@ -1,0 +1,97 @@
+{
+  "session_id": "a07d5d9f-6165-4ba0-aaef-34747da19d1f",
+  "start_time": "2025-11-30T13:55:34.842891",
+  "total_duration_ms": 14140.606164932251,
+  "nodes_executed": [
+    {
+      "timestamp": 1764491134.8429024,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the main objectives and goals?",
+        "doc_id": null,
+        "session_id": "a07d5d9f-6165-4ba0-aaef-34747da19d1f",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764491148.9829826,
+      "duration_ms": 14140.028238296509,
+      "state_after": {
+        "question": "What are the main objectives and goals?",
+        "doc_id": null,
+        "session_id": "a07d5d9f-6165-4ba0-aaef-34747da19d1f",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "policy",
+          "incident",
+          "vacation",
+          "budget",
+          "contract"
+        ],
+        "context": {
+          "context": []
+        },
+        "collection_name": "agent_memory",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": "None:None"
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {},
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "query_logged_id": 33,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the main objectives and goals?",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 14140.083312988281
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

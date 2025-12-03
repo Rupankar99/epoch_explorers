@@ -1,0 +1,246 @@
+{
+  "session_id": "67cc49d9-4400-45a4-920f-4a772d3c9f24",
+  "start_time": "2025-11-30T08:12:23.600919",
+  "total_duration_ms": 30930.443286895752,
+  "nodes_executed": [
+    {
+      "timestamp": 1764470543.600967,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "hi what is in document 1 ",
+        "doc_id": null,
+        "session_id": "67cc49d9-4400-45a4-920f-4a772d3c9f24",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": null,
+        "user_id": null,
+        "dept_id": null,
+        "top_k": 5
+      },
+      "status": "completed",
+      "end_timestamp": 1764470574.5291958,
+      "duration_ms": 30927.632570266724,
+      "state_after": {
+        "question": "hi what is in document 1 ",
+        "doc_id": null,
+        "session_id": "67cc49d9-4400-45a4-920f-4a772d3c9f24",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": null,
+        "user_id": null,
+        "dept_id": null,
+        "top_k": 5,
+        "user_intent_keywords": [
+          "document",
+          "query",
+          "results",
+          "analysis",
+          "metadata"
+        ],
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "e'}(\u00071@'E0\u0014K\u051eq\u0000<jQ/\u0019\u0014P\u0000!\u001fE!_7\u02c1QE\u0001`\u0013g\u007fZ\u0004\u001f\u058a)\fy\u0000QSq_;\u058f;\u068a)\u0000g\u0013?\u0014P\u0003#w=?Z(`\u0013g\u001eiJ(@f\u0000g\u0017\u0019lmhcy8}\u0000ww\u000b\u000e\u0013doK{QE\u0017\u000b\r\u0597E$X<\u007fZ<\u37fbE\u0014a\f\u0113E$a|3<j(}\u0002yoHn0qMw\u0019&\u058a(XO?mh3\u007fZ(06Fv^QE;N:RyQJ`3\u058f?E\u0017aa|\u739e\u007f?\u0014P\u0006\u0013\u0012qS.;QE+w?7\u0007?ww\u0010rFv.\t8E1\u0615N@4QL\nendstream\nendobj\n8 0 obj\n294267\nendobj\n10 0 obj\n[/PDF /ImageC]\nendobj\n6 0 obj\n<</ProcSet 10 0 R/XObject<</Im1 9 0 R>>>>\nendobj\n1 0 obj\n<</Type/Catalog/Pages 11 0 R/Metadata 12 0 R>>\nendobj\n11 0 obj\n<</Type/Pages/Kids[4 0 R]/Count 1>>\nendobj\n4 0 obj",
+              "score": 0.4801185727119446,
+              "metadata": {
+                "doc_id": "123456",
+                "ingestion_date": "2025-11-29T18:31:26.282903",
+                "chunk_index": 494,
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "score": 0.49410849809646606,
+              "metadata": {
+                "chunk_index": 0,
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "# doc_00099\n\n_Document converted to markdown on 2025-11-29T16:27:24.692457_",
+              "score": 0.5127752423286438,
+              "metadata": {
+                "doc_id": "doc_00099",
+                "chunk_index": 0,
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T17:01:17.554511"
+              }
+            },
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "score": 0.5128337740898132,
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 398
+              }
+            },
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "score": 0.5128337740898132,
+              "metadata": {
+                "chunk_index": 398,
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general"
+              }
+            }
+          ]
+        },
+        "collection_name": "agent_memory",
+        "retrieval_quality": 1.0,
+        "rbac_filter_applied": {
+          "$or": [
+            {
+              "rbac_tags": {
+                "$contains": "rbac:None:None"
+              }
+            },
+            {
+              "rbac_tags": {
+                "$contains": "rbac:None:*"
+              }
+            }
+          ]
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "e'}(\u00071@'E0\u0014K\u051eq\u0000<jQ/\u0019\u0014P\u0000!\u001fE!_7\u02c1QE\u0001`\u0013g\u007fZ\u0004\u001f\u058a)\fy\u0000QSq_;\u058f;\u068a)\u0000g\u0013?\u0014P\u0003#w=?Z(`\u0013g\u001eiJ(@f\u0000g\u0017\u0019lmhcy8}\u0000ww\u000b\u000e\u0013doK{QE\u0017\u000b\r\u0597E$X<\u007fZ<\u37fbE\u0014a\f\u0113E$a|3<j(}\u0002yoHn0qMw\u0019&\u058a(XO?mh3\u007fZ(06Fv^QE;N:RyQJ`3\u058f?E\u0017aa|\u739e\u007f?\u0014P\u0006\u0013\u0012qS.;QE+w?7\u0007?ww\u0010rFv.\t8E1\u0615N@4QL\nendstream\nendobj\n8 0 obj\n294267\nendobj\n10 0 obj\n[/PDF /ImageC]\nendobj\n6 0 obj\n<</ProcSet 10 0 R/XObject<</Im1 9 0 R>>>>\nendobj\n1 0 obj\n<</Type/Catalog/Pages 11 0 R/Metadata 12 0 R>>\nendobj\n11 0 obj\n<</Type/Pages/Kids[4 0 R]/Count 1>>\nendobj\n4 0 obj",
+              "metadata": {
+                "doc_id": "123456",
+                "ingestion_date": "2025-11-29T18:31:26.282903",
+                "chunk_index": 494,
+                "rbac_namespace": "general",
+                "relevance_score": 0.638,
+                "similarity_score": 0.52,
+                "original_distance": 0.48,
+                "text_length": 456
+              }
+            },
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 398,
+                "relevance_score": 0.577,
+                "similarity_score": 0.487,
+                "original_distance": 0.513,
+                "text_length": 393
+              }
+            },
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "metadata": {
+                "chunk_index": 398,
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "relevance_score": 0.577,
+                "similarity_score": 0.487,
+                "original_distance": 0.513,
+                "text_length": 393
+              }
+            },
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "metadata": {
+                "chunk_index": 0,
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "rbac_namespace": "general",
+                "relevance_score": 0.412,
+                "similarity_score": 0.506,
+                "original_distance": 0.494,
+                "text_length": 97
+              }
+            },
+            {
+              "text": "# doc_00099\n\n_Document converted to markdown on 2025-11-29T16:27:24.692457_",
+              "metadata": {
+                "doc_id": "doc_00099",
+                "chunk_index": 0,
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "relevance_score": 0.386,
+                "similarity_score": 0.487,
+                "original_distance": 0.513,
+                "text_length": 75
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"The document contains a mix of text and images, with the following content:\\n\\n- A source (e.g., \\\"123456\\\")\\n- An image file name (e.g., \\\"doc_00099\\\")\\n- Some text within the image, which is not visible in this context.\"}",
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "hi what is in document 1 ",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "123456",
+                "chunk_index": 494,
+                "similarity_score": 0.0,
+                "text_preview": "e'}(\u00071@'E0\u0014K\u051eq\u0000<jQ/\u0019\u0014P\u0000!\u001fE!_7\u02c1QE\u0001`\u0013g\u007fZ\u0004\u001f\u058a)\fy\u0000QSq_;\u058f;\u068a)\u0000g\u0013?\u0014P\u0003#w=?Z(`\u0013g\u001eiJ(@f\u0000g\u0017\u0019lmhcy8}\u0000ww\u000b\u000e\u0013doK{QE\u0017..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 398,
+                "similarity_score": 0.0,
+                "text_preview": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frame..."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 398,
+                "similarity_score": 0.0,
+                "text_preview": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frame..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss ."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_00099\n\n_Document converted to markdown on 2025-11-29T16:27:24.692457_"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 30927.491426467896
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

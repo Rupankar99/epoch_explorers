@@ -1,0 +1,189 @@
+{
+  "session_id": "963bd5a2-0a69-48f6-b98f-829e07492758",
+  "start_time": "2025-11-30T12:07:56.810085",
+  "total_duration_ms": 24814.759016036987,
+  "nodes_executed": [
+    {
+      "timestamp": 1764484676.8112996,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the company policies?",
+        "doc_id": null,
+        "session_id": "963bd5a2-0a69-48f6-b98f-829e07492758",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 1,
+        "user_id": 1,
+        "dept_id": 10,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764484701.6211348,
+      "duration_ms": 24808.582067489624,
+      "state_after": {
+        "question": "What are the company policies?",
+        "doc_id": null,
+        "session_id": "963bd5a2-0a69-48f6-b98f-829e07492758",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 1,
+        "user_id": 1,
+        "dept_id": 10,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "company",
+          "policies",
+          "incident",
+          "approval",
+          "vacation"
+        ],
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "# doc_company1_001\n\n_Document converted to markdown on 2025-11-30T10:51:02.943339_\n\nThis is a test document for company 1. It contains information about company 1's operations and policies.",
+              "score": 0.4263625144958496,
+              "metadata": {
+                "chunk_index": 0,
+                "ingestion_date": "2025-11-30T10:51:25.604447",
+                "dept_id": 10,
+                "doc_id": "doc_company1_001",
+                "rbac_namespace": "general",
+                "rbac_tags": "rbac:1:10",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:company1;meta:keyword:operations;meta:keyword:policies;meta:keyword:business;meta:keyword:management"
+              }
+            },
+            {
+              "text": "# doc_company1_002\n\n_Document converted to markdown on 2025-11-30T10:51:54.682209_\n\nThis is another document for company 1 with different content about strategies and goals.",
+              "score": 0.4384753704071045,
+              "metadata": {
+                "ingestion_date": "2025-11-30T10:52:15.532901",
+                "rbac_namespace": "general",
+                "chunk_index": 0,
+                "rbac_tags": "rbac:1:11",
+                "doc_id": "doc_company1_002",
+                "meta_tags": "meta:keyword:strategy;meta:keyword:goal;meta:keyword:budget;meta:keyword:contract;meta:keyword:company",
+                "dept_id": 11,
+                "company_id": 1
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_1",
+        "retrieval_quality": 0.4,
+        "rbac_filter_applied": {
+          "$or": [
+            {
+              "rbac_tags": {
+                "$contains": "rbac:1:10"
+              }
+            },
+            {
+              "rbac_tags": {
+                "$contains": "rbac:1:*"
+              }
+            }
+          ]
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "# doc_company1_001\n\n_Document converted to markdown on 2025-11-30T10:51:02.943339_\n\nThis is a test document for company 1. It contains information about company 1's operations and policies.",
+              "metadata": {
+                "chunk_index": 0,
+                "ingestion_date": "2025-11-30T10:51:25.604447",
+                "dept_id": 10,
+                "doc_id": "doc_company1_001",
+                "rbac_namespace": "general",
+                "rbac_tags": "rbac:1:10",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:company1;meta:keyword:operations;meta:keyword:policies;meta:keyword:business;meta:keyword:management",
+                "relevance_score": 0.515,
+                "similarity_score": 0.574,
+                "original_distance": 0.426,
+                "text_length": 189
+              }
+            },
+            {
+              "text": "# doc_company1_002\n\n_Document converted to markdown on 2025-11-30T10:51:54.682209_\n\nThis is another document for company 1 with different content about strategies and goals.",
+              "metadata": {
+                "ingestion_date": "2025-11-30T10:52:15.532901",
+                "rbac_namespace": "general",
+                "chunk_index": 0,
+                "rbac_tags": "rbac:1:11",
+                "doc_id": "doc_company1_002",
+                "meta_tags": "meta:keyword:strategy;meta:keyword:goal;meta:keyword:budget;meta:keyword:contract;meta:keyword:company",
+                "dept_id": 11,
+                "company_id": 1,
+                "relevance_score": 0.497,
+                "similarity_score": 0.562,
+                "original_distance": 0.438,
+                "text_length": 173
+              }
+            }
+          ]
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.40, Results=2",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {
+            "params": {
+              "k": 10,
+              "chunk_size": 1024
+            },
+            "metrics": {
+              "cost": 0.0
+            }
+          },
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"The company has three main policies:\\n\\n1. **Operational Policies**: These outline the company's operations, including its business model, market strategy, financial reporting, and internal management systems.\\n2. **Strategic Goals**: These set out the long-term objectives and strategies that guide the company's direction, such as growth targets, diversification plans, and sustainability goals.\\n3. **Employee Policies**: These are designed to ensure a positive work environment for employees, including benefits, compensation structures, employee rights, and workplace safety measures.\\n\\nThese policies provide a framework within which the company operates and aims to achieve its objectives.\"}",
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the company policies?",
+            "sources_used": 2,
+            "documents": [
+              {
+                "doc_id": "doc_company1_001",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_company1_001\n\n_Document converted to markdown on 2025-11-30T10:51:02.943339_\n\nThis is a test d..."
+              },
+              {
+                "doc_id": "doc_company1_002",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_company1_002\n\n_Document converted to markdown on 2025-11-30T10:51:54.682209_\n\nThis is another ..."
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 24809.836864471436
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

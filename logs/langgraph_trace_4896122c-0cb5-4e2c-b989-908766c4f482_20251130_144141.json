@@ -1,0 +1,283 @@
+{
+  "session_id": "4896122c-0cb5-4e2c-b989-908766c4f482",
+  "start_time": "2025-11-30T14:41:26.704643",
+  "total_duration_ms": 15073.122024536133,
+  "nodes_executed": [
+    {
+      "timestamp": 1764493886.7046566,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the main objectives and goals?",
+        "doc_id": null,
+        "session_id": "4896122c-0cb5-4e2c-b989-908766c4f482",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 2,
+        "user_id": 4,
+        "dept_id": 2,
+        "top_k": 5,
+        "is_root_user": false,
+        "user_company_id": 2,
+        "user_dept_id": 2,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764493901.777324,
+      "duration_ms": 15072.627782821655,
+      "state_after": {
+        "question": "What are the main objectives and goals?",
+        "doc_id": null,
+        "session_id": "4896122c-0cb5-4e2c-b989-908766c4f482",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 2,
+        "user_id": 4,
+        "dept_id": 2,
+        "top_k": 5,
+        "is_root_user": false,
+        "user_company_id": 2,
+        "user_dept_id": 2,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "main",
+          "objectives",
+          "goals"
+        ],
+        "context": {
+          "context": [
+            {
+              "text": "Strategic Recommendations:\n        1. Invest heavily in product reliability\n        2. Expand customer support infrastructure\n        3. Develop premium tier offering\n        4. Create integration marketplace\n        5. Focus on enterprise customer acquisition\n        \n        Implementation Plan:\n        Q1 2026: Market segmentation refinement\n        Q2 2026: Product roadmap development\n        Q3 2026: Launch new initiatives\n        Q4 2026: Measure impact and iterate",
+              "score": 0.5559028387069702,
+              "metadata": {
+                "rbac_tags": "rbac:2:2",
+                "dept_id": 2,
+                "doc_id": "c2d2_market_research",
+                "rbac_namespace": "root",
+                "company_id": 2,
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "chunk_index": 4
+              }
+            },
+            {
+              "text": "Competitive Landscape:\n        - Current Market Position: #3 in sector (15% market share)\n        - Top 3 Competitors: Company A (25%), Company B (22%), Our Company (15%)\n        - Market Opportunity: $25B uncaptured market share\n        \n        Customer Demographics:\n        - Primary Segment: Enterprise customers (72%)\n        - Mid-Market Segment: (18%)\n        - SMB Segment: (10%)\n        \n        Customer Satisfaction Metrics:",
+              "score": 0.5681098699569702,
+              "metadata": {
+                "dept_id": 2,
+                "company_id": 2,
+                "chunk_index": 2,
+                "doc_id": "c2d2_market_research",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "rbac_tags": "rbac:2:2"
+              }
+            },
+            {
+              "text": "MARKET RESEARCH - COMPANY 2 DEPARTMENT 2\n        \n        Date: November 2025\n        Study Duration: 3 months\n        Sample Size: 5,000 respondents\n        \n        Market Research Report\n        \n        Industry Overview:\n        The global market for our products is expected to reach $150B by 2027,\n        growing at a CAGR of 14.2%. Key drivers include digital transformation,\n        increasing customer demand, and technological advancement.",
+              "score": 0.598595380783081,
+              "metadata": {
+                "doc_id": "c2d2_market_research",
+                "rbac_tags": "rbac:2:2",
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "chunk_index": 1,
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "company_id": 2
+              }
+            },
+            {
+              "text": "Customer Satisfaction Metrics:\n        - NPS Score: 68 (Industry Average: 55)\n        - Customer Satisfaction: 4.6/5.0\n        - Retention Rate: 94%\n        - Churn Rate: 6% (Below industry average of 12%)\n        \n        Key Market Insights:\n        1. 78% of customers prioritize product reliability\n        2. 65% value customer support quality\n        3. 52% would pay premium for enhanced features\n        4. 41% seek integration with existing systems",
+              "score": 0.5990475416183472,
+              "metadata": {
+                "company_id": 2,
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "doc_id": "c2d2_market_research",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "rbac_tags": "rbac:2:2",
+                "chunk_index": 3
+              }
+            },
+            {
+              "text": "Q4 2026: Measure impact and iterate",
+              "score": 0.6132847666740417,
+              "metadata": {
+                "rbac_tags": "rbac:2:2",
+                "chunk_index": 5,
+                "company_id": 2,
+                "doc_id": "c2d2_market_research",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "rbac_namespace": "root",
+                "dept_id": 2
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_2",
+        "retrieval_quality": 1.0,
+        "rbac_filter_applied": {
+          "rbac_tags": {
+            "$eq": "rbac:2:2"
+          }
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "Strategic Recommendations:\n        1. Invest heavily in product reliability\n        2. Expand customer support infrastructure\n        3. Develop premium tier offering\n        4. Create integration marketplace\n        5. Focus on enterprise customer acquisition\n        \n        Implementation Plan:\n        Q1 2026: Market segmentation refinement\n        Q2 2026: Product roadmap development\n        Q3 2026: Launch new initiatives\n        Q4 2026: Measure impact and iterate",
+              "metadata": {
+                "rbac_tags": "rbac:2:2",
+                "dept_id": 2,
+                "doc_id": "c2d2_market_research",
+                "rbac_namespace": "root",
+                "company_id": 2,
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "chunk_index": 4,
+                "relevance_score": 0.596,
+                "similarity_score": 0.444,
+                "original_distance": 0.556,
+                "text_length": 475
+              }
+            },
+            {
+              "text": "Competitive Landscape:\n        - Current Market Position: #3 in sector (15% market share)\n        - Top 3 Competitors: Company A (25%), Company B (22%), Our Company (15%)\n        - Market Opportunity: $25B uncaptured market share\n        \n        Customer Demographics:\n        - Primary Segment: Enterprise customers (72%)\n        - Mid-Market Segment: (18%)\n        - SMB Segment: (10%)\n        \n        Customer Satisfaction Metrics:",
+              "metadata": {
+                "dept_id": 2,
+                "company_id": 2,
+                "chunk_index": 2,
+                "doc_id": "c2d2_market_research",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "rbac_tags": "rbac:2:2",
+                "relevance_score": 0.564,
+                "similarity_score": 0.432,
+                "original_distance": 0.568,
+                "text_length": 436
+              }
+            },
+            {
+              "text": "Customer Satisfaction Metrics:\n        - NPS Score: 68 (Industry Average: 55)\n        - Customer Satisfaction: 4.6/5.0\n        - Retention Rate: 94%\n        - Churn Rate: 6% (Below industry average of 12%)\n        \n        Key Market Insights:\n        1. 78% of customers prioritize product reliability\n        2. 65% value customer support quality\n        3. 52% would pay premium for enhanced features\n        4. 41% seek integration with existing systems",
+              "metadata": {
+                "company_id": 2,
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "doc_id": "c2d2_market_research",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "rbac_tags": "rbac:2:2",
+                "chunk_index": 3,
+                "relevance_score": 0.555,
+                "similarity_score": 0.401,
+                "original_distance": 0.599,
+                "text_length": 457
+              }
+            },
+            {
+              "text": "MARKET RESEARCH - COMPANY 2 DEPARTMENT 2\n        \n        Date: November 2025\n        Study Duration: 3 months\n        Sample Size: 5,000 respondents\n        \n        Market Research Report\n        \n        Industry Overview:\n        The global market for our products is expected to reach $150B by 2027,\n        growing at a CAGR of 14.2%. Key drivers include digital transformation,\n        increasing customer demand, and technological advancement.",
+              "metadata": {
+                "doc_id": "c2d2_market_research",
+                "rbac_tags": "rbac:2:2",
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "chunk_index": 1,
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "company_id": 2,
+                "relevance_score": 0.552,
+                "similarity_score": 0.401,
+                "original_distance": 0.599,
+                "text_length": 451
+              }
+            },
+            {
+              "text": "Q4 2026: Measure impact and iterate",
+              "metadata": {
+                "rbac_tags": "rbac:2:2",
+                "chunk_index": 5,
+                "company_id": 2,
+                "doc_id": "c2d2_market_research",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "rbac_namespace": "root",
+                "dept_id": 2,
+                "relevance_score": 0.292,
+                "similarity_score": 0.387,
+                "original_distance": 0.613,
+                "text_length": 35
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"The main objectives of Q4 2026 are:\\n\\n1. To measure the impact of product reliability investments.\\n2. To evaluate customer support infrastructure development.\\n3. To assess the effectiveness of premium tier offerings.\\n4. To analyze integration marketplace strategies.\\n\\nThe main goals for Q4 2026 are:\\n\\n1. To identify and address any potential issues with current market share.\\n2. To refine market segmentation based on new insights.\\n3. To optimize product roadmap development.\\n4. To implement launch initiatives, focusing on enterprise customer acquisition.\"}",
+        "query_logged_id": 131,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the main objectives and goals?",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 4,
+                "similarity_score": 0.0,
+                "text_preview": "Strategic Recommendations:\n        1. Invest heavily in product reliability\n        2. Expand custom..."
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 2,
+                "similarity_score": 0.0,
+                "text_preview": "Competitive Landscape:\n        - Current Market Position: #3 in sector (15% market share)\n        - ..."
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 3,
+                "similarity_score": 0.0,
+                "text_preview": "Customer Satisfaction Metrics:\n        - NPS Score: 68 (Industry Average: 55)\n        - Customer Sat..."
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "MARKET RESEARCH - COMPANY 2 DEPARTMENT 2\n        \n        Date: November 2025\n        Study Duration..."
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 5,
+                "similarity_score": 0.0,
+                "text_preview": "Q4 2026: Measure impact and iterate"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 15072.672843933105
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

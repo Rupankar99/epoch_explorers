@@ -1,0 +1,208 @@
+{
+  "session_id": "79489913-30e0-4c23-abb4-38efeb132952",
+  "start_time": "2025-11-30T17:47:16.568318",
+  "total_duration_ms": 3395.244598388672,
+  "nodes_executed": [
+    {
+      "timestamp": 1764505036.568343,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "tell me about haldia and river ",
+        "doc_id": null,
+        "session_id": "79489913-30e0-4c23-abb4-38efeb132952",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 4,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 3,
+        "is_root_user": false,
+        "user_company_id": 4,
+        "user_dept_id": 1,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764505039.9628823,
+      "duration_ms": 3394.4602012634277,
+      "state_after": {
+        "question": "tell me about haldia and river ",
+        "doc_id": null,
+        "session_id": "79489913-30e0-4c23-abb4-38efeb132952",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 4,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 3,
+        "is_root_user": false,
+        "user_company_id": 4,
+        "user_dept_id": 1,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "haldia",
+          "river"
+        ],
+        "context": {
+          "context": [
+            {
+              "text": "Water-way\nHaldia is also connected via the 1,620 km (1,010 mi) long inland waterway, National Waterway 1, that runs from Prayagraj across the Ganges, Bhagirathi and Hooghly river system to Haldia (Sagar). A catamaran service used to operate from Kolkata to Haldia, but was withdrawn due to its high price and unpopularity among tourists.[citation needed] A governmental ferry service operates between Haldia and Nandigram.",
+              "score": 0.24322980642318726,
+              "metadata": {
+                "chunk_index": 23,
+                "rbac_tags": "rbac:4:1",
+                "rbac_namespace": "root",
+                "company_id": 4,
+                "doc_id": "haldia",
+                "dept_id": 1,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "ingestion_date": "2025-11-30T16:14:36.658104"
+              }
+            },
+            {
+              "text": "Transportation\nRoad-way\n\nHaldi River, Haldia\nHaldia is connected to Kolkata by bus of South Bengal State Transport Corporation . Recent efforts have seen introduction of new air-conditioned buses which take less than three hours from station to station.[citation needed]. Haldia is also connected to Bankura, Kharagpur, Tarakeswar, Burdwan, Asansol by bus.",
+              "score": 0.24860090017318726,
+              "metadata": {
+                "chunk_index": 21,
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "rbac_namespace": "root",
+                "company_id": 4,
+                "dept_id": 1,
+                "rbac_tags": "rbac:4:1",
+                "doc_id": "haldia"
+              }
+            },
+            {
+              "text": "\u2022 Metro[3]\t2,749,364\nHaldia (Bengali: [\u0266\u0254ld\u032aija]) is an industrial port city in Purba Medinipur district in the Indian state of West Bengal. It has a major river port and industrial belt located approximately 124 km (77 mi) southwest of Kolkata near the mouth of the Hooghly River, one of the distributaries of the Ganges. The Haldia Township is bordered by the Haldi River, an offshoot of the Ganges River. Haldia is a centre for petrochemical businesses, and is a major trade port for Kolkata.[4]",
+              "score": 0.252277135848999,
+              "metadata": {
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "rbac_tags": "rbac:4:1",
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "company_id": 4,
+                "chunk_index": 3,
+                "doc_id": "haldia",
+                "dept_id": 1,
+                "rbac_namespace": "root"
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_4",
+        "retrieval_quality": 0.6,
+        "rbac_filter_applied": {
+          "rbac_tags": {
+            "$eq": "rbac:4:1"
+          }
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "\u2022 Metro[3]\t2,749,364\nHaldia (Bengali: [\u0266\u0254ld\u032aija]) is an industrial port city in Purba Medinipur district in the Indian state of West Bengal. It has a major river port and industrial belt located approximately 124 km (77 mi) southwest of Kolkata near the mouth of the Hooghly River, one of the distributaries of the Ganges. The Haldia Township is bordered by the Haldi River, an offshoot of the Ganges River. Haldia is a centre for petrochemical businesses, and is a major trade port for Kolkata.[4]",
+              "metadata": {
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "rbac_tags": "rbac:4:1",
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "company_id": 4,
+                "chunk_index": 3,
+                "doc_id": "haldia",
+                "dept_id": 1,
+                "rbac_namespace": "root",
+                "relevance_score": 0.822,
+                "similarity_score": 0.748,
+                "original_distance": 0.252,
+                "text_length": 498
+              }
+            },
+            {
+              "text": "Water-way\nHaldia is also connected via the 1,620 km (1,010 mi) long inland waterway, National Waterway 1, that runs from Prayagraj across the Ganges, Bhagirathi and Hooghly river system to Haldia (Sagar). A catamaran service used to operate from Kolkata to Haldia, but was withdrawn due to its high price and unpopularity among tourists.[citation needed] A governmental ferry service operates between Haldia and Nandigram.",
+              "metadata": {
+                "chunk_index": 23,
+                "rbac_tags": "rbac:4:1",
+                "rbac_namespace": "root",
+                "company_id": 4,
+                "doc_id": "haldia",
+                "dept_id": 1,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "relevance_score": 0.783,
+                "similarity_score": 0.757,
+                "original_distance": 0.243,
+                "text_length": 422
+              }
+            },
+            {
+              "text": "Transportation\nRoad-way\n\nHaldi River, Haldia\nHaldia is connected to Kolkata by bus of South Bengal State Transport Corporation . Recent efforts have seen introduction of new air-conditioned buses which take less than three hours from station to station.[citation needed]. Haldia is also connected to Bankura, Kharagpur, Tarakeswar, Burdwan, Asansol by bus.",
+              "metadata": {
+                "chunk_index": 21,
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "rbac_namespace": "root",
+                "company_id": 4,
+                "dept_id": 1,
+                "rbac_tags": "rbac:4:1",
+                "doc_id": "haldia",
+                "relevance_score": 0.74,
+                "similarity_score": 0.751,
+                "original_distance": 0.249,
+                "text_length": 356
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=0.60, Results=3",
+        "answer": "I found some documents, but they don't seem to match your question well.\n\nYour Question: \"tell me about haldia and river \"\nConfidence Score: 0.0%\nDetected Topic: general\n\nThe available documents are about: general topics\n\nCould you please:\n1. Rephrase your question to be more specific, or\n2. Provide more context about what you're looking for, or\n3. Try one of these alternative searches:\n   - general search\n",
+        "query_logged_id": 256,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "tell me about haldia and river ",
+            "sources_used": 3,
+            "documents": [
+              {
+                "doc_id": "haldia",
+                "chunk_index": 3,
+                "similarity_score": 0.0,
+                "text_preview": "\u2022 Metro[3]\t2,749,364\nHaldia (Bengali: [\u0266\u0254ld\u032aija]) is an industrial port city in Purba Medinipur dist..."
+              },
+              {
+                "doc_id": "haldia",
+                "chunk_index": 23,
+                "similarity_score": 0.0,
+                "text_preview": "Water-way\nHaldia is also connected via the 1,620 km (1,010 mi) long inland waterway, National Waterw..."
+              },
+              {
+                "doc_id": "haldia",
+                "chunk_index": 21,
+                "similarity_score": 0.0,
+                "text_preview": "Transportation\nRoad-way\n\nHaldi River, Haldia\nHaldia is connected to Kolkata by bus of South Bengal S..."
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 3394.551992416382
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

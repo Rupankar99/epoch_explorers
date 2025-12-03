@@ -1,0 +1,97 @@
+{
+  "session_id": "929d583f-368c-4701-9824-73f3ea044829",
+  "start_time": "2025-11-30T13:56:13.323141",
+  "total_duration_ms": 11925.721406936646,
+  "nodes_executed": [
+    {
+      "timestamp": 1764491173.3231533,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What is the confidential report about?",
+        "doc_id": null,
+        "session_id": "929d583f-368c-4701-9824-73f3ea044829",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 1,
+        "user_id": 2,
+        "dept_id": 2,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764491185.2477865,
+      "duration_ms": 11924.579858779907,
+      "state_after": {
+        "question": "What is the confidential report about?",
+        "doc_id": null,
+        "session_id": "929d583f-368c-4701-9824-73f3ea044829",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 1,
+        "user_id": 2,
+        "dept_id": 2,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "report",
+          "confidential"
+        ],
+        "context": {
+          "context": []
+        },
+        "collection_name": "tenant_1",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": "1:2"
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {
+            "k_final": 4,
+            "chunk_size": 512
+          },
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "query_logged_id": 39,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What is the confidential report about?",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 11924.626111984253
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

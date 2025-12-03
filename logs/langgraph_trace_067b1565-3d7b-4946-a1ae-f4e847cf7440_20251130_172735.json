@@ -1,0 +1,207 @@
+{
+  "session_id": "067b1565-3d7b-4946-a1ae-f4e847cf7440",
+  "start_time": "2025-11-30T17:27:20.213324",
+  "total_duration_ms": 14958.719253540039,
+  "nodes_executed": [
+    {
+      "timestamp": 1764503840.2136369,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "where is haldia",
+        "doc_id": null,
+        "session_id": "067b1565-3d7b-4946-a1ae-f4e847cf7440",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 4,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 3,
+        "is_root_user": false,
+        "user_company_id": 4,
+        "user_dept_id": 1,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764503855.1695588,
+      "duration_ms": 14955.729246139526,
+      "state_after": {
+        "question": "where is haldia",
+        "doc_id": null,
+        "session_id": "067b1565-3d7b-4946-a1ae-f4e847cf7440",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 4,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 3,
+        "is_root_user": false,
+        "user_company_id": 4,
+        "user_dept_id": 1,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "location"
+        ],
+        "context": {
+          "context": [
+            {
+              "text": "Haldia Port\nNickname: Petrochemical City\nHaldia is located in West BengalHaldiaHaldia\nShow map of West Bengal\nShow map of India\nShow all\nCoordinates: 22.0667\u00b0N 88.0698\u00b0E\nCountry\tIndia\nState\t West Bengal\nDistrict\tPurba Medinipur\nGovernment\n \u2022 Type\tMunicipality\n \u2022 Body\t\nHaldia Municipality\nHaldia Development Authority\nArea[1][2]\n \u2022 Metropolis\n110 km2 (42 sq mi)\n \u2022 Metro[3]\t1,982 km2 (765 sq mi)\nPopulation (2011)[3]\n \u2022 Metropolis\n200,762\n \u2022 Metro[3]\t2,749,364",
+              "score": 0.23489242792129517,
+              "metadata": {
+                "rbac_tags": "rbac:4:1",
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "chunk_index": 2,
+                "dept_id": 1,
+                "company_id": 4,
+                "doc_id": "haldia"
+              }
+            },
+            {
+              "text": "Haldia is also a base of the Indian Coast Guard.[citation needed] Indian coast guard DHQ 8 (Headquarters for West Bengal) is located at Haldia.[citation needed] There is a hoverport to house four of the eighteen hovercraft belonging to the Indian Coast Guard. The Indian coast guard also has a pontoon jetty to berth a fleet of ships.[citation needed] Presently two fast patrol vessels, one inshore patrol vessels, and one small craft are based at Haldia.[citation needed]",
+              "score": 0.25769346952438354,
+              "metadata": {
+                "doc_id": "haldia",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:4:1",
+                "dept_id": 1,
+                "company_id": 4,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "chunk_index": 14,
+                "ingestion_date": "2025-11-30T16:14:36.658104"
+              }
+            },
+            {
+              "text": "References\n \"Haldia City\" (PDF). Haldia Municipality.[permanent dead link]\n \"Haldia Info\".\n \"About US\". HDA. Archived from the original on 8 March 2021. Retrieved 24 November 2020.\n \"About Haldia, Information on Haldia, Know About Haldia City\". www.haldiaonline.in. Retrieved 1 February 2024.\n \"Maps, Weather, and Airports for Haldia, India\". www.fallingrain.com.",
+              "score": 0.2667803168296814,
+              "metadata": {
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "company_id": 4,
+                "dept_id": 1,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "rbac_tags": "rbac:4:1",
+                "doc_id": "haldia",
+                "chunk_index": 27
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_4",
+        "retrieval_quality": 0.6,
+        "rbac_filter_applied": {
+          "rbac_tags": {
+            "$eq": "rbac:4:1"
+          }
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "Haldia Port\nNickname: Petrochemical City\nHaldia is located in West BengalHaldiaHaldia\nShow map of West Bengal\nShow map of India\nShow all\nCoordinates: 22.0667\u00b0N 88.0698\u00b0E\nCountry\tIndia\nState\t West Bengal\nDistrict\tPurba Medinipur\nGovernment\n \u2022 Type\tMunicipality\n \u2022 Body\t\nHaldia Municipality\nHaldia Development Authority\nArea[1][2]\n \u2022 Metropolis\n110 km2 (42 sq mi)\n \u2022 Metro[3]\t1,982 km2 (765 sq mi)\nPopulation (2011)[3]\n \u2022 Metropolis\n200,762\n \u2022 Metro[3]\t2,749,364",
+              "metadata": {
+                "rbac_tags": "rbac:4:1",
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "chunk_index": 2,
+                "dept_id": 1,
+                "company_id": 4,
+                "doc_id": "haldia",
+                "relevance_score": 0.812,
+                "similarity_score": 0.765,
+                "original_distance": 0.235,
+                "text_length": 460
+              }
+            },
+            {
+              "text": "Haldia is also a base of the Indian Coast Guard.[citation needed] Indian coast guard DHQ 8 (Headquarters for West Bengal) is located at Haldia.[citation needed] There is a hoverport to house four of the eighteen hovercraft belonging to the Indian Coast Guard. The Indian coast guard also has a pontoon jetty to berth a fleet of ships.[citation needed] Presently two fast patrol vessels, one inshore patrol vessels, and one small craft are based at Haldia.[citation needed]",
+              "metadata": {
+                "doc_id": "haldia",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:4:1",
+                "dept_id": 1,
+                "company_id": 4,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "chunk_index": 14,
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "relevance_score": 0.803,
+                "similarity_score": 0.742,
+                "original_distance": 0.258,
+                "text_length": 472
+              }
+            },
+            {
+              "text": "References\n \"Haldia City\" (PDF). Haldia Municipality.[permanent dead link]\n \"Haldia Info\".\n \"About US\". HDA. Archived from the original on 8 March 2021. Retrieved 24 November 2020.\n \"About Haldia, Information on Haldia, Know About Haldia City\". www.haldiaonline.in. Retrieved 1 February 2024.\n \"Maps, Weather, and Airports for Haldia, India\". www.fallingrain.com.",
+              "metadata": {
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T16:14:36.658104",
+                "company_id": 4,
+                "dept_id": 1,
+                "meta_tags": "meta:keyword:metropolis;meta:keyword:district;meta:keyword:area;meta:keyword:township;meta:keyword:river",
+                "rbac_tags": "rbac:4:1",
+                "doc_id": "haldia",
+                "chunk_index": 27,
+                "relevance_score": 0.731,
+                "similarity_score": 0.733,
+                "original_distance": 0.267,
+                "text_length": 363
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=0.60, Results=3",
+        "answer": "I found some documents, but they don't seem to match your question well.\n\nYour Question: \"where is haldia\"\nConfidence Score: 0.0%\nDetected Topic: general\n\nThe available documents are about: general topics\n\nCould you please:\n1. Rephrase your question to be more specific, or\n2. Provide more context about what you're looking for, or\n3. Try one of these alternative searches:\n   - general search\n",
+        "query_logged_id": 242,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "where is haldia",
+            "sources_used": 3,
+            "documents": [
+              {
+                "doc_id": "haldia",
+                "chunk_index": 2,
+                "similarity_score": 0.0,
+                "text_preview": "Haldia Port\nNickname: Petrochemical City\nHaldia is located in West BengalHaldiaHaldia\nShow map of We..."
+              },
+              {
+                "doc_id": "haldia",
+                "chunk_index": 14,
+                "similarity_score": 0.0,
+                "text_preview": "Haldia is also a base of the Indian Coast Guard.[citation needed] Indian coast guard DHQ 8 (Headquar..."
+              },
+              {
+                "doc_id": "haldia",
+                "chunk_index": 27,
+                "similarity_score": 0.0,
+                "text_preview": "References\n \"Haldia City\" (PDF). Haldia Municipality.[permanent dead link]\n \"Haldia Info\".\n \"About U..."
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 14956.158876419067
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

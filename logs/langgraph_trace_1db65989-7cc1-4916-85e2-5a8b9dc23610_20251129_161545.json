@@ -1,0 +1,212 @@
+{
+  "session_id": "1db65989-7cc1-4916-85e2-5a8b9dc23610",
+  "start_time": "2025-11-29T16:15:23.762437",
+  "total_duration_ms": 21315.359830856323,
+  "nodes_executed": [
+    {
+      "timestamp": 1764413123.7624588,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "what is incident",
+        "doc_id": null,
+        "session_id": "1db65989-7cc1-4916-85e2-5a8b9dc23610",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started"
+      },
+      "status": "completed",
+      "end_timestamp": 1764413145.0672202,
+      "duration_ms": 21303.587675094604,
+      "state_after": {
+        "question": "what is incident",
+        "doc_id": null,
+        "session_id": "1db65989-7cc1-4916-85e2-5a8b9dc23610",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "score": 0.4248335361480713,
+              "metadata": {
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "chunk_index": 0,
+                "ingestion_date": "2025-11-29T15:52:02.641407"
+              }
+            },
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "score": 0.5902752876281738,
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 398,
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "J\u0638\u0012nau\u0017\u000b</ztb!h\b\u0722Tn*%4\u007f2hUjC\u0016p0\u0013q\u0438gpw\")@BUO\u0016.\\.tXbX\u000eTU\u0007=T.+E=T\u0776x1sj\bf-ba\u0016\u079eV_\u04d8K\u0001f\u001fGV\u0013\u0017Q\u0016Z\u0003l\u07c7AZyo9:\u052a}ep&}T\u001aoI-\u007fQj\nOq\nT}v$j\u000b7e>|\u001bd\u06266)|A\bi\u001djv\u0017\u07eee\u0627!\u0536c\u0186}\u001azh#`8\u001b\u00001V ;\u0014\r9\u0718\u0015!f\u000b]X_h\u00139.90~N?Y/\u04f0\u0005Ma\u001fDa\u0015}\u000ew7u$\u0016;R\u0006]Y8/r\u958e4g]\u0018s^52pa\u033ata\u033a\u0098M\u0098\u02ea + -\u0006)\u00060ld%\u0017\u019c$\u001f\"d\u018b C\u0018\u0003C>e#\u000b`.F\u0012\u000b\u0019\u000f \\7\u001f4saeH\u0015.Y\u0006P\rtaC\u03451#AV\r\u0098\u04851\u000fr#\u0017qra\u000f\u0445.\f\u001c\f\u0649elzdw\u000f\u000b\u0003\u0015F\u0017U\u001b\"bO'\u0098/0f#Z\u0444%;Os",
+              "score": 0.5928604006767273,
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 139,
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "122 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 230 0 R\n/T (Implemented PII Data Classification and governed secure handling of sensitive data across Azure assets.)\n/E (Implemented PII Data Classification and governed secure handling of sensitive data across Azure assets.)\n/Pg 9 0 R\n/K [12]\n>>\nendobj\n123 0 obj\n<<\n/Type /StructElem\n/S /H1",
+              "score": 0.5977212190628052,
+              "metadata": {
+                "rbac_namespace": "general",
+                "chunk_index": 400,
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.5998139381408691,
+              "metadata": {
+                "chunk_index": 165,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "rbac_namespace": "general",
+                "doc_id": "doc_000"
+              }
+            }
+          ]
+        },
+        "retrieval_quality": 1.0,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/E (Integrated Spark-based Data Certification Frameworks to validate staged data and ensure accuracy prior to analytics consumption.)\n/Pg 9 0 R\n/K [10]\n>>\nendobj\n121 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 229 0 R",
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 398,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.523,
+                "similarity_score": 0.41,
+                "original_distance": 0.59,
+                "text_length": 393
+              }
+            },
+            {
+              "text": "122 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 230 0 R\n/T (Implemented PII Data Classification and governed secure handling of sensitive data across Azure assets.)\n/E (Implemented PII Data Classification and governed secure handling of sensitive data across Azure assets.)\n/Pg 9 0 R\n/K [12]\n>>\nendobj\n123 0 obj\n<<\n/Type /StructElem\n/S /H1",
+              "metadata": {
+                "rbac_namespace": "general",
+                "chunk_index": 400,
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.481,
+                "similarity_score": 0.402,
+                "original_distance": 0.598,
+                "text_length": 332
+              }
+            },
+            {
+              "text": "J\u0638\u0012nau\u0017\u000b</ztb!h\b\u0722Tn*%4\u007f2hUjC\u0016p0\u0013q\u0438gpw\")@BUO\u0016.\\.tXbX\u000eTU\u0007=T.+E=T\u0776x1sj\bf-ba\u0016\u079eV_\u04d8K\u0001f\u001fGV\u0013\u0017Q\u0016Z\u0003l\u07c7AZyo9:\u052a}ep&}T\u001aoI-\u007fQj\nOq\nT}v$j\u000b7e>|\u001bd\u06266)|A\bi\u001djv\u0017\u07eee\u0627!\u0536c\u0186}\u001azh#`8\u001b\u00001V ;\u0014\r9\u0718\u0015!f\u000b]X_h\u00139.90~N?Y/\u04f0\u0005Ma\u001fDa\u0015}\u000ew7u$\u0016;R\u0006]Y8/r\u958e4g]\u0018s^52pa\u033ata\u033a\u0098M\u0098\u02ea + -\u0006)\u00060ld%\u0017\u019c$\u001f\"d\u018b C\u0018\u0003C>e#\u000b`.F\u0012\u000b\u0019\u000f \\7\u001f4saeH\u0015.Y\u0006P\rtaC\u03451#AV\r\u0098\u04851\u000fr#\u0017qra\u000f\u0445.\f\u001c\f\u0649elzdw\u000f\u000b\u0003\u0015F\u0017U\u001b\"bO'\u0098/0f#Z\u0444%;Os",
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 139,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.48,
+                "similarity_score": 0.407,
+                "original_distance": 0.593,
+                "text_length": 325
+              }
+            },
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "metadata": {
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "chunk_index": 0,
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "relevance_score": 0.461,
+                "similarity_score": 0.575,
+                "original_distance": 0.425,
+                "text_length": 97
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "chunk_index": 165,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "relevance_score": 0.314,
+                "similarity_score": 0.4,
+                "original_distance": 0.6,
+                "text_length": 56
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"incident is boguss.\"}",
+        "query_logged_id": 5,
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "what is incident",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 398,
+                "similarity_score": 0.0,
+                "text_preview": "120 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 228 0 R\n/T (Integrated Spark-based Data Certification Frame..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 400,
+                "similarity_score": 0.0,
+                "text_preview": "122 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 230 0 R\n/T (Implemented PII Data Classification and governe..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 139,
+                "similarity_score": 0.0,
+                "text_preview": "J\u0638\u0012nau\u0017\u000b</ztb!h\b\u0722Tn*%4\u007f2hUjC\u0016p0\u0013q\u0438gpw\")@BUO\u0016.\\.tXbX\u000eTU\u0007=T.+E=T\u0776x1sj\bf-ba\u0016\u079eV_\u04d8K\u0001f\u001fGV\u0013\u0017Q\u0016Z\u0003l\u07c7AZyo9:\u052a}e..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss ."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 21301.905870437622
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

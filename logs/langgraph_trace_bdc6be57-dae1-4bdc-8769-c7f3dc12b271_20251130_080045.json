@@ -1,0 +1,240 @@
+{
+  "session_id": "bdc6be57-dae1-4bdc-8769-c7f3dc12b271",
+  "start_time": "2025-11-30T08:00:19.863909",
+  "total_duration_ms": 25647.43971824646,
+  "nodes_executed": [
+    {
+      "timestamp": 1764469819.8639197,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "hi what is document 1 ",
+        "doc_id": null,
+        "session_id": "bdc6be57-dae1-4bdc-8769-c7f3dc12b271",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": null,
+        "user_id": null,
+        "dept_id": null,
+        "top_k": 5
+      },
+      "status": "completed",
+      "end_timestamp": 1764469845.5099785,
+      "duration_ms": 25646.00396156311,
+      "state_after": {
+        "question": "hi what is document 1 ",
+        "doc_id": null,
+        "session_id": "bdc6be57-dae1-4bdc-8769-c7f3dc12b271",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": null,
+        "user_id": null,
+        "dept_id": null,
+        "top_k": 5,
+        "user_intent_keywords": [
+          "document",
+          "search",
+          "request"
+        ],
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:xmpMM=\"http://ns.adobe.com/xap/1.0/mm/\">\n\t\t\t<xmpMM:DocumentID>uuid:D2DD4054-4657-4C41-9F91-5A81625BEB68</xmpMM:DocumentID>\n\t\t\t<xmpMM:InstanceID>uuid:7BFBAB4C-CD7A-4D1E-A8AA-EBB9F4BB3ED5</xmpMM:InstanceID>\n\t\t</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:pdf=\"http://ns.adobe.com/pdf/1.3/\">\n\t\t\t<pdf:Producer>Epson Scan 2</pdf:Producer>\n\t\t</rdf:Description>",
+              "score": 0.48660993576049805,
+              "metadata": {
+                "chunk_index": 496,
+                "doc_id": "123456",
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T18:31:26.282903"
+              }
+            },
+            {
+              "text": "/Subtype /CIDFontType2\n/CIDToGIDMap /Identity\n/CIDSystemInfo 393 0 R\n/W [0 [584 700]\n 30 [679]\n 37 [748]\n 46 [614]\n 69 [602 766]\n82 [478]\n 103 [599]\n 113 [864]\n 127 [782]\n 163 [634]\n174 [624]\n 187 [576]\n 218 [715]\n 240 [633]\n 269 [535]\n276 [634]\n 283 [586]\n 307 [393 649]\n 315 [595]\n 320 [278]\n344 [250]\n 353 [921 0 595]\n 367 [615]\n 403 [631 0 0 403]\n 414 [479]\n426 [384]\n 434 [605]\n 458 [573 800]\n 464 [562 581]\n 475 [484]\n490 [607 500 548 529]\n 496 [557 0 579 551]\n 549 [228 267]\n 570 [366 363]",
+              "score": 0.5320086479187012,
+              "metadata": {
+                "doc_id": "doc_000",
+                "chunk_index": 571,
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "/Subtype /CIDFontType2\n/CIDToGIDMap /Identity\n/CIDSystemInfo 393 0 R\n/W [0 [584 700]\n 30 [679]\n 37 [748]\n 46 [614]\n 69 [602 766]\n82 [478]\n 103 [599]\n 113 [864]\n 127 [782]\n 163 [634]\n174 [624]\n 187 [576]\n 218 [715]\n 240 [633]\n 269 [535]\n276 [634]\n 283 [586]\n 307 [393 649]\n 315 [595]\n 320 [278]\n344 [250]\n 353 [921 0 595]\n 367 [615]\n 403 [631 0 0 403]\n 414 [479]\n426 [384]\n 434 [605]\n 458 [573 800]\n 464 [562 581]\n 475 [484]\n490 [607 500 548 529]\n 496 [557 0 579 551]\n 549 [228 267]\n 570 [366 363]",
+              "score": 0.5320086479187012,
+              "metadata": {
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 571,
+                "rbac_namespace": "general",
+                "doc_id": "doc_00099"
+              }
+            },
+            {
+              "text": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\t\t\t<dc:format>application/pdf</dc:format>\n\t\t</rdf:Description>\n\t</rdf:RDF>\n</x:xmpmeta>\n        \n        \n        \n        \n        \n        \n        \n        \n<?xpacket end=\"r\"?>\nendstream\nendobj\n13 0 obj\n1037\nendobj\n2 0 obj\n<</Producer(Epson Scan 2)/CreationDate(D:20170511170123+05'30')/ModDate(D:20170511170123+05'30')>>\nendobj\nxref\n0 14\n0000000000 65535 f \n0000294775 00000 n \n0000296091 00000 n",
+              "score": 0.5344038605690002,
+              "metadata": {
+                "rbac_namespace": "general",
+                "chunk_index": 497,
+                "ingestion_date": "2025-11-29T18:31:26.282903",
+                "doc_id": "123456"
+              }
+            },
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "score": 0.5387248992919922,
+              "metadata": {
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "chunk_index": 0,
+                "doc_id": "doc_000"
+              }
+            }
+          ]
+        },
+        "collection_name": "agent_memory",
+        "retrieval_quality": 1.0,
+        "rbac_filter_applied": {
+          "$or": [
+            {
+              "rbac_tags": {
+                "$contains": "rbac:None:None"
+              }
+            },
+            {
+              "rbac_tags": {
+                "$contains": "rbac:None:*"
+              }
+            }
+          ]
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "/Subtype /CIDFontType2\n/CIDToGIDMap /Identity\n/CIDSystemInfo 393 0 R\n/W [0 [584 700]\n 30 [679]\n 37 [748]\n 46 [614]\n 69 [602 766]\n82 [478]\n 103 [599]\n 113 [864]\n 127 [782]\n 163 [634]\n174 [624]\n 187 [576]\n 218 [715]\n 240 [633]\n 269 [535]\n276 [634]\n 283 [586]\n 307 [393 649]\n 315 [595]\n 320 [278]\n344 [250]\n 353 [921 0 595]\n 367 [615]\n 403 [631 0 0 403]\n 414 [479]\n426 [384]\n 434 [605]\n 458 [573 800]\n 464 [562 581]\n 475 [484]\n490 [607 500 548 529]\n 496 [557 0 579 551]\n 549 [228 267]\n 570 [366 363]",
+              "metadata": {
+                "doc_id": "doc_000",
+                "chunk_index": 571,
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.625,
+                "similarity_score": 0.468,
+                "original_distance": 0.532,
+                "text_length": 496
+              }
+            },
+            {
+              "text": "/Subtype /CIDFontType2\n/CIDToGIDMap /Identity\n/CIDSystemInfo 393 0 R\n/W [0 [584 700]\n 30 [679]\n 37 [748]\n 46 [614]\n 69 [602 766]\n82 [478]\n 103 [599]\n 113 [864]\n 127 [782]\n 163 [634]\n174 [624]\n 187 [576]\n 218 [715]\n 240 [633]\n 269 [535]\n276 [634]\n 283 [586]\n 307 [393 649]\n 315 [595]\n 320 [278]\n344 [250]\n 353 [921 0 595]\n 367 [615]\n 403 [631 0 0 403]\n 414 [479]\n426 [384]\n 434 [605]\n 458 [573 800]\n 464 [562 581]\n 475 [484]\n490 [607 500 548 529]\n 496 [557 0 579 551]\n 549 [228 267]\n 570 [366 363]",
+              "metadata": {
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 571,
+                "rbac_namespace": "general",
+                "doc_id": "doc_00099",
+                "relevance_score": 0.625,
+                "similarity_score": 0.468,
+                "original_distance": 0.532,
+                "text_length": 496
+              }
+            },
+            {
+              "text": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\t\t\t<dc:format>application/pdf</dc:format>\n\t\t</rdf:Description>\n\t</rdf:RDF>\n</x:xmpmeta>\n        \n        \n        \n        \n        \n        \n        \n        \n<?xpacket end=\"r\"?>\nendstream\nendobj\n13 0 obj\n1037\nendobj\n2 0 obj\n<</Producer(Epson Scan 2)/CreationDate(D:20170511170123+05'30')/ModDate(D:20170511170123+05'30')>>\nendobj\nxref\n0 14\n0000000000 65535 f \n0000294775 00000 n \n0000296091 00000 n",
+              "metadata": {
+                "rbac_namespace": "general",
+                "chunk_index": 497,
+                "ingestion_date": "2025-11-29T18:31:26.282903",
+                "doc_id": "123456",
+                "relevance_score": 0.624,
+                "similarity_score": 0.466,
+                "original_distance": 0.534,
+                "text_length": 496
+              }
+            },
+            {
+              "text": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:xmpMM=\"http://ns.adobe.com/xap/1.0/mm/\">\n\t\t\t<xmpMM:DocumentID>uuid:D2DD4054-4657-4C41-9F91-5A81625BEB68</xmpMM:DocumentID>\n\t\t\t<xmpMM:InstanceID>uuid:7BFBAB4C-CD7A-4D1E-A8AA-EBB9F4BB3ED5</xmpMM:InstanceID>\n\t\t</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:pdf=\"http://ns.adobe.com/pdf/1.3/\">\n\t\t\t<pdf:Producer>Epson Scan 2</pdf:Producer>\n\t\t</rdf:Description>",
+              "metadata": {
+                "chunk_index": 496,
+                "doc_id": "123456",
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T18:31:26.282903",
+                "relevance_score": 0.613,
+                "similarity_score": 0.513,
+                "original_distance": 0.487,
+                "text_length": 422
+              }
+            },
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "metadata": {
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "chunk_index": 0,
+                "doc_id": "doc_000",
+                "relevance_score": 0.381,
+                "similarity_score": 0.461,
+                "original_distance": 0.539,
+                "text_length": 97
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"Document 1 is a PDF file, which can be opened using Adobe Acrobat Reader or any other PDF viewer software. It contains information about various documents and their contents.\"}",
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "hi what is document 1 ",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 571,
+                "similarity_score": 0.0,
+                "text_preview": "/Subtype /CIDFontType2\n/CIDToGIDMap /Identity\n/CIDSystemInfo 393 0 R\n/W [0 [584 700]\n 30 [679]\n 37 [..."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 571,
+                "similarity_score": 0.0,
+                "text_preview": "/Subtype /CIDFontType2\n/CIDToGIDMap /Identity\n/CIDSystemInfo 393 0 R\n/W [0 [584 700]\n 30 [679]\n 37 [..."
+              },
+              {
+                "doc_id": "123456",
+                "chunk_index": 497,
+                "similarity_score": 0.0,
+                "text_preview": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\t\t\t<..."
+              },
+              {
+                "doc_id": "123456",
+                "chunk_index": 496,
+                "similarity_score": 0.0,
+                "text_preview": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:xmpMM=\"http://ns.adobe.com/xap/1.0/mm/\">\n\t\t..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss ."
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 25646.01469039917
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

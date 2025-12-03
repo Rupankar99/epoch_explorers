@@ -1,0 +1,212 @@
+{
+  "session_id": "2527e5cd-7201-4c7f-95ad-e53874e48c76",
+  "start_time": "2025-11-29T16:15:45.392133",
+  "total_duration_ms": 24440.72389602661,
+  "nodes_executed": [
+    {
+      "timestamp": 1764413145.3921394,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "ingest ",
+        "doc_id": null,
+        "session_id": "2527e5cd-7201-4c7f-95ad-e53874e48c76",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started"
+      },
+      "status": "completed",
+      "end_timestamp": 1764413169.8318582,
+      "duration_ms": 24439.650774002075,
+      "state_after": {
+        "question": "ingest ",
+        "doc_id": null,
+        "session_id": "2527e5cd-7201-4c7f-95ad-e53874e48c76",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "[{\u0010\u000e\u001d\u0017\u0005=\u000f_\u0294\\^\ubb4c?:V\u001fx\u027a;|y\u0018y\u001fJ4&\u001b{'v+6\u2dffFh\u001fyc\u0012$\u0010|\\\u04a7\u0017kik Wy':s\\Pn\u6374<\u04ca,\u0011<N\u0013\u0003>)R5x>6a=NP$R#n$\u0007\u05dc9+jrUk9q\u2396\u0267{\u0012Mg4{^8$\u0000\u000f8%8#E7^\"ca\u0010?\u03b1I\\\u05884iYnz\u000f[\u001f\tXVnpT\u0000\u000b\u001c\u001dy\\U\u0014RJ-_\u0014\u000eq\u001eF-\"t(]$\u0016b>ONq\u04f5oM#_~+ 6\u028d#`G0\t?Sy\u001e\u0016>H$\u0010Y|0-\u00182J\u0018\u0000\u0010s\u03edgVgnns#o%~r\u00002{3FvUq\u007fss/Pw\u0012.,pw\u0003\u07b0{)Nc`Xd\u001dl\u0004_(\u00ceG\u00159l\b\u0006\u0002 \u0011GB\u001c\u001d\u0018\u001b[\u001f9T\u000eO>\u0011!6Uw\u001e>f.V\u001eXE (@$\u0011h%\u000e`\u0004H\u0005\u007f\u0014\u02a7\u0480>\u6663\t3|\rY{\u000eC)\b#R\u0001\f\u001d\u00068y\u0004o\u001b\u0000A \u000057c8\u5eca\u0000\u0006\u0014\u0503\u00004GL\u0003$04\u0000Z+8\u000b~\u00006P\u075ewz\u001a\u0000h_\u000f?Z}UWEps;\u0010\u001a<4\u07a6ig\u0003\u01df\u0017 _x>!\u02d2v\t\u0002\u0013\u0001:\u0005\u001ccI)#IO\u00de#5\u0018\u0001.\u01cds9\u0000*\u6e62\u0267.Z\u04df\r~#ZIv\u0012:\u0017\u0001K\u0010{\u001fju.]QX",
+              "score": 0.5157936215400696,
+              "metadata": {
+                "chunk_index": 75,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "doc_id": "doc_000",
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000G8WB?\u0000\u0011\u000eJ\u0000mpO\u0004P\u0005\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0001\u001f\u00005_\n\\\u0000\u0000F:+A\u0000?\u0011@\u0016\t\n2{\n\u0004\u0755\u03df~\u0016\u0017\u0016*i\u000e\u001d\u000bLu\u007f\u000f}\u007fpAkkhE$zbHy\u0455VfV\u000b^\u0015fKK\u0005unhFjg}3:M?vo~.f\r_h'!i\n\u06b9-_?\u02eaC\u070a\\F\r\u001f\u0003:b=R+6rGu\u0017qH\\Wt*V\u001e>_b\u04e0%M;{\u0019]I\u0011B\u0015s<UOo\u0000Ek\u0016vj/qsqu\n\u06f6:Mj-\u01d9\u0002\u0019Ss7\u0001&,/mk\u001dv\u063fsn&>\u07f7m",
+              "score": 0.5285495519638062,
+              "metadata": {
+                "chunk_index": 253,
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "A:\u02fa=C~\u000f\u001f6\u0016Y\u05a3vX\u07b6\b<I`-:n3y\u000f1\u007f\u0000w\u0015\u000e_mw\u000f<u\u000bo\u001d0\u0387^Q\u0005U\u000e'N:\u0000khU\u0000\u0012k_H/sX\u0006\u000f\u0015|@4/:>?\u001645p\u0006\u000b\u007f\b?V\u001f\u000b\u001d8'|+/4c\u00de>\ud8b7\udf65N}g\u073eqn\u0017h\u0005?_C\u0011~\u000b?i?>\u001fV7uo\b?\u0013Au)<\u0016",
+              "score": 0.5302464962005615,
+              "metadata": {
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 226,
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "O\u00f7]U7y@\u001e!\u0000\u0004Q\u0000m\uf1f5?\u007f\u0007SY\u000f\u001a\u059f\f4\u007f-\u02f7UVxh\u0001W_@\u001e)y\u0000\u0005\u0000|,\u0000iH.~ \u0575\u007fXvjOxU\u047fg[;gYYy7Z\u0000oMv\u007fD?\u093f\u0013?c\u07f6\u01abK\u0002\u0011\u026f+>XFpne{uKtg+EV?@<{",
+              "score": 0.5352343320846558,
+              "metadata": {
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 222
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.5387159585952759,
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 165,
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            }
+          ]
+        },
+        "retrieval_quality": 1.0,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "[{\u0010\u000e\u001d\u0017\u0005=\u000f_\u0294\\^\ubb4c?:V\u001fx\u027a;|y\u0018y\u001fJ4&\u001b{'v+6\u2dffFh\u001fyc\u0012$\u0010|\\\u04a7\u0017kik Wy':s\\Pn\u6374<\u04ca,\u0011<N\u0013\u0003>)R5x>6a=NP$R#n$\u0007\u05dc9+jrUk9q\u2396\u0267{\u0012Mg4{^8$\u0000\u000f8%8#E7^\"ca\u0010?\u03b1I\\\u05884iYnz\u000f[\u001f\tXVnpT\u0000\u000b\u001c\u001dy\\U\u0014RJ-_\u0014\u000eq\u001eF-\"t(]$\u0016b>ONq\u04f5oM#_~+ 6\u028d#`G0\t?Sy\u001e\u0016>H$\u0010Y|0-\u00182J\u0018\u0000\u0010s\u03edgVgnns#o%~r\u00002{3FvUq\u007fss/Pw\u0012.,pw\u0003\u07b0{)Nc`Xd\u001dl\u0004_(\u00ceG\u00159l\b\u0006\u0002 \u0011GB\u001c\u001d\u0018\u001b[\u001f9T\u000eO>\u0011!6Uw\u001e>f.V\u001eXE (@$\u0011h%\u000e`\u0004H\u0005\u007f\u0014\u02a7\u0480>\u6663\t3|\rY{\u000eC)\b#R\u0001\f\u001d\u00068y\u0004o\u001b\u0000A \u000057c8\u5eca\u0000\u0006\u0014\u0503\u00004GL\u0003$04\u0000Z+8\u000b~\u00006P\u075ewz\u001a\u0000h_\u000f?Z}UWEps;\u0010\u001a<4\u07a6ig\u0003\u01df\u0017 _x>!\u02d2v\t\u0002\u0013\u0001:\u0005\u001ccI)#IO\u00de#5\u0018\u0001.\u01cds9\u0000*\u6e62\u0267.Z\u04df\r~#ZIv\u0012:\u0017\u0001K\u0010{\u001fju.]QX",
+              "metadata": {
+                "chunk_index": 75,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "relevance_score": 0.6,
+                "similarity_score": 0.484,
+                "original_distance": 0.516,
+                "text_length": 435
+              }
+            },
+            {
+              "text": "\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000G8WB?\u0000\u0011\u000eJ\u0000mpO\u0004P\u0005\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0001\u001f\u00005_\n\\\u0000\u0000F:+A\u0000?\u0011@\u0016\t\n2{\n\u0004\u0755\u03df~\u0016\u0017\u0016*i\u000e\u001d\u000bLu\u007f\u000f}\u007fpAkkhE$zbHy\u0455VfV\u000b^\u0015fKK\u0005unhFjg}3:M?vo~.f\r_h'!i\n\u06b9-_?\u02eaC\u070a\\F\r\u001f\u0003:b=R+6rGu\u0017qH\\Wt*V\u001e>_b\u04e0%M;{\u0019]I\u0011B\u0015s<UOo\u0000Ek\u0016vj/qsqu\n\u06f6:Mj-\u01d9\u0002\u0019Ss7\u0001&,/mk\u001dv\u063fsn&>\u07f7m",
+              "metadata": {
+                "chunk_index": 253,
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.511,
+                "similarity_score": 0.471,
+                "original_distance": 0.529,
+                "text_length": 302
+              }
+            },
+            {
+              "text": "A:\u02fa=C~\u000f\u001f6\u0016Y\u05a3vX\u07b6\b<I`-:n3y\u000f1\u007f\u0000w\u0015\u000e_mw\u000f<u\u000bo\u001d0\u0387^Q\u0005U\u000e'N:\u0000khU\u0000\u0012k_H/sX\u0006\u000f\u0015|@4/:>?\u001645p\u0006\u000b\u007f\b?V\u001f\u000b\u001d8'|+/4c\u00de>\ud8b7\udf65N}g\u073eqn\u0017h\u0005?_C\u0011~\u000b?i?>\u001fV7uo\b?\u0013Au)<\u0016",
+              "metadata": {
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 226,
+                "rbac_namespace": "general",
+                "relevance_score": 0.405,
+                "similarity_score": 0.47,
+                "original_distance": 0.53,
+                "text_length": 127
+              }
+            },
+            {
+              "text": "O\u00f7]U7y@\u001e!\u0000\u0004Q\u0000m\uf1f5?\u007f\u0007SY\u000f\u001a\u059f\f4\u007f-\u02f7UVxh\u0001W_@\u001e)y\u0000\u0005\u0000|,\u0000iH.~ \u0575\u007fXvjOxU\u047fg[;gYYy7Z\u0000oMv\u007fD?\u093f\u0013?c\u07f6\u01abK\u0002\u0011\u026f+>XFpne{uKtg+EV?@<{",
+              "metadata": {
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 222,
+                "relevance_score": 0.388,
+                "similarity_score": 0.465,
+                "original_distance": 0.535,
+                "text_length": 104
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 165,
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.356,
+                "similarity_score": 0.461,
+                "original_distance": 0.539,
+                "text_length": 56
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"The context provided is a long document, but based on the information given in the text, it appears to be discussing various topics such as AI research, language processing, and mathematical formulas. However, without more context or specific details from the source material, I cannot provide an exact answer to the question \\\"Ingest.\\\" If you have additional information about the topic or need clarification on a particular point, please feel free to ask!\"}",
+        "query_logged_id": 6,
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "ingest ",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 75,
+                "similarity_score": 0.0,
+                "text_preview": "[{\u0010\u000e\u001d\u0017\u0005=\u000f_\u0294\\^\ubb4c?:V\u001fx\u027a;|y\u0018y\u001fJ4&\u001b{'v+6\u2dffFh\u001fyc\u0012$\u0010|\\\u04a7\u0017kik Wy':s\\Pn\u6374<\u04ca,\u0011<N\u0013\u0003>)R5x>6a=NP$R#n$\u0007\u05dc9+jrUk9q\u2396\u0267{\u0012M..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 253,
+                "similarity_score": 0.0,
+                "text_preview": "\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000G8WB?\u0000\u0011\u000eJ\u0000mpO\u0004P\u0005\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000\u0002\n\u0000(\u0000..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 226,
+                "similarity_score": 0.0,
+                "text_preview": "A:\u02fa=C~\u000f\u001f6\u0016Y\u05a3vX\u07b6\b<I`-:n3y\u000f1\u007f\u0000w\u0015\u000e_mw\u000f<u\u000bo\u001d0\u0387^Q\u0005U\u000e'N:\u0000khU\u0000\u0012k_H/sX\u0006\u000f\u0015|@4/:>?\u001645p\u0006\u000b\u007f\b?V\u001f\u000b\u001d8'|+/4c\u00de>\ud8b7\udf65N}g\u073eq..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 222,
+                "similarity_score": 0.0,
+                "text_preview": "O\u00f7]U7y@\u001e!\u0000\u0004Q\u0000m\uf1f5?\u007f\u0007SY\u000f\u001a\u059f\f4\u007f-\u02f7UVxh\u0001W_@\u001e)y\u0000\u0005\u0000|,\u0000iH.~ \u0575\u007fXvjOxU\u047fg[;gYYy7Z\u0000oMv\u007fD?\u093f\u0013?c\u07f6\u01abK\u0002\u0011\u026f+>XFpne{uKtg+EV..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 24439.706802368164
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

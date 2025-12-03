@@ -1,0 +1,470 @@
+{
+  "session_id": "0eea90ee-0f16-4496-8fee-2cbb621d78d9",
+  "start_time": "2025-11-30T14:42:01.001323",
+  "total_duration_ms": 21675.2028465271,
+  "nodes_executed": [
+    {
+      "timestamp": 1764493921.0013354,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "0eea90ee-0f16-4496-8fee-2cbb621d78d9",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "is_root_user": true,
+        "user_company_id": null,
+        "user_dept_id": null,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764493942.6760266,
+      "duration_ms": 21674.609422683716,
+      "state_after": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "0eea90ee-0f16-4496-8fee-2cbb621d78d9",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "is_root_user": true,
+        "user_company_id": null,
+        "user_dept_id": null,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "findings",
+          "reports",
+          "key",
+          "intent",
+          "analysis"
+        ],
+        "context": {
+          "context": [
+            {
+              "text": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classification: INTERNAL\n        \n        This document contains sensitive information about Company 1's Department 1 operations.\n        \n        Executive Summary:\n        Q4 performance metrics show 15% growth in core business metrics. Team productivity increased\n        by 20% following the new workflow implementation. Customer satisfaction scores improved to 4.8/5.",
+              "score": 0.4266592264175415,
+              "metadata": {
+                "dept_id": 1,
+                "chunk_index": 1,
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:1:1",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "doc_id": "c1d1_report_2025",
+                "company_id": 1
+              }
+            },
+            {
+              "text": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_",
+              "score": 0.49284327030181885,
+              "metadata": {
+                "doc_id": "c1d1_report_2025",
+                "dept_id": 1,
+                "company_id": 1,
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "rbac_tags": "rbac:1:1",
+                "rbac_namespace": "root",
+                "chunk_index": 0
+              }
+            },
+            {
+              "text": "- Expand team by 5 positions\n        - Increase R&D budget by 25%\n        - Implement advanced analytics platform\n        \n        Next Steps:\n        - Review budget allocation\n        - Schedule stakeholder meetings\n        - Update risk assessment",
+              "score": 0.5071534514427185,
+              "metadata": {
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "rbac_tags": "rbac:1:1",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "chunk_index": 3,
+                "dept_id": 1,
+                "doc_id": "c1d1_report_2025"
+              }
+            },
+            {
+              "text": "STRATEGIC PLAN - COMPANY 1 DEPARTMENT 2\n        \n        Date: November 2025\n        Type: Strategic Initiative\n        \n        Department 2 Strategic Vision for 2026-2027\n        \n        Mission Statement:\n        Drive innovation and market expansion through cutting-edge product development and\n        strategic partnerships. Department 2 is committed to becoming the market leader in our sector.\n        \n        Strategic Objectives:\n        1. Market Expansion",
+              "score": 0.5082120895385742,
+              "metadata": {
+                "rbac_tags": "rbac:1:2",
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "rbac_namespace": "root",
+                "dept_id": 2,
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "company_id": 1,
+                "chunk_index": 1,
+                "doc_id": "c1d2_strategy_2026"
+              }
+            },
+            {
+              "text": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_",
+              "score": 0.5265218615531921,
+              "metadata": {
+                "chunk_index": 0,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:1:2",
+                "company_id": 1,
+                "doc_id": "c1d2_strategy_2026",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "dept_id": 2
+              }
+            },
+            {
+              "text": "MARKET RESEARCH - COMPANY 2 DEPARTMENT 2\n        \n        Date: November 2025\n        Study Duration: 3 months\n        Sample Size: 5,000 respondents\n        \n        Market Research Report\n        \n        Industry Overview:\n        The global market for our products is expected to reach $150B by 2027,\n        growing at a CAGR of 14.2%. Key drivers include digital transformation,\n        increasing customer demand, and technological advancement.",
+              "score": 0.4655437469482422,
+              "metadata": {
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "company_id": 2,
+                "dept_id": 2,
+                "chunk_index": 1,
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "doc_id": "c2d2_market_research",
+                "rbac_tags": "rbac:2:2"
+              }
+            },
+            {
+              "text": "# c2d2_market_research\n\n_Document converted to markdown on 2025-11-30T13:52:00.560850_",
+              "score": 0.49089115858078003,
+              "metadata": {
+                "chunk_index": 0,
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "doc_id": "c2d2_market_research",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "company_id": 2,
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "rbac_tags": "rbac:2:2"
+              }
+            },
+            {
+              "text": "Q4 2026: Measure impact and iterate",
+              "score": 0.49685633182525635,
+              "metadata": {
+                "company_id": 2,
+                "doc_id": "c2d2_market_research",
+                "rbac_tags": "rbac:2:2",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "chunk_index": 5,
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2"
+              }
+            },
+            {
+              "text": "FINANCIAL ANALYSIS - COMPANY 2 DEPARTMENT 1\n        \n        Date: Q4 2025\n        Report Type: Quarterly Financial Review\n        \n        Executive Financial Summary:\n        Company 2 Department 1 demonstrated strong financial performance in Q4 2025 with\n        consolidated revenue of $45.2M, representing 8% quarter-over-quarter growth.\n        \n        Revenue Analysis:\n        - Product Sales: $28.5M (63% of total revenue)\n        - Service Revenue: $12.3M (27% of total revenue)",
+              "score": 0.5157947540283203,
+              "metadata": {
+                "doc_id": "c2d1_financial_q4_2025",
+                "meta_tags": "meta:keyword:financial;meta:keyword:analysis;meta:keyword:company;meta:keyword:department;meta:keyword:report",
+                "chunk_index": 1,
+                "rbac_tags": "rbac:2:1",
+                "ingestion_date": "2025-11-30T13:51:57.507962",
+                "company_id": 2,
+                "dept_id": 1,
+                "rbac_namespace": "root"
+              }
+            },
+            {
+              "text": "Strategic Recommendations:\n        1. Invest heavily in product reliability\n        2. Expand customer support infrastructure\n        3. Develop premium tier offering\n        4. Create integration marketplace\n        5. Focus on enterprise customer acquisition\n        \n        Implementation Plan:\n        Q1 2026: Market segmentation refinement\n        Q2 2026: Product roadmap development\n        Q3 2026: Launch new initiatives\n        Q4 2026: Measure impact and iterate",
+              "score": 0.5289328694343567,
+              "metadata": {
+                "doc_id": "c2d2_market_research",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:2:2",
+                "dept_id": 2,
+                "company_id": 2,
+                "chunk_index": 4,
+                "ingestion_date": "2025-11-30T13:52:14.052033"
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_1, tenant_2",
+        "retrieval_quality": 1.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": {
+            "$eq": "root"
+          }
+        },
+        "is_root_access": true,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classification: INTERNAL\n        \n        This document contains sensitive information about Company 1's Department 1 operations.\n        \n        Executive Summary:\n        Q4 performance metrics show 15% growth in core business metrics. Team productivity increased\n        by 20% following the new workflow implementation. Customer satisfaction scores improved to 4.8/5.",
+              "metadata": {
+                "dept_id": 1,
+                "chunk_index": 1,
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:1:1",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "doc_id": "c1d1_report_2025",
+                "company_id": 1,
+                "relevance_score": 0.679,
+                "similarity_score": 0.573,
+                "original_distance": 0.427,
+                "text_length": 462
+              }
+            },
+            {
+              "text": "MARKET RESEARCH - COMPANY 2 DEPARTMENT 2\n        \n        Date: November 2025\n        Study Duration: 3 months\n        Sample Size: 5,000 respondents\n        \n        Market Research Report\n        \n        Industry Overview:\n        The global market for our products is expected to reach $150B by 2027,\n        growing at a CAGR of 14.2%. Key drivers include digital transformation,\n        increasing customer demand, and technological advancement.",
+              "metadata": {
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "company_id": 2,
+                "dept_id": 2,
+                "chunk_index": 1,
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "doc_id": "c2d2_market_research",
+                "rbac_tags": "rbac:2:2",
+                "relevance_score": 0.645,
+                "similarity_score": 0.534,
+                "original_distance": 0.466,
+                "text_length": 451
+              }
+            },
+            {
+              "text": "FINANCIAL ANALYSIS - COMPANY 2 DEPARTMENT 1\n        \n        Date: Q4 2025\n        Report Type: Quarterly Financial Review\n        \n        Executive Financial Summary:\n        Company 2 Department 1 demonstrated strong financial performance in Q4 2025 with\n        consolidated revenue of $45.2M, representing 8% quarter-over-quarter growth.\n        \n        Revenue Analysis:\n        - Product Sales: $28.5M (63% of total revenue)\n        - Service Revenue: $12.3M (27% of total revenue)",
+              "metadata": {
+                "doc_id": "c2d1_financial_q4_2025",
+                "meta_tags": "meta:keyword:financial;meta:keyword:analysis;meta:keyword:company;meta:keyword:department;meta:keyword:report",
+                "chunk_index": 1,
+                "rbac_tags": "rbac:2:1",
+                "ingestion_date": "2025-11-30T13:51:57.507962",
+                "company_id": 2,
+                "dept_id": 1,
+                "rbac_namespace": "root",
+                "relevance_score": 0.632,
+                "similarity_score": 0.484,
+                "original_distance": 0.516,
+                "text_length": 489
+              }
+            },
+            {
+              "text": "STRATEGIC PLAN - COMPANY 1 DEPARTMENT 2\n        \n        Date: November 2025\n        Type: Strategic Initiative\n        \n        Department 2 Strategic Vision for 2026-2027\n        \n        Mission Statement:\n        Drive innovation and market expansion through cutting-edge product development and\n        strategic partnerships. Department 2 is committed to becoming the market leader in our sector.\n        \n        Strategic Objectives:\n        1. Market Expansion",
+              "metadata": {
+                "rbac_tags": "rbac:1:2",
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "rbac_namespace": "root",
+                "dept_id": 2,
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "company_id": 1,
+                "chunk_index": 1,
+                "doc_id": "c1d2_strategy_2026",
+                "relevance_score": 0.626,
+                "similarity_score": 0.492,
+                "original_distance": 0.508,
+                "text_length": 469
+              }
+            },
+            {
+              "text": "Strategic Recommendations:\n        1. Invest heavily in product reliability\n        2. Expand customer support infrastructure\n        3. Develop premium tier offering\n        4. Create integration marketplace\n        5. Focus on enterprise customer acquisition\n        \n        Implementation Plan:\n        Q1 2026: Market segmentation refinement\n        Q2 2026: Product roadmap development\n        Q3 2026: Launch new initiatives\n        Q4 2026: Measure impact and iterate",
+              "metadata": {
+                "doc_id": "c2d2_market_research",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:2:2",
+                "dept_id": 2,
+                "company_id": 2,
+                "chunk_index": 4,
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "relevance_score": 0.615,
+                "similarity_score": 0.471,
+                "original_distance": 0.529,
+                "text_length": 475
+              }
+            },
+            {
+              "text": "- Expand team by 5 positions\n        - Increase R&D budget by 25%\n        - Implement advanced analytics platform\n        \n        Next Steps:\n        - Review budget allocation\n        - Schedule stakeholder meetings\n        - Update risk assessment",
+              "metadata": {
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "rbac_tags": "rbac:1:1",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "chunk_index": 3,
+                "dept_id": 1,
+                "doc_id": "c1d1_report_2025",
+                "relevance_score": 0.495,
+                "similarity_score": 0.493,
+                "original_distance": 0.507,
+                "text_length": 250
+              }
+            },
+            {
+              "text": "# c2d2_market_research\n\n_Document converted to markdown on 2025-11-30T13:52:00.560850_",
+              "metadata": {
+                "chunk_index": 0,
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "doc_id": "c2d2_market_research",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "company_id": 2,
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "rbac_tags": "rbac:2:2",
+                "relevance_score": 0.408,
+                "similarity_score": 0.509,
+                "original_distance": 0.491,
+                "text_length": 86
+              }
+            },
+            {
+              "text": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_",
+              "metadata": {
+                "doc_id": "c1d1_report_2025",
+                "dept_id": 1,
+                "company_id": 1,
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "rbac_tags": "rbac:1:1",
+                "rbac_namespace": "root",
+                "chunk_index": 0,
+                "relevance_score": 0.404,
+                "similarity_score": 0.507,
+                "original_distance": 0.493,
+                "text_length": 82
+              }
+            },
+            {
+              "text": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_",
+              "metadata": {
+                "chunk_index": 0,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:1:2",
+                "company_id": 1,
+                "doc_id": "c1d2_strategy_2026",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "dept_id": 2,
+                "relevance_score": 0.382,
+                "similarity_score": 0.473,
+                "original_distance": 0.527,
+                "text_length": 84
+              }
+            },
+            {
+              "text": "Q4 2026: Measure impact and iterate",
+              "metadata": {
+                "company_id": 2,
+                "doc_id": "c2d2_market_research",
+                "rbac_tags": "rbac:2:2",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "chunk_index": 5,
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "relevance_score": 0.373,
+                "similarity_score": 0.503,
+                "original_distance": 0.497,
+                "text_length": 35
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=10",
+        "answer": "{\"success\": true, \"answer\": \"Based on the provided context, here are the key findings from the reports:\\n\\n1. **Company 1's Department 1 performance**:\\n   - Q4 growth in core business metrics (core business metrics include revenue and profit).\\n   - Team productivity increased by 20% following the new workflow implementation.\\n   - Customer satisfaction scores improved to 4.8/5.\\n\\n2. **Market Research findings**:\\n   - The global market for Company 1's products is expected to reach $150B by 2027, growing at a CAGR of 14.2%.\\n   - Key drivers include digital transformation and increasing customer demand.\\n   - Industry Overview: The global market for our products is expected to reach $150B by 2027, growing at a CAGR of 14.2%.\\n\\n3. **Financial Analysis findings**:\\n   - Company 2's Department 1 demonstrated strong financial performance in Q4 2025 with consolidated revenue of $45.2M representing 8% quarter-over-quarter growth.\\n   - Revenue analysis: Product Sales ($28.5M), Service Revenue ($12.3M).\\n\\n4. **Strategic Recommendations**:\\n   - Department 2's mission statement is to drive innovation and market expansion through cutting-edge product development and strategic partnerships.\\n   - The strategic objectives are as follows:\\n     1. Market Expansion\\n     2. Customer Support Infrastructure\\n     3. Premium Tier Offering\\n     4. Integration Marketplace\\n     5. Enterprise Customer Acquisition\\n\\nThese findings provide insights into the financial performance, market trends, product development strategies, and corporate goals of Company 1's Department 1 in Q4 2025.\"}",
+        "query_logged_id": 135,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the key findings in the reports?",
+            "sources_used": 10,
+            "documents": [
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classifica..."
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "MARKET RESEARCH - COMPANY 2 DEPARTMENT 2\n        \n        Date: November 2025\n        Study Duration..."
+              },
+              {
+                "doc_id": "c2d1_financial_q4_2025",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "FINANCIAL ANALYSIS - COMPANY 2 DEPARTMENT 1\n        \n        Date: Q4 2025\n        Report Type: Quar..."
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "STRATEGIC PLAN - COMPANY 1 DEPARTMENT 2\n        \n        Date: November 2025\n        Type: Strategic..."
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 4,
+                "similarity_score": 0.0,
+                "text_preview": "Strategic Recommendations:\n        1. Invest heavily in product reliability\n        2. Expand custom..."
+              },
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 3,
+                "similarity_score": 0.0,
+                "text_preview": "- Expand team by 5 positions\n        - Increase R&D budget by 25%\n        - Implement advanced analy..."
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c2d2_market_research\n\n_Document converted to markdown on 2025-11-30T13:52:00.560850_"
+              },
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_"
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_"
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 5,
+                "similarity_score": 0.0,
+                "text_preview": "Q4 2026: Measure impact and iterate"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 21674.694776535034
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

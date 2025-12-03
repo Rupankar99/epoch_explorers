@@ -1,0 +1,97 @@
+{
+  "session_id": "4c94ab75-3d37-4442-bb8e-71864e0fe2d0",
+  "start_time": "2025-11-30T14:21:12.587023",
+  "total_duration_ms": 6514.811277389526,
+  "nodes_executed": [
+    {
+      "timestamp": 1764492672.5870333,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "Provide a summary of the content",
+        "doc_id": null,
+        "session_id": "4c94ab75-3d37-4442-bb8e-71864e0fe2d0",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 1,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764492679.1012425,
+      "duration_ms": 6514.165163040161,
+      "state_after": {
+        "question": "Provide a summary of the content",
+        "doc_id": null,
+        "session_id": "4c94ab75-3d37-4442-bb8e-71864e0fe2d0",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 1,
+        "user_id": 1,
+        "dept_id": 1,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "summary",
+          "content"
+        ],
+        "context": {
+          "context": []
+        },
+        "collection_name": "tenant_1",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": "1:1"
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {
+            "k_final": 4,
+            "chunk_size": 512
+          },
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "query_logged_id": 73,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "Provide a summary of the content",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 6514.209508895874
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

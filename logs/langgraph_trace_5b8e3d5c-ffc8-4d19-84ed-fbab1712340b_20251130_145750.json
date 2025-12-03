@@ -1,0 +1,285 @@
+{
+  "session_id": "5b8e3d5c-ffc8-4d19-84ed-fbab1712340b",
+  "start_time": "2025-11-30T14:57:37.486073",
+  "total_duration_ms": 12827.33964920044,
+  "nodes_executed": [
+    {
+      "timestamp": 1764494857.4860847,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "5b8e3d5c-ffc8-4d19-84ed-fbab1712340b",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 1,
+        "user_id": 2,
+        "dept_id": 2,
+        "top_k": 5,
+        "is_root_user": false,
+        "user_company_id": 1,
+        "user_dept_id": 2,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764494870.312685,
+      "duration_ms": 12826.555967330933,
+      "state_after": {
+        "question": "What are the key findings in the reports?",
+        "doc_id": null,
+        "session_id": "5b8e3d5c-ffc8-4d19-84ed-fbab1712340b",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 1,
+        "user_id": 2,
+        "dept_id": 2,
+        "top_k": 5,
+        "is_root_user": false,
+        "user_company_id": 1,
+        "user_dept_id": 2,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "findings",
+          "reports",
+          "analysis",
+          "results",
+          "updates"
+        ],
+        "context": {
+          "context": [
+            {
+              "text": "1. Market Expansion\n           - Enter 3 new geographic markets\n           - Establish partnerships with 5 regional distributors\n           - Launch product line in emerging markets\n        \n        2. Product Development\n           - Release 2 major product updates\n           - Develop 4 new features based on customer feedback\n           - Achieve 95% customer adoption rate\n        \n        3. Team Development\n           - Hire 20 specialized engineers",
+              "score": 0.49848663806915283,
+              "metadata": {
+                "company_id": 1,
+                "doc_id": "c1d2_strategy_2026",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "chunk_index": 2,
+                "rbac_tags": "rbac:1:2",
+                "dept_id": 2,
+                "rbac_namespace": "root"
+              }
+            },
+            {
+              "text": "- Hire 20 specialized engineers\n           - Implement leadership training program\n           - Create mentorship initiatives\n        \n        4. Financial Growth\n           - Target 30% revenue growth\n           - Reduce operational costs by 15%\n           - Achieve 25% profit margin\n        \n        Implementation Timeline:\n        Q1 2026: Market research and planning\n        Q2 2026: Team expansion and recruitment\n        Q3 2026: Product development sprint",
+              "score": 0.521805465221405,
+              "metadata": {
+                "rbac_namespace": "root",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 3,
+                "dept_id": 2,
+                "rbac_tags": "rbac:1:2",
+                "ingestion_date": "2025-11-30T13:51:40.834234"
+              }
+            },
+            {
+              "text": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_",
+              "score": 0.5473396182060242,
+              "metadata": {
+                "company_id": 1,
+                "doc_id": "c1d2_strategy_2026",
+                "dept_id": 2,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "rbac_tags": "rbac:1:2",
+                "rbac_namespace": "root",
+                "chunk_index": 0,
+                "ingestion_date": "2025-11-30T13:51:40.834234"
+              }
+            },
+            {
+              "text": "STRATEGIC PLAN - COMPANY 1 DEPARTMENT 2\n        \n        Date: November 2025\n        Type: Strategic Initiative\n        \n        Department 2 Strategic Vision for 2026-2027\n        \n        Mission Statement:\n        Drive innovation and market expansion through cutting-edge product development and\n        strategic partnerships. Department 2 is committed to becoming the market leader in our sector.\n        \n        Strategic Objectives:\n        1. Market Expansion",
+              "score": 0.5478382706642151,
+              "metadata": {
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "doc_id": "c1d2_strategy_2026",
+                "rbac_tags": "rbac:1:2",
+                "rbac_namespace": "root",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "chunk_index": 1,
+                "dept_id": 2
+              }
+            },
+            {
+              "text": "Q3 2026: Product development sprint\n        Q4 2026: Market launch and expansion\n        \n        Budget Allocation:\n        - Product Development: 40%\n        - Marketing & Sales: 35%\n        - Infrastructure: 15%\n        - Training & Development: 10%",
+              "score": 0.5522576570510864,
+              "metadata": {
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "chunk_index": 4,
+                "doc_id": "c1d2_strategy_2026",
+                "rbac_tags": "rbac:1:2",
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market"
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_1",
+        "retrieval_quality": 1.0,
+        "rbac_filter_applied": {
+          "rbac_tags": {
+            "$eq": "rbac:1:2"
+          }
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "1. Market Expansion\n           - Enter 3 new geographic markets\n           - Establish partnerships with 5 regional distributors\n           - Launch product line in emerging markets\n        \n        2. Product Development\n           - Release 2 major product updates\n           - Develop 4 new features based on customer feedback\n           - Achieve 95% customer adoption rate\n        \n        3. Team Development\n           - Hire 20 specialized engineers",
+              "metadata": {
+                "company_id": 1,
+                "doc_id": "c1d2_strategy_2026",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "chunk_index": 2,
+                "rbac_tags": "rbac:1:2",
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "relevance_score": 0.625,
+                "similarity_score": 0.502,
+                "original_distance": 0.498,
+                "text_length": 457
+              }
+            },
+            {
+              "text": "- Hire 20 specialized engineers\n           - Implement leadership training program\n           - Create mentorship initiatives\n        \n        4. Financial Growth\n           - Target 30% revenue growth\n           - Reduce operational costs by 15%\n           - Achieve 25% profit margin\n        \n        Implementation Timeline:\n        Q1 2026: Market research and planning\n        Q2 2026: Team expansion and recruitment\n        Q3 2026: Product development sprint",
+              "metadata": {
+                "rbac_namespace": "root",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 3,
+                "dept_id": 2,
+                "rbac_tags": "rbac:1:2",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "relevance_score": 0.614,
+                "similarity_score": 0.478,
+                "original_distance": 0.522,
+                "text_length": 465
+              }
+            },
+            {
+              "text": "STRATEGIC PLAN - COMPANY 1 DEPARTMENT 2\n        \n        Date: November 2025\n        Type: Strategic Initiative\n        \n        Department 2 Strategic Vision for 2026-2027\n        \n        Mission Statement:\n        Drive innovation and market expansion through cutting-edge product development and\n        strategic partnerships. Department 2 is committed to becoming the market leader in our sector.\n        \n        Strategic Objectives:\n        1. Market Expansion",
+              "metadata": {
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "doc_id": "c1d2_strategy_2026",
+                "rbac_tags": "rbac:1:2",
+                "rbac_namespace": "root",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "chunk_index": 1,
+                "dept_id": 2,
+                "relevance_score": 0.598,
+                "similarity_score": 0.452,
+                "original_distance": 0.548,
+                "text_length": 469
+              }
+            },
+            {
+              "text": "Q3 2026: Product development sprint\n        Q4 2026: Market launch and expansion\n        \n        Budget Allocation:\n        - Product Development: 40%\n        - Marketing & Sales: 35%\n        - Infrastructure: 15%\n        - Training & Development: 10%",
+              "metadata": {
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "chunk_index": 4,
+                "doc_id": "c1d2_strategy_2026",
+                "rbac_tags": "rbac:1:2",
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "relevance_score": 0.465,
+                "similarity_score": 0.448,
+                "original_distance": 0.552,
+                "text_length": 252
+              }
+            },
+            {
+              "text": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_",
+              "metadata": {
+                "company_id": 1,
+                "doc_id": "c1d2_strategy_2026",
+                "dept_id": 2,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "rbac_tags": "rbac:1:2",
+                "rbac_namespace": "root",
+                "chunk_index": 0,
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "relevance_score": 0.367,
+                "similarity_score": 0.453,
+                "original_distance": 0.547,
+                "text_length": 84
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"Based on the provided context, here are the key findings:\\n\\n1. **Market Expansion**:\\n   - 3 new geographic markets were entered.\\n   - 5 regional distributors were established.\\n\\n2. **Product Development**:\\n   - 4 new features were developed based on customer feedback.\\n   - A 95% customer adoption rate was achieved.\\n\\n3. **Team Development**:\\n   - 20 specialized engineers were hired to improve team efficiency and effectiveness.\\n\\n4. **Financial Growth**:\\n   - Targeted a 30% revenue growth.\\n   - Reduced operational costs by 15%.\\n   - Achieved an 80% profit margin.\\n\\n5. **Implementation Timeline**:\\n   - Q1 2026: Market research and planning\\n   - Q2 2026: Team expansion and recruitment\\n   - Q3 2026: Product development sprint\\n\\n6. **Strategic Plan**:\\n   - Department 2 Strategic Vision for 2026-2027\\n   - Mission Statement: Drive innovation and market expansion through cutting-edge product development and strategic partnerships.\\n   - Strategic Objectives:\\n     1. Market Expansion\\n     2. Product Development\\n     3. Team Development\\n\\nThese findings summarize the key achievements in the company's strategy for 2026-2027, including market entry, product development, team growth, financial goals, and strategic planning.\"}",
+        "query_logged_id": 171,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the key findings in the reports?",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 2,
+                "similarity_score": 0.0,
+                "text_preview": "1. Market Expansion\n           - Enter 3 new geographic markets\n           - Establish partnerships ..."
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 3,
+                "similarity_score": 0.0,
+                "text_preview": "- Hire 20 specialized engineers\n           - Implement leadership training program\n           - Crea..."
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "STRATEGIC PLAN - COMPANY 1 DEPARTMENT 2\n        \n        Date: November 2025\n        Type: Strategic..."
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 4,
+                "similarity_score": 0.0,
+                "text_preview": "Q3 2026: Product development sprint\n        Q4 2026: Market launch and expansion\n        \n        Bu..."
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 12826.6019821167
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

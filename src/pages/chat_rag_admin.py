@@ -151,7 +151,11 @@ def show_admin_chat():
             )
             
             doc_id = st.text_input("Document ID (optional)", placeholder="doc_custom_id")
-            
+
+            company_id = st.text_input("Company ID (optional)", placeholder="1")
+
+            dept_id = st.text_input("Dept ID (optional)", placeholder="1")
+
             if st.button("Ingest File", type="primary", key="admin_ingest_file"):
                 if uploaded_file:
                     with st.spinner("📥 Ingesting document..."):
@@ -173,7 +177,11 @@ def show_admin_chat():
                                     operation="ingest_from_path",
                                     path=tmp_path,
                                     recursive=False,
-                                    file_type="auto"
+                                    file_type="auto",
+                                    doc_id=doc_id ,
+                                    company_id=company_id,
+                                    department_id=dept_id
+
                                 )
                                 
                                 if result.get("success"):

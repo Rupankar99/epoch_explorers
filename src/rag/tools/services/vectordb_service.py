@@ -21,6 +21,7 @@ class VectorDBService:
         """
         Path(persist_directory).mkdir(parents=True, exist_ok=True)
         
+        self.persist_directory = persist_directory  # Store for later use
         self.client = PersistentClient(path=persist_directory)
         self.collection_name = collection_name
         self.collection = self.client.get_or_create_collection(
@@ -62,28 +63,7 @@ class VectorDBService:
             print(f"[ERROR] Failed to add documents: {e}")
             raise
     
-    def insert_embeddings(self, ids: List[str], embeddings: List[List[float]],
-                         metadatas: List[Dict], documents: List[str]):
-        """
-        Insert embeddings into vector database
-        
-        Args:
-            ids: List of unique IDs for chunks
-            embeddings: List of embedding vectors
-            metadatas: List of metadata dicts
-            documents: List of text content
-        """
-        try:
-            self.collection.add(
-                ids=ids,
-                embeddings=embeddings,
-                metadatas=metadatas,
-                documents=documents
-            )
-            print(f"[VectorDB] Inserted {len(ids)} embeddings")
-        except Exception as e:
-            print(f"[ERROR] Failed to insert embeddings: {e}")
-            raise
+  
     
     def search(self, query_embedding: List[float], top_k: int = 10,
               where_filter: Optional[Dict] = None,
@@ -229,3 +209,100 @@ class VectorDBService:
             print(f"[VectorDB] Collection '{self.collection_name}' reset")
         except Exception as e:
             print(f"[ERROR] Failed to reset collection: {e}")
+    
+    def get_collection_stats(self) -> Dict[str, Any]:
+        """
+        Get detailed statistics about current collection
+        
+        Returns:
+            Dictionary with collection metadata and stats
+        """
+        try:
+            return {
+                "name": self.collection_name,
+                "document_count": self.collection.count(),
+                "metadata": self.collection.metadata if hasattr(self.collection, 'metadata') else {},
+                "persist_directory": self.persist_directory
+            }
+        except Exception as e:
+            print(f"[ERROR] Failed to get collection stats: {e}")
+            return {"error": str(e)}
+    
+    def list_all_collections(self) -> List[Dict[str, Any]]:
+        """
+        List all collections in the ChromaDB instance
+        
+        Returns:
+            List of collection dictionaries with stats
+        """
+        try:
+            all_collections = self.client.list_collections()
+            collections = []
+            for collection in all_collections:
+                try:
+                    count = collection.count()
+                    collections.append({
+                        "name": collection.name,
+                        "vector_count": count,
+                        "metadata": collection.metadata if hasattr(collection, 'metadata') else {}
+                    })
+                except Exception as e:
+                    print(f"[WARNING] Error counting collection {collection.name}: {e}")
+            return collections
+        except Exception as e:
+            print(f"[ERROR] Failed to list collections: {e}")
+            return []
+    
+    def get_collection_metadata_summary(self) -> Dict[str, Any]:
+        """
+        Get summary of metadata fields and their values in collection
+        
+        Returns:
+            Dictionary with metadata field summaries (RBAC tags, company IDs, dept IDs, etc.)
+        """
+        try:
+            # Peek at up to 100 documents to analyze metadata
+            sample_docs = self.collection.peek(limit=100)
+            
+            metadata_summary = {
+                "total_documents": self.collection.count(),
+                "rbac_tags": set(),
+                "companies": set(),
+                "departments": set(),
+                "document_ids": set(),
+                "metadata_fields": set()
+            }
+            
+            if sample_docs and sample_docs.get("metadatas"):
+                for metadata in sample_docs["metadatas"]:
+                    if metadata:
+                        # Extract RBAC tags
+                        if "rbac_tags" in metadata:
+                            rbac = metadata["rbac_tags"]
+                            if isinstance(rbac, str) and rbac.startswith("rbac:"):
+                                metadata_summary["rbac_tags"].add(rbac)
+                                # Parse company and dept from rbac tag
+                                parts = rbac.split(":")
+                                if len(parts) >= 3:
+                                    metadata_summary["companies"].add(parts[1])
+                                    metadata_summary["departments"].add(parts[2])
+                        
+                        # Extract document ID
+                        if "document_id" in metadata:
+                            metadata_summary["document_ids"].add(metadata["document_id"])
+                        
+                        # Track all metadata field names
+                        metadata_summary["metadata_fields"].update(metadata.keys())
+            
+            # Convert sets to lists for JSON serialization
+            return {
+                "total_documents": metadata_summary["total_documents"],
+                "unique_rbac_tags": list(metadata_summary["rbac_tags"]),
+                "unique_companies": list(metadata_summary["companies"]),
+                "unique_departments": list(metadata_summary["departments"]),
+                "unique_document_ids": list(metadata_summary["document_ids"]),
+                "metadata_field_names": list(metadata_summary["metadata_fields"])
+            }
+        except Exception as e:
+            print(f"[ERROR] Failed to get metadata summary: {e}")
+            return {"error": str(e)}

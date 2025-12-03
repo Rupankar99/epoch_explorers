@@ -1,0 +1,246 @@
+{
+  "session_id": "ebb656a1-7780-4262-bf08-3ac93aca4b43",
+  "start_time": "2025-11-30T07:58:39.943395",
+  "total_duration_ms": 47127.43020057678,
+  "nodes_executed": [
+    {
+      "timestamp": 1764469719.9434695,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "hi what is document 1 ",
+        "doc_id": null,
+        "session_id": "ebb656a1-7780-4262-bf08-3ac93aca4b43",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": null,
+        "user_id": null,
+        "dept_id": null,
+        "top_k": 5
+      },
+      "status": "completed",
+      "end_timestamp": 1764469767.0690422,
+      "duration_ms": 47125.44059753418,
+      "state_after": {
+        "question": "hi what is document 1 ",
+        "doc_id": null,
+        "session_id": "ebb656a1-7780-4262-bf08-3ac93aca4b43",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": null,
+        "user_id": null,
+        "dept_id": null,
+        "top_k": 5,
+        "user_intent_keywords": [
+          "document",
+          "search",
+          "contract",
+          "approval",
+          "request"
+        ],
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:xmpMM=\"http://ns.adobe.com/xap/1.0/mm/\">\n\t\t\t<xmpMM:DocumentID>uuid:D2DD4054-4657-4C41-9F91-5A81625BEB68</xmpMM:DocumentID>\n\t\t\t<xmpMM:InstanceID>uuid:7BFBAB4C-CD7A-4D1E-A8AA-EBB9F4BB3ED5</xmpMM:InstanceID>\n\t\t</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:pdf=\"http://ns.adobe.com/pdf/1.3/\">\n\t\t\t<pdf:Producer>Epson Scan 2</pdf:Producer>\n\t\t</rdf:Description>",
+              "score": 0.4859875440597534,
+              "metadata": {
+                "chunk_index": 496,
+                "doc_id": "123456",
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T18:31:26.282903"
+              }
+            },
+            {
+              "text": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\t\t\t<dc:format>application/pdf</dc:format>\n\t\t</rdf:Description>\n\t</rdf:RDF>\n</x:xmpmeta>\n        \n        \n        \n        \n        \n        \n        \n        \n<?xpacket end=\"r\"?>\nendstream\nendobj\n13 0 obj\n1037\nendobj\n2 0 obj\n<</Producer(Epson Scan 2)/CreationDate(D:20170511170123+05'30')/ModDate(D:20170511170123+05'30')>>\nendobj\nxref\n0 14\n0000000000 65535 f \n0000294775 00000 n \n0000296091 00000 n",
+              "score": 0.49986791610717773,
+              "metadata": {
+                "chunk_index": 497,
+                "rbac_namespace": "general",
+                "doc_id": "123456",
+                "ingestion_date": "2025-11-29T18:31:26.282903"
+              }
+            },
+            {
+              "text": "/S /H1\n/P 231 0 R\n/T <FEFFD83DDCB000200053006100760065006400200024003100350030004B002B00200061006E006E00750061006C006C00790020006200790020007200650074006900720069006E00670020006C0065006700610063007900200054006500720061006400610074006100200068006100720064007700610072006500200061006E00640020007200650064007500630069006E00670020006F006E002D007000720065006D002000730074006F007200610067006500200063006F00730074007300200070006F0073007400200063006C006F007500640020006D006900670072006100740069006F006E002E>",
+              "score": 0.5072510242462158,
+              "metadata": {
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 402
+              }
+            },
+            {
+              "text": "/S /H1\n/P 231 0 R\n/T <FEFFD83DDCB000200053006100760065006400200024003100350030004B002B00200061006E006E00750061006C006C00790020006200790020007200650074006900720069006E00670020006C0065006700610063007900200054006500720061006400610074006100200068006100720064007700610072006500200061006E00640020007200650064007500630069006E00670020006F006E002D007000720065006D002000730074006F007200610067006500200063006F00730074007300200070006F0073007400200063006C006F007500640020006D006900670072006100740069006F006E002E>",
+              "score": 0.5072510242462158,
+              "metadata": {
+                "chunk_index": 402,
+                "rbac_namespace": "general",
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511"
+              }
+            },
+            {
+              "text": "111 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 221 0 R\n/T (Performed reliable archive and restore operations using DSA and NetBackup, securing data integrity and recovery readiness.)\n/E (Performed reliable archive and restore operations using DSA and NetBackup, securing data integrity and recovery readiness.)\n/Pg 9 0 R\n>>\nendobj\n112 0 obj\n<<\n/Type /StructElem\n/S /H1",
+              "score": 0.5095541477203369,
+              "metadata": {
+                "chunk_index": 389,
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general"
+              }
+            }
+          ]
+        },
+        "collection_name": "agent_memory",
+        "retrieval_quality": 1.0,
+        "rbac_filter_applied": {
+          "$or": [
+            {
+              "rbac_tags": {
+                "$contains": "rbac:None:None"
+              }
+            },
+            {
+              "rbac_tags": {
+                "$contains": "rbac:None:*"
+              }
+            }
+          ]
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\t\t\t<dc:format>application/pdf</dc:format>\n\t\t</rdf:Description>\n\t</rdf:RDF>\n</x:xmpmeta>\n        \n        \n        \n        \n        \n        \n        \n        \n<?xpacket end=\"r\"?>\nendstream\nendobj\n13 0 obj\n1037\nendobj\n2 0 obj\n<</Producer(Epson Scan 2)/CreationDate(D:20170511170123+05'30')/ModDate(D:20170511170123+05'30')>>\nendobj\nxref\n0 14\n0000000000 65535 f \n0000294775 00000 n \n0000296091 00000 n",
+              "metadata": {
+                "chunk_index": 497,
+                "rbac_namespace": "general",
+                "doc_id": "123456",
+                "ingestion_date": "2025-11-29T18:31:26.282903",
+                "relevance_score": 0.648,
+                "similarity_score": 0.5,
+                "original_distance": 0.5,
+                "text_length": 496
+              }
+            },
+            {
+              "text": "/S /H1\n/P 231 0 R\n/T <FEFFD83DDCB000200053006100760065006400200024003100350030004B002B00200061006E006E00750061006C006C00790020006200790020007200650074006900720069006E00670020006C0065006700610063007900200054006500720061006400610074006100200068006100720064007700610072006500200061006E00640020007200650064007500630069006E00670020006F006E002D007000720065006D002000730074006F007200610067006500200063006F00730074007300200070006F0073007400200063006C006F007500640020006D006900670072006100740069006F006E002E>",
+              "metadata": {
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "chunk_index": 402,
+                "relevance_score": 0.644,
+                "similarity_score": 0.493,
+                "original_distance": 0.507,
+                "text_length": 499
+              }
+            },
+            {
+              "text": "/S /H1\n/P 231 0 R\n/T <FEFFD83DDCB000200053006100760065006400200024003100350030004B002B00200061006E006E00750061006C006C00790020006200790020007200650074006900720069006E00670020006C0065006700610063007900200054006500720061006400610074006100200068006100720064007700610072006500200061006E00640020007200650064007500630069006E00670020006F006E002D007000720065006D002000730074006F007200610067006500200063006F00730074007300200070006F0073007400200063006C006F007500640020006D006900670072006100740069006F006E002E>",
+              "metadata": {
+                "chunk_index": 402,
+                "rbac_namespace": "general",
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "relevance_score": 0.644,
+                "similarity_score": 0.493,
+                "original_distance": 0.507,
+                "text_length": 499
+              }
+            },
+            {
+              "text": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:xmpMM=\"http://ns.adobe.com/xap/1.0/mm/\">\n\t\t\t<xmpMM:DocumentID>uuid:D2DD4054-4657-4C41-9F91-5A81625BEB68</xmpMM:DocumentID>\n\t\t\t<xmpMM:InstanceID>uuid:7BFBAB4C-CD7A-4D1E-A8AA-EBB9F4BB3ED5</xmpMM:InstanceID>\n\t\t</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:pdf=\"http://ns.adobe.com/pdf/1.3/\">\n\t\t\t<pdf:Producer>Epson Scan 2</pdf:Producer>\n\t\t</rdf:Description>",
+              "metadata": {
+                "chunk_index": 496,
+                "doc_id": "123456",
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T18:31:26.282903",
+                "relevance_score": 0.613,
+                "similarity_score": 0.514,
+                "original_distance": 0.486,
+                "text_length": 422
+              }
+            },
+            {
+              "text": "111 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 221 0 R\n/T (Performed reliable archive and restore operations using DSA and NetBackup, securing data integrity and recovery readiness.)\n/E (Performed reliable archive and restore operations using DSA and NetBackup, securing data integrity and recovery readiness.)\n/Pg 9 0 R\n>>\nendobj\n112 0 obj\n<<\n/Type /StructElem\n/S /H1",
+              "metadata": {
+                "chunk_index": 389,
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "rbac_namespace": "general",
+                "relevance_score": 0.561,
+                "similarity_score": 0.49,
+                "original_distance": 0.51,
+                "text_length": 362
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"The document with the ID \\\"uuid:D2DD4054-4657-4C41-9F91-5A81625BEB68\\\" is called \\\"doc_000\\\". It contains a PDF file named \\\"doc_000.pdf\\\".\"}",
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "hi what is document 1 ",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "123456",
+                "chunk_index": 497,
+                "similarity_score": 0.0,
+                "text_preview": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n\t\t\t<..."
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 402,
+                "similarity_score": 0.0,
+                "text_preview": "/S /H1\n/P 231 0 R\n/T <FEFFD83DDCB000200053006100760065006400200024003100350030004B002B00200061006E00..."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 402,
+                "similarity_score": 0.0,
+                "text_preview": "/S /H1\n/P 231 0 R\n/T <FEFFD83DDCB000200053006100760065006400200024003100350030004B002B00200061006E00..."
+              },
+              {
+                "doc_id": "123456",
+                "chunk_index": 496,
+                "similarity_score": 0.0,
+                "text_preview": "</rdf:Description>\n\t\t<rdf:Description rdf:about=\"\" xmlns:xmpMM=\"http://ns.adobe.com/xap/1.0/mm/\">\n\t\t..."
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 389,
+                "similarity_score": 0.0,
+                "text_preview": "111 0 obj\n<<\n/Type /StructElem\n/S /H1\n/P 221 0 R\n/T (Performed reliable archive and restore operatio..."
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 47123.966693878174
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

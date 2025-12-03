@@ -1,0 +1,95 @@
+{
+  "session_id": "b49008fd-b8a5-4ea0-b882-3d0069d1e1ca",
+  "start_time": "2025-11-30T14:22:57.795662",
+  "total_duration_ms": 10763.721466064453,
+  "nodes_executed": [
+    {
+      "timestamp": 1764492777.7956693,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the main objectives and goals?",
+        "doc_id": null,
+        "session_id": "b49008fd-b8a5-4ea0-b882-3d0069d1e1ca",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 2,
+        "user_id": 4,
+        "dept_id": 2,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764492788.5589805,
+      "duration_ms": 10763.288974761963,
+      "state_after": {
+        "question": "What are the main objectives and goals?",
+        "doc_id": null,
+        "session_id": "b49008fd-b8a5-4ea0-b882-3d0069d1e1ca",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 2,
+        "user_id": 4,
+        "dept_id": 2,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "main",
+          "objectives",
+          "goals"
+        ],
+        "context": {
+          "context": []
+        },
+        "collection_name": "tenant_2",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": "2:2"
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {},
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "query_logged_id": 89,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the main objectives and goals?",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 10763.309955596924
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

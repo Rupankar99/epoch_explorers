@@ -1,0 +1,216 @@
+{
+  "session_id": "b1c231fc-fd15-4e0b-87d7-b8f5b29604d1",
+  "start_time": "2025-11-29T18:05:20.577454",
+  "total_duration_ms": 13916.052103042603,
+  "nodes_executed": [
+    {
+      "timestamp": 1764419720.5774682,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "who ",
+        "doc_id": null,
+        "session_id": "b1c231fc-fd15-4e0b-87d7-b8f5b29604d1",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "started"
+      },
+      "status": "completed",
+      "end_timestamp": 1764419734.4926934,
+      "duration_ms": 13915.164709091187,
+      "state_after": {
+        "question": "who ",
+        "doc_id": null,
+        "session_id": "b1c231fc-fd15-4e0b-87d7-b8f5b29604d1",
+        "response_mode": "concise",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>",
+              "score": 0.45703452825546265,
+              "metadata": {
+                "chunk_index": 492,
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>",
+              "score": 0.45703452825546265,
+              "metadata": {
+                "chunk_index": 508,
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819"
+              }
+            },
+            {
+              "text": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>",
+              "score": 0.45703452825546265,
+              "metadata": {
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 492,
+                "rbac_namespace": "general"
+              }
+            },
+            {
+              "text": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>",
+              "score": 0.45703452825546265,
+              "metadata": {
+                "rbac_namespace": "general",
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 508
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "score": 0.4633607268333435,
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 165
+              }
+            }
+          ]
+        },
+        "retrieval_quality": 1.0,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>",
+              "metadata": {
+                "chunk_index": 492,
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.437,
+                "similarity_score": 0.543,
+                "original_distance": 0.457,
+                "text_length": 95
+              }
+            },
+            {
+              "text": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>",
+              "metadata": {
+                "chunk_index": 508,
+                "rbac_namespace": "general",
+                "doc_id": "doc_000",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "relevance_score": 0.437,
+                "similarity_score": 0.543,
+                "original_distance": 0.457,
+                "text_length": 95
+              }
+            },
+            {
+              "text": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>",
+              "metadata": {
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 492,
+                "rbac_namespace": "general",
+                "relevance_score": 0.437,
+                "similarity_score": 0.543,
+                "original_distance": 0.457,
+                "text_length": 95
+              }
+            },
+            {
+              "text": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>",
+              "metadata": {
+                "rbac_namespace": "general",
+                "doc_id": "doc_00099",
+                "ingestion_date": "2025-11-29T17:01:17.554511",
+                "chunk_index": 508,
+                "relevance_score": 0.437,
+                "similarity_score": 0.543,
+                "original_distance": 0.457,
+                "text_length": 95
+              }
+            },
+            {
+              "text": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB",
+              "metadata": {
+                "doc_id": "doc_000",
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:57:11.635819",
+                "chunk_index": 165,
+                "relevance_score": 0.409,
+                "similarity_score": 0.537,
+                "original_distance": 0.463,
+                "text_length": 56
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=5",
+        "answer": "{\"success\": true, \"answer\": \"who is the source of this information?\"}",
+        "query_logged_id": 2,
+        "guardrail_checks": {
+          "is_safe": true,
+          "safety_level": "safe",
+          "pii_detected": {},
+          "input_errors": [],
+          "output_errors": [],
+          "message": "Response validated and safe"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "who ",
+            "sources_used": 5,
+            "documents": [
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 492,
+                "similarity_score": 0.0,
+                "text_preview": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>"
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 508,
+                "similarity_score": 0.0,
+                "text_preview": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>"
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 492,
+                "similarity_score": 0.0,
+                "text_preview": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>"
+              },
+              {
+                "doc_id": "doc_00099",
+                "chunk_index": 508,
+                "similarity_score": 0.0,
+                "text_preview": "6C006C00610062006F00720061007400690076006500200064006500760065006C006F0070006D0065006E0074002E>"
+              },
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 165,
+                "similarity_score": 0.0,
+                "text_preview": "\u0015)<v\u0011AQ__si\u0007\u00e1\f\r*%[(}]A7\u000fM)&t?o0wb-]gK6e\u0005g\u001a\u001dtF<\u02a3@b\u0012&Trr\u001dB"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 13915.2090549469
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

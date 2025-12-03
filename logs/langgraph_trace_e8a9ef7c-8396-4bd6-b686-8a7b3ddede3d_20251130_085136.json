@@ -1,0 +1,105 @@
+{
+  "session_id": "e8a9ef7c-8396-4bd6-b686-8a7b3ddede3d",
+  "start_time": "2025-11-30T08:51:11.164830",
+  "total_duration_ms": 24988.591194152832,
+  "nodes_executed": [
+    {
+      "timestamp": 1764472871.1648414,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the company procedures?",
+        "doc_id": null,
+        "session_id": "e8a9ef7c-8396-4bd6-b686-8a7b3ddede3d",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 2,
+        "user_id": 1,
+        "dept_id": 20,
+        "top_k": 5
+      },
+      "status": "completed",
+      "end_timestamp": 1764472896.1525483,
+      "duration_ms": 24987.632989883423,
+      "state_after": {
+        "question": "What are the company procedures?",
+        "doc_id": null,
+        "session_id": "e8a9ef7c-8396-4bd6-b686-8a7b3ddede3d",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 2,
+        "user_id": 1,
+        "dept_id": 20,
+        "top_k": 5,
+        "user_intent_keywords": [
+          "company",
+          "procedures",
+          "information",
+          "request",
+          "processes"
+        ],
+        "context": {
+          "success": true,
+          "context": []
+        },
+        "collection_name": "company_2",
+        "retrieval_quality": 0.0,
+        "rbac_filter_applied": {
+          "$or": [
+            {
+              "rbac_tags": {
+                "$contains": "rbac:2:20"
+              }
+            },
+            {
+              "rbac_tags": {
+                "$contains": "rbac:2:*"
+              }
+            }
+          ]
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": []
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.00, Results=0",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {
+            "k_final": 4,
+            "chunk_size": 512
+          },
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"No context available to answer the question.\"}",
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the company procedures?",
+            "sources_used": 0,
+            "documents": []
+          }
+        },
+        "execution_time_ms": 24987.66303062439
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

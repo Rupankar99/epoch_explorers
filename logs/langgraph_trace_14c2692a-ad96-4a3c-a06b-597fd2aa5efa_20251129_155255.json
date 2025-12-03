@@ -1,0 +1,107 @@
+{
+  "session_id": "14c2692a-ad96-4a3c-a06b-597fd2aa5efa",
+  "start_time": "2025-11-29T15:52:36.564760",
+  "total_duration_ms": 19277.13394165039,
+  "nodes_executed": [
+    {
+      "timestamp": 1764411756.5647714,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "what is incident",
+        "doc_id": null,
+        "session_id": "14c2692a-ad96-4a3c-a06b-597fd2aa5efa",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started"
+      },
+      "status": "completed",
+      "end_timestamp": 1764411775.8392692,
+      "duration_ms": 19274.42455291748,
+      "state_after": {
+        "question": "what is incident",
+        "doc_id": null,
+        "session_id": "14c2692a-ad96-4a3c-a06b-597fd2aa5efa",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "score": 0.4248335361480713,
+              "metadata": {
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "doc_id": "doc_000",
+                "chunk_index": 0
+              }
+            }
+          ]
+        },
+        "retrieval_quality": 0.2,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss .",
+              "metadata": {
+                "rbac_namespace": "general",
+                "ingestion_date": "2025-11-29T15:52:02.641407",
+                "doc_id": "doc_000",
+                "chunk_index": 0,
+                "relevance_score": 0.461,
+                "similarity_score": 0.575,
+                "original_distance": 0.425,
+                "text_length": 97
+              }
+            }
+          ]
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.20, Results=1",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {
+            "k_final": 4,
+            "chunk_size": 64
+          },
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"Incident refers to problems, errors, or issues that occur during the execution of a task or project. In this context, \\\"incident\\\" refers to any type of problem or issue related to tasks or projects.\"}",
+        "query_logged_id": 2,
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "what is incident",
+            "sources_used": 1,
+            "documents": [
+              {
+                "doc_id": "doc_000",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_000\n\n_Document converted to markdown on 2025-11-29T15:51:51.852448_\n\nincidents are boguss ."
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 19274.451971054077
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

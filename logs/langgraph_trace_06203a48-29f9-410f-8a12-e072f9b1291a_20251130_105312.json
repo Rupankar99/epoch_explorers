@@ -1,0 +1,144 @@
+{
+  "session_id": "06203a48-29f9-410f-8a12-e072f9b1291a",
+  "start_time": "2025-11-30T10:52:54.798430",
+  "total_duration_ms": 17663.557052612305,
+  "nodes_executed": [
+    {
+      "timestamp": 1764480174.798446,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "What are the company procedures?",
+        "doc_id": null,
+        "session_id": "06203a48-29f9-410f-8a12-e072f9b1291a",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": 2,
+        "user_id": 1,
+        "dept_id": 20,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764480192.4612021,
+      "duration_ms": 17662.699699401855,
+      "state_after": {
+        "question": "What are the company procedures?",
+        "doc_id": null,
+        "session_id": "06203a48-29f9-410f-8a12-e072f9b1291a",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": 2,
+        "user_id": 1,
+        "dept_id": 20,
+        "top_k": 5,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "company",
+          "procedures",
+          "business",
+          "terms",
+          "contract"
+        ],
+        "context": {
+          "success": true,
+          "context": [
+            {
+              "text": "# doc_company2_001\n\n_Document converted to markdown on 2025-11-30T10:51:30.631261_\n\nThis is a test document for company 2. It contains information about company 2's policies and procedures.",
+              "score": 0.3598977327346802,
+              "metadata": {
+                "ingestion_date": "2025-11-30T10:51:50.379413",
+                "rbac_tags": "rbac:2:20",
+                "meta_tags": "meta:keyword:company;meta:keyword:policy;meta:keyword:procedure;meta:keyword:information;meta:keyword:document",
+                "rbac_namespace": "general",
+                "dept_id": 20,
+                "doc_id": "doc_company2_001",
+                "chunk_index": 0,
+                "company_id": 2
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_2",
+        "retrieval_quality": 0.2,
+        "rbac_filter_applied": {
+          "$or": [
+            {
+              "rbac_tags": {
+                "$contains": "rbac:2:20"
+              }
+            },
+            {
+              "rbac_tags": {
+                "$contains": "rbac:2:*"
+              }
+            }
+          ]
+        },
+        "is_root_access": false,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "# doc_company2_001\n\n_Document converted to markdown on 2025-11-30T10:51:30.631261_\n\nThis is a test document for company 2. It contains information about company 2's policies and procedures.",
+              "metadata": {
+                "ingestion_date": "2025-11-30T10:51:50.379413",
+                "rbac_tags": "rbac:2:20",
+                "meta_tags": "meta:keyword:company;meta:keyword:policy;meta:keyword:procedure;meta:keyword:information;meta:keyword:document",
+                "rbac_namespace": "general",
+                "dept_id": 20,
+                "doc_id": "doc_company2_001",
+                "chunk_index": 0,
+                "company_id": 2,
+                "relevance_score": 0.561,
+                "similarity_score": 0.64,
+                "original_distance": 0.36,
+                "text_length": 189
+              }
+            }
+          ]
+        },
+        "should_optimize": true,
+        "optimization_reason": "Quality=0.20, Results=1",
+        "optimization_result": {
+          "cost_analysis": {
+            "success": false,
+            "error": "Cost estimation failed: LLMService.count_tokens() takes 2 positional arguments but 3 were given"
+          },
+          "suggested_params": {},
+          "tokens_before": 0
+        },
+        "answer": "{\"success\": true, \"answer\": \"company 2's policies and procedures.\"}",
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "What are the company procedures?",
+            "sources_used": 1,
+            "documents": [
+              {
+                "doc_id": "doc_company2_001",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# doc_company2_001\n\n_Document converted to markdown on 2025-11-30T10:51:30.631261_\n\nThis is a test d..."
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 17662.74929046631
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}

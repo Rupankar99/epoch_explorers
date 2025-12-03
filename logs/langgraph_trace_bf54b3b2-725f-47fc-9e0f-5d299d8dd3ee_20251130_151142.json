@@ -1,0 +1,463 @@
+{
+  "session_id": "bf54b3b2-725f-47fc-9e0f-5d299d8dd3ee",
+  "start_time": "2025-11-30T15:11:26.426059",
+  "total_duration_ms": 15879.535913467407,
+  "nodes_executed": [
+    {
+      "timestamp": 1764495686.426069,
+      "node_name": "retrieve_and_answer_workflow",
+      "state_snapshot": {
+        "question": "Provide a summary of the content",
+        "doc_id": null,
+        "session_id": "bf54b3b2-725f-47fc-9e0f-5d299d8dd3ee",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "started",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "is_root_user": true,
+        "user_company_id": null,
+        "user_dept_id": null,
+        "_tracker": "AnimatedGraphTracker"
+      },
+      "status": "completed",
+      "end_timestamp": 1764495702.3047476,
+      "duration_ms": 15878.628492355347,
+      "state_after": {
+        "question": "Provide a summary of the content",
+        "doc_id": null,
+        "session_id": "bf54b3b2-725f-47fc-9e0f-5d299d8dd3ee",
+        "response_mode": "verbose",
+        "performance_history": [],
+        "errors": [],
+        "status": "completed",
+        "company_id": null,
+        "user_id": 99,
+        "dept_id": null,
+        "top_k": 5,
+        "is_root_user": true,
+        "user_company_id": null,
+        "user_dept_id": null,
+        "_tracker": "AnimatedGraphTracker",
+        "user_intent_keywords": [
+          "summary",
+          "content"
+        ],
+        "context": {
+          "context": [
+            {
+              "text": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classification: INTERNAL\n        \n        This document contains sensitive information about Company 1's Department 1 operations.\n        \n        Executive Summary:\n        Q4 performance metrics show 15% growth in core business metrics. Team productivity increased\n        by 20% following the new workflow implementation. Customer satisfaction scores improved to 4.8/5.",
+              "score": 0.4999237060546875,
+              "metadata": {
+                "chunk_index": 1,
+                "doc_id": "c1d1_report_2025",
+                "dept_id": 1,
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:1:1",
+                "company_id": 1
+              }
+            },
+            {
+              "text": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_",
+              "score": 0.5321579575538635,
+              "metadata": {
+                "chunk_index": 0,
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "company_id": 1,
+                "doc_id": "c1d1_report_2025",
+                "rbac_tags": "rbac:1:1",
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "dept_id": 1
+              }
+            },
+            {
+              "text": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_",
+              "score": 0.5689721703529358,
+              "metadata": {
+                "rbac_tags": "rbac:1:2",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "chunk_index": 0,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "doc_id": "c1d2_strategy_2026",
+                "dept_id": 2
+              }
+            },
+            {
+              "text": "1. Market Expansion\n           - Enter 3 new geographic markets\n           - Establish partnerships with 5 regional distributors\n           - Launch product line in emerging markets\n        \n        2. Product Development\n           - Release 2 major product updates\n           - Develop 4 new features based on customer feedback\n           - Achieve 95% customer adoption rate\n        \n        3. Team Development\n           - Hire 20 specialized engineers",
+              "score": 0.5746262669563293,
+              "metadata": {
+                "chunk_index": 2,
+                "rbac_tags": "rbac:1:2",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "rbac_namespace": "root",
+                "dept_id": 2,
+                "doc_id": "c1d2_strategy_2026",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market"
+              }
+            },
+            {
+              "text": "Q3 2026: Product development sprint\n        Q4 2026: Market launch and expansion\n        \n        Budget Allocation:\n        - Product Development: 40%\n        - Marketing & Sales: 35%\n        - Infrastructure: 15%\n        - Training & Development: 10%",
+              "score": 0.5828210711479187,
+              "metadata": {
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:1:2",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "chunk_index": 4,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "doc_id": "c1d2_strategy_2026",
+                "dept_id": 2
+              }
+            },
+            {
+              "text": "FINANCIAL ANALYSIS - COMPANY 2 DEPARTMENT 1\n        \n        Date: Q4 2025\n        Report Type: Quarterly Financial Review\n        \n        Executive Financial Summary:\n        Company 2 Department 1 demonstrated strong financial performance in Q4 2025 with\n        consolidated revenue of $45.2M, representing 8% quarter-over-quarter growth.\n        \n        Revenue Analysis:\n        - Product Sales: $28.5M (63% of total revenue)\n        - Service Revenue: $12.3M (27% of total revenue)",
+              "score": 0.5560003519058228,
+              "metadata": {
+                "ingestion_date": "2025-11-30T13:51:57.507962",
+                "company_id": 2,
+                "meta_tags": "meta:keyword:financial;meta:keyword:analysis;meta:keyword:company;meta:keyword:department;meta:keyword:report",
+                "rbac_tags": "rbac:2:1",
+                "dept_id": 1,
+                "doc_id": "c2d1_financial_q4_2025",
+                "rbac_namespace": "root",
+                "chunk_index": 1
+              }
+            },
+            {
+              "text": "# c2d1_financial_q4_2025\n\n_Document converted to markdown on 2025-11-30T13:51:44.045701_",
+              "score": 0.5574541091918945,
+              "metadata": {
+                "rbac_namespace": "root",
+                "dept_id": 1,
+                "doc_id": "c2d1_financial_q4_2025",
+                "rbac_tags": "rbac:2:1",
+                "company_id": 2,
+                "ingestion_date": "2025-11-30T13:51:57.507962",
+                "chunk_index": 0,
+                "meta_tags": "meta:keyword:financial;meta:keyword:analysis;meta:keyword:company;meta:keyword:department;meta:keyword:report"
+              }
+            },
+            {
+              "text": "- Licensing: $4.4M (10% of total revenue)\n        \n        Expense Breakdown:\n        - Personnel Costs: $15.8M\n        - Operations: $8.2M\n        - Marketing: $6.5M\n        - R&D: $5.9M\n        - Administrative: $3.2M\n        - Other: $2.1M\n        \n        Profitability Metrics:\n        - Gross Margin: 68%\n        - Operating Margin: 18%\n        - Net Profit: $6.8M\n        - EBITDA: $9.2M\n        \n        Cash Flow Analysis:\n        - Operating Cash Flow: $8.1M",
+              "score": 0.5767531991004944,
+              "metadata": {
+                "meta_tags": "meta:keyword:financial;meta:keyword:analysis;meta:keyword:company;meta:keyword:department;meta:keyword:report",
+                "ingestion_date": "2025-11-30T13:51:57.507962",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:2:1",
+                "company_id": 2,
+                "dept_id": 1,
+                "doc_id": "c2d1_financial_q4_2025",
+                "chunk_index": 2
+              }
+            },
+            {
+              "text": "Customer Satisfaction Metrics:\n        - NPS Score: 68 (Industry Average: 55)\n        - Customer Satisfaction: 4.6/5.0\n        - Retention Rate: 94%\n        - Churn Rate: 6% (Below industry average of 12%)\n        \n        Key Market Insights:\n        1. 78% of customers prioritize product reliability\n        2. 65% value customer support quality\n        3. 52% would pay premium for enhanced features\n        4. 41% seek integration with existing systems",
+              "score": 0.5862826108932495,
+              "metadata": {
+                "chunk_index": 3,
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "company_id": 2,
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "doc_id": "c2d2_market_research",
+                "rbac_tags": "rbac:2:2",
+                "ingestion_date": "2025-11-30T13:52:14.052033"
+              }
+            },
+            {
+              "text": "# c2d2_market_research\n\n_Document converted to markdown on 2025-11-30T13:52:00.560850_",
+              "score": 0.5929540991783142,
+              "metadata": {
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "dept_id": 2,
+                "company_id": 2,
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:2:2",
+                "doc_id": "c2d2_market_research",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "chunk_index": 0
+              }
+            }
+          ]
+        },
+        "collection_name": "tenant_1, tenant_2",
+        "retrieval_quality": 1.0,
+        "rbac_filter_applied": {
+          "rbac_namespace": {
+            "$eq": "root"
+          }
+        },
+        "is_root_access": true,
+        "reranked_context": {
+          "success": true,
+          "reranked_context": [
+            {
+              "text": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classification: INTERNAL\n        \n        This document contains sensitive information about Company 1's Department 1 operations.\n        \n        Executive Summary:\n        Q4 performance metrics show 15% growth in core business metrics. Team productivity increased\n        by 20% following the new workflow implementation. Customer satisfaction scores improved to 4.8/5.",
+              "metadata": {
+                "chunk_index": 1,
+                "doc_id": "c1d1_report_2025",
+                "dept_id": 1,
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:1:1",
+                "company_id": 1,
+                "relevance_score": 0.627,
+                "similarity_score": 0.5,
+                "original_distance": 0.5,
+                "text_length": 462
+              }
+            },
+            {
+              "text": "FINANCIAL ANALYSIS - COMPANY 2 DEPARTMENT 1\n        \n        Date: Q4 2025\n        Report Type: Quarterly Financial Review\n        \n        Executive Financial Summary:\n        Company 2 Department 1 demonstrated strong financial performance in Q4 2025 with\n        consolidated revenue of $45.2M, representing 8% quarter-over-quarter growth.\n        \n        Revenue Analysis:\n        - Product Sales: $28.5M (63% of total revenue)\n        - Service Revenue: $12.3M (27% of total revenue)",
+              "metadata": {
+                "ingestion_date": "2025-11-30T13:51:57.507962",
+                "company_id": 2,
+                "meta_tags": "meta:keyword:financial;meta:keyword:analysis;meta:keyword:company;meta:keyword:department;meta:keyword:report",
+                "rbac_tags": "rbac:2:1",
+                "dept_id": 1,
+                "doc_id": "c2d1_financial_q4_2025",
+                "rbac_namespace": "root",
+                "chunk_index": 1,
+                "relevance_score": 0.604,
+                "similarity_score": 0.444,
+                "original_distance": 0.556,
+                "text_length": 489
+              }
+            },
+            {
+              "text": "- Licensing: $4.4M (10% of total revenue)\n        \n        Expense Breakdown:\n        - Personnel Costs: $15.8M\n        - Operations: $8.2M\n        - Marketing: $6.5M\n        - R&D: $5.9M\n        - Administrative: $3.2M\n        - Other: $2.1M\n        \n        Profitability Metrics:\n        - Gross Margin: 68%\n        - Operating Margin: 18%\n        - Net Profit: $6.8M\n        - EBITDA: $9.2M\n        \n        Cash Flow Analysis:\n        - Operating Cash Flow: $8.1M",
+              "metadata": {
+                "meta_tags": "meta:keyword:financial;meta:keyword:analysis;meta:keyword:company;meta:keyword:department;meta:keyword:report",
+                "ingestion_date": "2025-11-30T13:51:57.507962",
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:2:1",
+                "company_id": 2,
+                "dept_id": 1,
+                "doc_id": "c2d1_financial_q4_2025",
+                "chunk_index": 2,
+                "relevance_score": 0.577,
+                "similarity_score": 0.423,
+                "original_distance": 0.577,
+                "text_length": 468
+              }
+            },
+            {
+              "text": "1. Market Expansion\n           - Enter 3 new geographic markets\n           - Establish partnerships with 5 regional distributors\n           - Launch product line in emerging markets\n        \n        2. Product Development\n           - Release 2 major product updates\n           - Develop 4 new features based on customer feedback\n           - Achieve 95% customer adoption rate\n        \n        3. Team Development\n           - Hire 20 specialized engineers",
+              "metadata": {
+                "chunk_index": 2,
+                "rbac_tags": "rbac:1:2",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "rbac_namespace": "root",
+                "dept_id": 2,
+                "doc_id": "c1d2_strategy_2026",
+                "company_id": 1,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "relevance_score": 0.572,
+                "similarity_score": 0.425,
+                "original_distance": 0.575,
+                "text_length": 457
+              }
+            },
+            {
+              "text": "Customer Satisfaction Metrics:\n        - NPS Score: 68 (Industry Average: 55)\n        - Customer Satisfaction: 4.6/5.0\n        - Retention Rate: 94%\n        - Churn Rate: 6% (Below industry average of 12%)\n        \n        Key Market Insights:\n        1. 78% of customers prioritize product reliability\n        2. 65% value customer support quality\n        3. 52% would pay premium for enhanced features\n        4. 41% seek integration with existing systems",
+              "metadata": {
+                "chunk_index": 3,
+                "dept_id": 2,
+                "rbac_namespace": "root",
+                "company_id": 2,
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "doc_id": "c2d2_market_research",
+                "rbac_tags": "rbac:2:2",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "relevance_score": 0.564,
+                "similarity_score": 0.414,
+                "original_distance": 0.586,
+                "text_length": 457
+              }
+            },
+            {
+              "text": "Q3 2026: Product development sprint\n        Q4 2026: Market launch and expansion\n        \n        Budget Allocation:\n        - Product Development: 40%\n        - Marketing & Sales: 35%\n        - Infrastructure: 15%\n        - Training & Development: 10%",
+              "metadata": {
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:1:2",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "chunk_index": 4,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "doc_id": "c1d2_strategy_2026",
+                "dept_id": 2,
+                "relevance_score": 0.443,
+                "similarity_score": 0.417,
+                "original_distance": 0.583,
+                "text_length": 252
+              }
+            },
+            {
+              "text": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_",
+              "metadata": {
+                "chunk_index": 0,
+                "meta_tags": "meta:keyword:performance_metrics;meta:keyword:core_business_metrics;meta:keyword:new_workflow_implementation;meta:keyword:system_uptime;meta:keyword:customer_satisfaction",
+                "company_id": 1,
+                "doc_id": "c1d1_report_2025",
+                "rbac_tags": "rbac:1:1",
+                "rbac_namespace": "root",
+                "ingestion_date": "2025-11-30T13:51:24.556960",
+                "dept_id": 1,
+                "relevance_score": 0.377,
+                "similarity_score": 0.468,
+                "original_distance": 0.532,
+                "text_length": 82
+              }
+            },
+            {
+              "text": "# c2d1_financial_q4_2025\n\n_Document converted to markdown on 2025-11-30T13:51:44.045701_",
+              "metadata": {
+                "rbac_namespace": "root",
+                "dept_id": 1,
+                "doc_id": "c2d1_financial_q4_2025",
+                "rbac_tags": "rbac:2:1",
+                "company_id": 2,
+                "ingestion_date": "2025-11-30T13:51:57.507962",
+                "chunk_index": 0,
+                "meta_tags": "meta:keyword:financial;meta:keyword:analysis;meta:keyword:company;meta:keyword:department;meta:keyword:report",
+                "relevance_score": 0.363,
+                "similarity_score": 0.443,
+                "original_distance": 0.557,
+                "text_length": 88
+              }
+            },
+            {
+              "text": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_",
+              "metadata": {
+                "rbac_tags": "rbac:1:2",
+                "ingestion_date": "2025-11-30T13:51:40.834234",
+                "chunk_index": 0,
+                "meta_tags": "meta:keyword:strategy;meta:keyword:initiative;meta:keyword:department;meta:keyword:vision;meta:keyword:market",
+                "company_id": 1,
+                "rbac_namespace": "root",
+                "doc_id": "c1d2_strategy_2026",
+                "dept_id": 2,
+                "relevance_score": 0.352,
+                "similarity_score": 0.431,
+                "original_distance": 0.569,
+                "text_length": 84
+              }
+            },
+            {
+              "text": "# c2d2_market_research\n\n_Document converted to markdown on 2025-11-30T13:52:00.560850_",
+              "metadata": {
+                "meta_tags": "meta:keyword:market;meta:keyword:research;meta:keyword:company;meta:keyword:department;meta:keyword:2",
+                "dept_id": 2,
+                "company_id": 2,
+                "rbac_namespace": "root",
+                "rbac_tags": "rbac:2:2",
+                "doc_id": "c2d2_market_research",
+                "ingestion_date": "2025-11-30T13:52:14.052033",
+                "chunk_index": 0,
+                "relevance_score": 0.337,
+                "similarity_score": 0.407,
+                "original_distance": 0.593,
+                "text_length": 86
+              }
+            }
+          ]
+        },
+        "should_optimize": false,
+        "optimization_reason": "Quality=1.00, Results=10",
+        "answer": "The provided text contains several documents related to Company 1, and each document has its own specific information:\n\n1. **Company 1 Department 1 Performance Report** - This report provides detailed financial performance metrics for Company 1's Department 1 in Q4 2025.\n\n2. **Company 2 Department 1 Financial Analysis** - This analysis focuses on the financial performance of Company 2's Department 1, including revenue and expenses breakdowns, profitability metrics, cash flow analysis, and customer satisfaction scores.\n\n3. **Customer Satisfaction Metrics for Customer A (NPS Score)** - This metric indicates how satisfied customers are with a particular product or service, which is provided by Company 1 in Q4 2025.\n\n4. **Q3 2026: Product Development Sprint** - This document outlines the progress of the company's product development efforts for the upcoming quarter (Q3 2026), including budget allocation and key market insights.\n\n5. **Q4 2026: Market Launch and Expansion** - This section describes the activities related to the launch of new products in Q4 2026, focusing on marketing and sales strategies.\n\nEach document provides specific financial performance metrics for Company 1's Department 1, while the other documents focus on different aspects such as customer satisfaction, product development, market research, and budget allocation.",
+        "query_logged_id": 212,
+        "guardrail_checks": {
+          "skipped": true,
+          "reason": "verbose mode"
+        },
+        "is_response_safe": true,
+        "traceability": {
+          "success": true,
+          "traceability": {
+            "question": "Provide a summary of the content",
+            "sources_used": 10,
+            "documents": [
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "CONFIDENTIAL REPORT - COMPANY 1 DEPARTMENT 1\n        \n        Date: November 2025\n        Classifica..."
+              },
+              {
+                "doc_id": "c2d1_financial_q4_2025",
+                "chunk_index": 1,
+                "similarity_score": 0.0,
+                "text_preview": "FINANCIAL ANALYSIS - COMPANY 2 DEPARTMENT 1\n        \n        Date: Q4 2025\n        Report Type: Quar..."
+              },
+              {
+                "doc_id": "c2d1_financial_q4_2025",
+                "chunk_index": 2,
+                "similarity_score": 0.0,
+                "text_preview": "- Licensing: $4.4M (10% of total revenue)\n        \n        Expense Breakdown:\n        - Personnel Co..."
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 2,
+                "similarity_score": 0.0,
+                "text_preview": "1. Market Expansion\n           - Enter 3 new geographic markets\n           - Establish partnerships ..."
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 3,
+                "similarity_score": 0.0,
+                "text_preview": "Customer Satisfaction Metrics:\n        - NPS Score: 68 (Industry Average: 55)\n        - Customer Sat..."
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 4,
+                "similarity_score": 0.0,
+                "text_preview": "Q3 2026: Product development sprint\n        Q4 2026: Market launch and expansion\n        \n        Bu..."
+              },
+              {
+                "doc_id": "c1d1_report_2025",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c1d1_report_2025\n\n_Document converted to markdown on 2025-11-30T13:51:02.786561_"
+              },
+              {
+                "doc_id": "c2d1_financial_q4_2025",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c2d1_financial_q4_2025\n\n_Document converted to markdown on 2025-11-30T13:51:44.045701_"
+              },
+              {
+                "doc_id": "c1d2_strategy_2026",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c1d2_strategy_2026\n\n_Document converted to markdown on 2025-11-30T13:51:28.673328_"
+              },
+              {
+                "doc_id": "c2d2_market_research",
+                "chunk_index": 0,
+                "similarity_score": 0.0,
+                "text_preview": "# c2d2_market_research\n\n_Document converted to markdown on 2025-11-30T13:52:00.560850_"
+              }
+            ]
+          }
+        },
+        "execution_time_ms": 15878.677368164062
+      }
+    }
+  ],
+  "node_count": 1,
+  "successful_nodes": 1,
+  "failed_nodes": 0,
+  "errors": [],
+  "error_count": 0
+}
