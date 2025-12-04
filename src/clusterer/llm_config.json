@@ -18,20 +18,20 @@
     },
     "azure": {
       "type": "azure",
-      "api_key": "sk-",
+      "api_key": "sk-1CnXK6zXh82xanez4B1TCA",
       "api_key_env": "AZURE_API_KEY",
       "api_endpoint": "https://genailab.tcs.in/v1",
       "model": "azure/genailab-maas-gpt-35-turbo",
       "temperature": 0.3,
       "max_tokens": 2000,
-      "enabled": false
+      "enabled": true
     },
     "ollama": {
       "type": "ollama",
       "base_url": "http://localhost:11434",
       "model": "qwen2.5:0.5b",
       "temperature": 0.3,
-      "enabled": true
+      "enabled": false
     },
     "huggingface": {
       "type": "huggingface",
@@ -42,7 +42,7 @@
       "enabled": false
     }
   },
-  "default_provider": "ollama",
+  "default_provider": "azure",
   "embedding_providers": {
     "sentence_transformers": {
       "type": "sentence_transformers",
@@ -58,11 +58,11 @@
     },
     "azure_embedding": {
       "type": "azure",
-      "api_key": "sk-",
+      "api_key": "skp-1CnXK6zXh82xanez4B1TCA",
       "api_key_env": "AZURE_API_KEY",
-      "api_endpoint": "https://genailab.tcs.in/v1",
+      "api_endpoint": "https://genailab.acme.in/v1",
       "model": "azure/genailab-maas-text-embedding-3-large",
-      "enabled": false
+      "enabled": true
     },
     "openai": {
       "type": "openai",
@@ -71,7 +71,7 @@
       "enabled": false
     }
   },
-  "default_embedding_provider": "ollama",
+  "default_embedding_provider": "azure_embedding",
   "database": {
     "db_path": "src/clusterer/cluster_data.db",
     "chroma_persist_dir": "./data/chroma_index"
