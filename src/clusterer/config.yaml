@@ -1,0 +1,5 @@
+data_sources:
+  - path: "E:/epoch_explorers/src/clusterer/data/transactions"
+    file_name: "*.csv"
+  - path: "E:/epoch_explorers/src/clusterer/data/transactions"
+    file_name: "*.json"

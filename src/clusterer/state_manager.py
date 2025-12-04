@@ -8,6 +8,15 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 from datetime import datetime
 import json
+import sqlite3
+import pandas as pd
+
+
+@dataclass
+class HumanApproval:
+    """Track human approval status for clusters"""
+    approved: bool = False
+    approved_table: Optional[str] = None
 
 
 @dataclass
@@ -19,6 +28,8 @@ class PipelineMetrics:
     execution_time_ms: float = 0.0
     tokens_used: int = 0
     error_count: int = 0
+    clusters_generated: int = 0
+    human_approval: HumanApproval = field(default_factory=HumanApproval)
     
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary"""
@@ -225,3 +236,18 @@ class StateManager:
         if state:
             state.current_stage = data.get("current_stage", state.current_stage)
             state.completion_percentage = data.get("completion_percentage", 0.0)
+    
+    def save_cluster_results(self, db_path, table_name, cluster_table_name):
+        """Save clustering results to SQLite"""
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+        cursor.execute(f"INSERT INTO {cluster_table_name} SELECT * FROM {table_name}")
+        conn.commit()
+        conn.close()
+
+    def load_cluster_results(self, db_path, cluster_table_name):
+        """Load clustering results from SQLite"""
+        conn = sqlite3.connect(db_path)
+        df = pd.read_sql_query(f"SELECT * FROM {cluster_table_name}", conn)
+        conn.close()
+        return df

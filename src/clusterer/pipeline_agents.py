@@ -254,48 +254,35 @@ class CleaningAgent(PipelineAgent):
         return state
 
 
-class ClusteringAgent(PipelineAgent):
-    """Stage 4: Unsupervised learning"""
-    
-    def __init__(self):
-        super().__init__("Clustering")
-    
+class DataAllocatorAgent(PipelineAgent):
+    """Agent for data allocation and saving"""
     async def execute(self, state: PipelineState) -> PipelineState:
-        """
-        Execute K-Means and DBSCAN clustering.
-        MVP: K-Means only with fixed hyperparameters.
-        Future: Full hyperparameter search + DBSCAN.
-        """
         self._log_stage_start(state)
-        
-        try:
-            if not state.cleaned_data:
-                raise ValueError("No cleaned data for clustering")
-            
-            # MVP: placeholder clustering result
-            from .state_manager import ClusteringResult
-            
-            result = ClusteringResult(
-                algorithm="kmeans",
-                num_clusters=3,
-                silhouette_score=0.65,
-                hyperparameters={"k": 3, "max_iter": 300}
-            )
-            
-            state.clustering_results.append(result)
-            state.best_clustering = result
-            state.update_stage(self.name, 75.0)
-            
-            # Mark for HITL approval if enabled
-            if state.hitl_enabled:
-                state.awaiting_model_approval = True
-            
-            self._log_stage_end(state, True)
-            
-        except Exception as e:
-            state.log_error(self.name, str(e))
-            self._log_stage_end(state, False)
-        
+        data_dir = "src/clusterer/data"
+        db_path = "src/clusterer/cluster_data.db"
+
+        # Identify and parse data
+        parsed_data = identify_and_parse_data(data_dir)
+        save_to_sqlite(parsed_data, db_path)
+
+        self._log_stage_end(state)
+        return state
+
+
+class ClusteringAgent(PipelineAgent):
+    """Agent for clustering and saving results"""
+    async def execute(self, state: PipelineState) -> PipelineState:
+        self._log_stage_start(state)
+        db_path = "src/clusterer/cluster_data.db"
+
+        # Perform clustering
+        for table_name in state.tables:
+            cluster_table_name = f"{table_name}_clusters"
+            perform_clustering(db_path, table_name, cluster_table_name)
+
+        # Notify dashboard
+        print("Clustering complete. Awaiting human approval...")
+        self._log_stage_end(state)
         return state
 
 

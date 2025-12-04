@@ -1,0 +1,12 @@
+[
+  {"transaction_id": "T031", "timestamp": "2024-01-15T16:00:00", "user_id": "U027", "amount": 145.99, "merchant_id": "M018", "country": "US", "transaction_type": "purchase", "device_type": "mobile", "previous_transactions": 14, "days_since_signup": 150},
+  {"transaction_id": "T032", "timestamp": "2024-01-15T16:15:00", "user_id": "U028", "amount": 7000.00, "merchant_id": "M019", "country": "EG", "transaction_type": "transfer", "device_type": "desktop", "previous_transactions": 2, "days_since_signup": 10},
+  {"transaction_id": "T033", "timestamp": "2024-01-15T16:30:00", "user_id": "U029", "amount": 99.99, "merchant_id": "M020", "country": "US", "transaction_type": "purchase", "device_type": "tablet", "previous_transactions": 11, "days_since_signup": 110},
+  {"transaction_id": "T034", "timestamp": "2024-01-15T16:45:00", "user_id": "U030", "amount": 500.00, "merchant_id": "M021", "country": "US", "transaction_type": "purchase", "device_type": "mobile", "previous_transactions": 25, "days_since_signup": 400},
+  {"transaction_id": "T035", "timestamp": "2024-01-15T17:00:00", "user_id": "U031", "amount": 3500.00, "merchant_id": "M022", "country": "ID", "transaction_type": "transfer", "device_type": "mobile", "previous_transactions": 1, "days_since_signup": 4},
+  {"transaction_id": "T036", "timestamp": "2024-01-15T17:15:00", "user_id": "U032", "amount": 75.50, "merchant_id": "M023", "country": "US", "transaction_type": "purchase", "device_type": "desktop", "previous_transactions": 19, "days_since_signup": 200},
+  {"transaction_id": "T037", "timestamp": "2024-01-15T17:30:00", "user_id": "U033", "amount": 11000.00, "merchant_id": "M024", "country": "KE", "transaction_type": "transfer", "device_type": "tablet", "previous_transactions": 0, "days_since_signup": 2},
+  {"transaction_id": "T038", "timestamp": "2024-01-15T17:45:00", "user_id": "U034", "amount": 125.00, "merchant_id": "M025", "country": "US", "transaction_type": "purchase", "device_type": "mobile", "previous_transactions": 16, "days_since_signup": 160},
+  {"transaction_id": "T039", "timestamp": "2024-01-15T18:00:00", "user_id": "U035", "amount": 6000.00, "merchant_id": "M026", "country": "UG", "transaction_type": "transfer", "device_type": "desktop", "previous_transactions": 1, "days_since_signup": 5},
+  {"transaction_id": "T040", "timestamp": "2024-01-15T18:15:00", "user_id": "U036", "amount": 189.99, "merchant_id": "M027", "country": "US", "transaction_type": "purchase", "device_type": "tablet", "previous_transactions": 9, "days_since_signup": 95}
+]
