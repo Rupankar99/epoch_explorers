@@ -45,9 +45,14 @@ class EnvConfig:
     @staticmethod
     def get_chroma_db_path() -> str:
         """Get ChromaDB vector store path"""
-        # Fetch path directly from EnvConfig
-        path = EnvConfig.get_chroma_db_path()
-        return path
+        # ChromaDB Rust SQLite has issues with deep Windows paths
+        # Use short path: project_root/chroma_db
+        project_root = EnvConfig._get_project_root()
+        path = project_root / "chroma_db"
+        
+        # Ensure directory exists
+        os.makedirs(path, exist_ok=True)
+        return str(path)
     
     @staticmethod
     def get_rag_config_path() -> str:
