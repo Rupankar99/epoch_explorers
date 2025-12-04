@@ -1621,12 +1621,13 @@ class LangGraphRAGAgent:
         import uuid
         session_id = str(uuid.uuid4())  # Generate session ID for tracking
         
-        # Create visualization tracker
-        viz = create_visualization(session_id)
+        # Create visualization tracker - properly as AnimatedGraphTracker object
+        from src.rag.visualization.animated_graph_visualizer import create_retrieval_tracker
+        viz = create_retrieval_tracker("RAG Retrieval Workflow")
         start_time = time.time()
         
         # Create animated tracker for retrieval workflow
-        retrieval_tracker = AnimatedGraphTracker(workflow_type="retrieval", workflow_id=f"retrieve_{session_id}")
+        retrieval_tracker = create_retrieval_tracker(f"Retrieval_{session_id}")
         
         # Determine if user is root (root user has user_id=99)
         is_root_user = user_id == 99
