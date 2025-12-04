@@ -23,7 +23,7 @@ from agentic_orchestrator import AgenticClusteringOrchestrator
 # ========================
 
 st.set_page_config(
-    page_title="🤖 AI Clustering Dashboard",
+    page_title=" AI Clustering Dashboard",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -519,8 +519,11 @@ def main():
                     best_variant = workflow_state.get('best_variant', '')
                     best_quality = workflow_state.get('best_quality', 0)
                     quality_assessment = workflow_state.get('quality_assessment', {})
+                    approved_table_name = workflow_state.get('approved_table_name', f"{selected_table}_pca_approved")
                     
-                    if variants:
+                    if not variants:
+                        st.warning(f"⚠️ No clustering variants available. Status: {workflow_state.get('workflow_status')}. Error: {workflow_state.get('error_message', 'Unknown')}")
+                    else:
                         # Agent recommendations
                         st.subheader("🏆 Agent's Top Recommendation")
                         col1, col2, col3 = st.columns(3)
@@ -557,6 +560,10 @@ def main():
                             })
                         
                         st.dataframe(pd.DataFrame(ranking_data), width='stretch')
+                        
+                        # Show approved table name
+                        st.divider()
+                        st.info(f"📊 **Approved Results Table:** `{approved_table_name}`")
                         
                         # All variants display (horizontal grid)
                         st.subheader("🔍 All Clustering Variants")
@@ -627,11 +634,11 @@ def main():
                                         if 'labels' in variant_data:
                                             st.write("**3D Cluster Visualization:**")
                                             fig_3d = plot_3d_clustering(df, variant_data['labels'], f"{name}")
-                                            st.plotly_chart(fig_3d, config={'responsive': True})
+                                            st.plotly_chart(fig_3d, config={'responsive': True}, key=f"3d_chart_{name}")
                                             
                                             st.write("**Distribution:**")
                                             dist = plot_cluster_distribution(variant_data['labels'], "Count")
-                                            st.plotly_chart(dist, config={'responsive': True})
+                                            st.plotly_chart(dist, config={'responsive': True}, key=f"dist_chart_{name}")
                         
                         # AI Analysis section
                         st.divider()
