@@ -139,14 +139,20 @@ class ClusteringAgent:
                 state['clustering_variants'] = result['variants']
                 state['workflow_status'] = 'clustering_complete'
                 print(f"[Agent] 🔬 {n} variants")
+                if n == 0:
+                    print(f"[Agent] ⚠️ WARNING: No variants returned. Result: {result}")
             else:
                 state['workflow_status'] = 'error'
-                state['error_message'] = result.get('error', 'Unknown error')
+                state['error_message'] = f"Clustering failed: {result.get('error', 'Unknown error')}"
+                print(f"[Agent] ❌ Clustering Error: {state['error_message']}")
             
             return state
         except Exception as e:
             state['workflow_status'] = 'error'
-            state['error_message'] = str(e)
+            state['error_message'] = f"Exception during clustering: {str(e)}"
+            print(f"[Agent] ❌ Exception: {state['error_message']}")
+            import traceback
+            traceback.print_exc()
             return state
     
     # ====== NODE: Quality Assessment & Ranking ======
@@ -156,6 +162,14 @@ class ClusteringAgent:
         
         try:
             variants = state['clustering_variants']
+            
+            # Guard: Check if we have any variants
+            if not variants:
+                print(f"[Agent] ❌ No variants to assess. Variants dict is empty.")
+                state['workflow_status'] = 'error'
+                state['error_message'] = 'No clustering variants available. Please check your data and parameters.'
+                return state
+            
             ranked_variants = []
             
             # Build TOON summary for LLM analysis (ultra-compact format)
@@ -229,6 +243,24 @@ Output ONLY variant assessments, no explanations."""
                     'llm_insights': llm_insights if llm_insights else 'Rule-based'
                 }
             
+            # Attach LLM analysis as 'explanation' to each variant for dashboard display
+            if llm_insights:
+                # Parse LLM output and assign to each variant if possible
+                for name, data in variants.items():
+                    # Try to find a line for this variant
+                    explanation = None
+                    for line in llm_insights.splitlines():
+                        if line.strip().startswith(name):
+                            explanation = line.strip()
+                            break
+                    if explanation:
+                        data['explanation'] = explanation
+                    else:
+                        data['explanation'] = f"No LLM analysis for {name}."
+            else:
+                for name, data in variants.items():
+                    data['explanation'] = f"Rule-based: {data.get('quality_level', 'No quality level')} (S={data.get('silhouette', 0):.3f})"
+
             # Sort by quality score
             ranked_variants.sort(key=lambda x: x['score'], reverse=True)
             
@@ -250,6 +282,11 @@ Output ONLY variant assessments, no explanations."""
     # ====== NODE: Recommendation & Decision ======
     def make_decision(self, state: ClusteringAgentState) -> ClusteringAgentState:
         """Agent makes recommendation on best clustering to use (TOON format)"""
+        # Guard: If best_variant is missing, fail gracefully with a clear error
+        if 'best_variant' not in state or 'best_quality' not in state:
+            state['workflow_status'] = 'error'
+            state['error_message'] = 'No valid clustering variants available for decision. Please check your data and clustering parameters.'
+            return state
         best_variant = state['best_variant']
         best_quality = state['best_quality']
         threshold = state['quality_threshold']
@@ -273,11 +310,16 @@ Output ONLY variant assessments, no explanations."""
     # ====== NODE: Approval & Labeling (Human-in-the-Loop) ======
     def prepare_for_approval(self, state: ClusteringAgentState) -> ClusteringAgentState:
         """Prepare clustering variants for human approval"""
-        best = state.get('selected_variant', '?')
+        best = state.get('best_variant', state.get('selected_variant', '?'))
+        table_name = state.get('table_name', 'unknown')
+        approved_table = f"{table_name}_pca_approved"
+        
         print(f"[Agent] 📋 Variants ready | Recommended: {best} | ⏳ Awaiting approval...")
+        print(f"[Agent] 📋 Approved table will be: {approved_table}")
         
         state['workflow_status'] = 'ready_for_approval'
         state['approval_status'] = 'pending'
+        state['approved_table_name'] = approved_table
         
         return state
     
