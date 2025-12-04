@@ -32,10 +32,60 @@ class VectorDBService:
         print(f"[VectorDBService] Collection '{collection_name}' ready")
         print(f"[VectorDBService] Current document count: {self.collection.count()}")
     
+    def save_embeddings(self, collection_name: str, embeddings: List[Dict], metadata: Dict = None) -> Dict:
+        """Save embeddings to collection with automatic batch processing"""
+        try:
+            collection = self.get_or_create_collection(collection_name)
+            
+            MAX_BATCH_SIZE = 5000
+            total_saved = 0
+            errors = []
+            
+            print(f"[DEBUG SAVE] Total embeddings to save: {len(embeddings)}")
+            
+            # Process in batches to handle ChromaDB batch size limits
+            for batch_start in range(0, len(embeddings), MAX_BATCH_SIZE):
+                batch_end = min(batch_start + MAX_BATCH_SIZE, len(embeddings))
+                batch = embeddings[batch_start:batch_end]
+                
+                try:
+                    ids = [str(e.get('id', batch_start + i)) for i, e in enumerate(batch)]
+                    documents = [e.get('text', '') for e in batch]
+                    embedding_vectors = [e.get('embedding', []) for e in batch]
+                    metadatas = [e.get('metadata', {}) for e in batch]
+                    
+                    collection.add(
+                        ids=ids,
+                        embeddings=embedding_vectors,
+                        documents=documents,
+                        metadatas=metadatas
+                    )
+                    
+                    total_saved += len(batch)
+                    print(f"[DEBUG SAVE] Batch {batch_start//MAX_BATCH_SIZE + 1}: Saved {len(batch)} embeddings")
+                    
+                except Exception as e:
+                    error_msg = f"Batch failed: {str(e)}"
+                    errors.append(error_msg)
+                    print(f"[ERROR SAVE] {error_msg}")
+            
+            result = {
+                'success': len(errors) == 0,
+                'chunks_saved': total_saved,
+                'total_chunks': len(embeddings),
+                'errors': errors if errors else None
+            }
+            print(f"[DEBUG SAVE] Final result: {result}")
+            return result
+            
+        except Exception as e:
+            print(f"[ERROR SAVE] Save failed: {str(e)}")
+            return {'success': False, 'error': str(e), 'chunks_saved': 0}
+    
     def add_documents(self, ids: List[str], metadatas: List[Dict], documents: List[str],
                      embeddings: Optional[List[List[float]]] = None):
         """
-        Add documents to vector database (with or without embeddings)
+        Add documents to vector database with automatic batch processing
         
         Args:
             ids: List of unique IDs for chunks
@@ -44,26 +94,51 @@ class VectorDBService:
             embeddings: Optional list of embedding vectors (if None, ChromaDB auto-embeds)
         """
         try:
-            if embeddings is not None:
-                self.collection.add(
-                    ids=ids,
-                    embeddings=embeddings,
-                    metadatas=metadatas,
-                    documents=documents
-                )
+            MAX_BATCH_SIZE = 5000
+            
+            # Process in batches if more than MAX_BATCH_SIZE
+            if len(ids) > MAX_BATCH_SIZE:
+                print(f"[VectorDB] Processing {len(ids)} documents in batches of {MAX_BATCH_SIZE}")
+                for batch_start in range(0, len(ids), MAX_BATCH_SIZE):
+                    batch_end = min(batch_start + MAX_BATCH_SIZE, len(ids))
+                    batch_ids = ids[batch_start:batch_end]
+                    batch_metadatas = metadatas[batch_start:batch_end]
+                    batch_documents = documents[batch_start:batch_end]
+                    batch_embeddings = embeddings[batch_start:batch_end] if embeddings else None
+                    
+                    if batch_embeddings is not None:
+                        self.collection.add(
+                            ids=batch_ids,
+                            embeddings=batch_embeddings,
+                            metadatas=batch_metadatas,
+                            documents=batch_documents
+                        )
+                    else:
+                        self.collection.add(
+                            ids=batch_ids,
+                            metadatas=batch_metadatas,
+                            documents=batch_documents
+                        )
+                    print(f"[VectorDB] Batch {batch_start//MAX_BATCH_SIZE + 1}: Added {len(batch_ids)} documents")
             else:
-                # Let ChromaDB auto-embed the documents
-                self.collection.add(
-                    ids=ids,
-                    metadatas=metadatas,
-                    documents=documents
-                )
-            print(f"[VectorDB] Added {len(ids)} documents {'with' if embeddings else 'without'} embeddings")
+                # Add all at once if under batch size limit
+                if embeddings is not None:
+                    self.collection.add(
+                        ids=ids,
+                        embeddings=embeddings,
+                        metadatas=metadatas,
+                        documents=documents
+                    )
+                else:
+                    self.collection.add(
+                        ids=ids,
+                        metadatas=metadatas,
+                        documents=documents
+                    )
+                print(f"[VectorDB] Added {len(ids)} documents")
         except Exception as e:
             print(f"[ERROR] Failed to add documents: {e}")
             raise
-    
-  
     
     def search(self, query_embedding: List[float], top_k: int = 10,
               where_filter: Optional[Dict] = None,
@@ -306,3 +381,48 @@ class VectorDBService:
         except Exception as e:
             print(f"[ERROR] Failed to get metadata summary: {e}")
             return {"error": str(e)}
+    
+    def save_embeddings_batch(self, collection_name: str, embeddings: List[Dict], metadata: Dict = None, batch_size: int = 5000) -> Dict:
+        """Save embeddings to collection with batch processing for large datasets"""
+        try:
+            collection = self.get_or_create_collection(collection_name)
+            
+            total_saved = 0
+            errors = []
+            
+            # Process in batches to handle ChromaDB batch size limits
+            for batch_start in range(0, len(embeddings), batch_size):
+                batch_end = min(batch_start + batch_size, len(embeddings))
+                batch = embeddings[batch_start:batch_end]
+                
+                try:
+                    # Prepare batch data
+                    ids = [str(e.get('id', batch_start + i)) for i, e in enumerate(batch)]
+                    documents = [e.get('text', '') for e in batch]
+                    embedding_vectors = [e.get('embedding', []) for e in batch]
+                    metadatas = [e.get('metadata', {}) for e in batch]
+                    
+                    # Add batch to collection
+                    collection.add(
+                        ids=ids,
+                        embeddings=embedding_vectors,
+                        documents=documents,
+                        metadatas=metadatas
+                    )
+                    
+                    total_saved += len(batch)
+                    print(f"[VectorDB] Batch {batch_start//batch_size + 1}: Saved {len(batch)} embeddings")
+                    
+                except Exception as e:
+                    error_msg = f"Batch {batch_start//batch_size + 1} failed: {str(e)}"
+                    errors.append(error_msg)
+                    print(f"[ERROR] {error_msg}")
+            
+            return {
+                'success': len(errors) == 0,
+                'chunks_saved': total_saved,
+                'total_chunks': len(embeddings),
+                'errors': errors if errors else None
+            }
+        except Exception as e:
+            return {'success': False, 'error': str(e), 'chunks_saved': 0}
